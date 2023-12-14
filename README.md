@@ -6,11 +6,11 @@ Para esta carrera, opto por empezar creando una máquina virtual Windows 10 en V
 ### COOKIES
 
 Las cookies son ficheros de texto que almacenan información. Suelen utilizarse normalmente para recordar accesos a páginas web(la web identifica tu ordenador,por lo tanto, si vuelves a entrar en ellas sabrán quien eres y que has echo anteriormente) y conocer hábitos de navegación.En el caso de un forense de Windows, lo que interesa es encontrar esos archivos en el sistema (mas adelante veremos algunos comandos para encontearlos en el sistema) y dentro de ellos, analizar y comprobar si se ha filtrado información o documentación.
-++
+
 Para todo ellos, con la máquina virtual corriendo, lanzamos una consola **con permisos de administrador**.Nos colocamos en la raiz de C: y escribimos el siguiente comando:
 <picture>
  <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
- <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
+ <img alt="YOUR-ALT-TEXT" src="https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/cookies1.png">
 </picture>
 
 Este comando sirve para buscar en todo el sistema, todos los archivos que empiecen por cookie,que tengan cualquier cosa a continuación, un punto y cualquier extensión de archivo. /s lo utilizaremos para que busque tambien en subdirectorios y la /p para que nos pagine la búsqueda. Si le damos a intro, nos resultados como este:
@@ -18,7 +18,7 @@ Este comando sirve para buscar en todo el sistema, todos los archivos que empiec
 
 <picture>
  <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
- <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
+ <img alt="YOUR-ALT-TEXT" src="https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/cookies2.png">
 </picture>
 
 Nos vamos a fijar, especialmente en las de mozilla firefox(sabemos que mozilla es un navegador, por lo tanto van a ser cookies de navegación), en donde podemos ver que hay un archivo con extensión sqlite:
@@ -26,7 +26,7 @@ Nos vamos a fijar, especialmente en las de mozilla firefox(sabemos que mozilla e
 
 <picture>
  <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
- <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
+ <img alt="YOUR-ALT-TEXT" src="https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/cookies3.png">
 </picture>
 
 
@@ -35,26 +35,26 @@ Lo primero que haremos será ir a la ubicación del archivo, que en este caso es
 
 <picture>
  <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
- <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
+ <img alt="YOUR-ALT-TEXT" src="https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/cookies4.png">
 </picture>
 
 Abrimos la extensión:
 
 <picture>
  <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
- <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
+ <img alt="YOUR-ALT-TEXT" src="https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/cookies5.png">
 </picture>
 
 Y arrastramos el archivo en cuestión:
 
 <picture>
  <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
- <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
+ <img alt="YOUR-ALT-TEXT" src="https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/cookies6.png">
 </picture>
 
 <picture>
  <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
- <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
+ <img alt="YOUR-ALT-TEXT" src="https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/cookies7.png">
 </picture>
 
 Vemos que arriba nos aparece una consulta sql, en donde podremos cambiar el 'limit' de 10 a 20 por ejemplo, para que nos aparezcan más resultados.Entre los datos más importantes aparecen: el host de origen(podemos ver en mi caso de Google y Marca), cuando expiran,el último acceso y cuando se crearon entre otros.Muchos de los lugares(hosts) que aparecen y sabemos que no hemos navegado en ellos, posiblemente sean cookies de terceros(en la mayoria de casos, estas cookies tienen finalidad publicitaria). Este archivo procederiamos a guardarlo para posibles incidencias futuras.
@@ -65,14 +65,14 @@ Para encontrar estos lugares, nos vamos a la consola **en modo administrador** y
 
 <picture>
  <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
- <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
+ <img alt="YOUR-ALT-TEXT" src="https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/cookies9.png">
 </picture>
 
 Algunos de los resultados de este comando son estos:
 
 <picture>
  <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
- <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
+ <img alt="YOUR-ALT-TEXT" src="https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/cookies8.png">
 </picture>
 
 En donde podemos ver que al igual que antes, aparecen muchos resultados, pero los que nos interesan son los archivos de los navegadores. En esta foto podemos ver que hay un archivo 'History' en la carpeta del navegador Chrome.Lo que tenemos que hacer es ir a esa ruta en nuestra máquina y abrir el archivo con la extensión de Mozilla, ya que es un archivo sql.
