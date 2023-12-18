@@ -3,7 +3,7 @@
 
 Para esta carrera, opto por empezar creando una máquina virtual Windows 10 en Virtual Box. Con la máquina ya creada y configurada con las Guest adittions, configuración de red y demás, empiezo por el primer punto del primer curso:
 
-### COOKIES
+## _COOKIES_
 
 Las cookies son ficheros de texto que almacenan información. Suelen utilizarse normalmente para recordar accesos a páginas web(la web identifica tu ordenador,por lo tanto, si vuelves a entrar en ellas sabrán quien eres y que has echo anteriormente) y conocer hábitos de navegación.En el caso de un forense de Windows, lo que interesa es encontrar esos archivos en el sistema (mas adelante veremos algunos comandos para encontearlos en el sistema) y dentro de ellos, analizar y comprobar si se ha filtrado información o documentación.
 
@@ -96,8 +96,49 @@ Lo que vamos a ver en este apartado, son básicamente, las miniaturas de imágen
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/cookies16.png)
 
-Este comando busca en todas las carpetas del sistema, incluidos los subdirecotrios, todos los archivos que empiecen por thumb y tengan la extensión ".db".Incluimos tambien la paginación, para que los resultados nos aparezcan por páginas y bien ordenados.Los resultados de este comando son los siguientes:
+Este comando busca en todas las carpetas del sistema, incluidos los subdirecotrios, todos los archivos que empiecen por thumb y tengan la extensión ".db".En versiones anteriores de Windows (de Windows 7,no ncluido, para atrás), los archivos se llamaban "Thumbs.db", sin embargo, ahora los archivos se llaman "thumbcache_xxx.db", en donde las x son un identificador único.Incluimos también la paginación, para que los resultados nos aparezcan por páginas y bien ordenados.Los resultados de este comando son los siguientes:
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/cookies17.png)
+
+Ahora nos iriamos a la carpeta en donde nos hemos encontrado estos archivos y los intentariamos abrir **con permisos de administrador** con un programa llamado "Windows File Analyzer" (WFA Thumbs).La interfaz del programa seria la siguiente:
+
+[](https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/cookies18.png)
+
+Con el siguiente menú:
+
+[](https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/cookies19.png)
+
+En donde en la primera opción abririamos los archivos antes mencionados. Sin embargo, al utilizar una máquina virtual y al no tener directorios borrados, los archivos .db salen como corruptos y no se pueden abrir.
+
+Por el resto del programa, vemos que las opciones son las siguientes:
+
+2. Ver los programas/aplicaciones que se han lanzado (archivos prefetch).
+3. Leer los shortcuts en la carpeta especificada y mostrar los datos almacenados en ellos.
+4. Abre los archivos Index.dat de internet explorer.
+5. Analizar la papelera de reciclaje.
+
+## _CAPTURA DE LA MEMORIA VOLATIL_
+
+En este apartado vamos a ver el guardado de la memoria Volatil. La memoria volatil de un sistema es la memoria de acceso aleatorio(RAM), que se utiliza para almacenar temporalmente datos y programas mientras el sistema está en funcionamiento.
+
+Para todo ello, utilizaremos una herramienta llamada "Dumpit", que hará un volcado de la memoria en formato .raw y del mismo tamaño que la memoria actual.La herramienta la lanzaremos **en modo administrador** y la apariencia es la siguiente:
+
+[](https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/volatil1.png)
+
+En donde escribiremos la "y" y se nos hará el volcado en la carpeta en donde pone Destination:
+
+[](https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/volatil2.png)
+
+[](https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/volatil3.png)
+
+Vemos que, efectivamente, el archivo .raw es del tamaño de la RAM de la máquina virtual (3GB):
+
+[](https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/volatil4.png)
+
+[](https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/volatil5.png)
+
+Con el archivo .raw creado, solo faltaria analizarlo con herramientas forenses como Volatility o WinDbg.
+
+## _CAPTURA DE LA MEMORIA DE PAGINACIÓN_
 
 
