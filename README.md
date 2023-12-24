@@ -1,6 +1,6 @@
 # CARRERA DE ESPECIALISTA EN HACKING ETICO
 
-# PRIMER CURSO : ANÁLISIS FORENSE BÁSICO EN SISTEMAS WINDOWS (Tiempo de realización: 5-6 dias aproximadamente)
+# PRIMER CURSO : ANÁLISIS FORENSE BÁSICO EN SISTEMAS WINDOWS (Tiempo de realización: 6-7 dias aproximadamente)
 
 ## Dia 14/12/2023
 
@@ -267,5 +267,24 @@ Entre todas las evidencias que estamos guardando, es importante recavar informac
 
    
 
-## _CAPTURA MBR_
+## _CAPTURA MBR (REGISTRO DE ARRANQUE PRINCIPAL)_
 
+Para esto, necesitamos saber un poco sobre un dsipositivo de almacenamiento de datos ([Más información aqui](https://www.ionos.es/digitalguide/servidores/herramientas/una-introduccion-a-netstat/)). Lo básico es saber que la parte mínima de un dispositivo de almacenamiento de datos es un sector (normalmente 512 bytes) y éstos se agrupan en clústers (grupo de sectores); pues bien, en el sector 0 se encuentra alojado el MBR. Contiene informacíon relativa a cómo iniciar el sistema, qué tipo de particiones hay en el dispositivo y el tamaño de las mismas, etc. En cierto tipo de incidentes, principalmente relacionados con malware, puede resultar de interés extraerlo para que en un posterior análisis se determine si está infectado.
+
+En este caso, vamos a analizar el análisis directamente y para ello, vamos a descargar una herramienta llamada **MBRCheck** ([Descarga MBRCheck](https://www.majorgeeks.com/files/details/mbrcheck.html)). Con ella ya descargada, vamos al directorio en donde tenemos el ejecutable, y lo ejecutamos. La apariencia es la siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/68a68ce6b9ec58c2ca46f407fc49ab95c0e41a35/Hacking_%C3%89tico/mbr1.png)
+
+Vemos que básicamente, el MBR no está infectado; pero si lo estuviera, seguiriamos los pasos que nos da el programa. A esto, se le añade que el programa crea un fichero de todo este análisis y lo guarda (en mi caso) en el escritorio. Veamoslo:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/68a68ce6b9ec58c2ca46f407fc49ab95c0e41a35/Hacking_%C3%89tico/mbr2.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/68a68ce6b9ec58c2ca46f407fc49ab95c0e41a35/Hacking_%C3%89tico/mbr3.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/68a68ce6b9ec58c2ca46f407fc49ab95c0e41a35/Hacking_%C3%89tico/mbr4.png)
+
+Este archivo, básicamente es un resumen de todo lo que ha analizado y al final su resultado. Este fichero lo guardariamos en nuestra carpeta de evidencias con las demás pruebas.
+
+## _FIRMAR NUESTROS ARCHIVOS_
+
+Por último, necesitariamos firmar nuestros archivos para que sirvieran como prueba de que el archivo es veridico y no ha sido cambiado. Tendriamos que buscar algun programa para ello, firmar los archivos y guardar la clave HASH que te daria el programa junto con su respectivo archivo.
