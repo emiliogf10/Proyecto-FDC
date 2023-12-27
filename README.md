@@ -265,7 +265,7 @@ Entre todas las evidencias que estamos guardando, es importante recavar informac
 
    Podemos ver que con ete comando vemos los puertos que están abiertos y a la escucha, con su respectivo ID.Este resultado también lo guardaremos en nuestro archivo de estado de red mediante el comando **"netstat -an >> estadored.txt"**.
 
-   
+## Dia 24/12/2023
 
 ## _CAPTURA MBR (REGISTRO DE ARRANQUE PRINCIPAL)_
 
@@ -288,3 +288,79 @@ Este archivo, básicamente es un resumen de todo lo que ha analizado y al final 
 ## _FIRMAR NUESTROS ARCHIVOS_
 
 Por último, necesitariamos firmar nuestros archivos para que sirvieran como prueba de que el archivo es veridico y no ha sido cambiado. Tendriamos que buscar algun programa para ello, firmar los archivos y guardar la clave HASH que te daria el programa junto con su respectivo archivo.
+
+## Dia 27/12/2023
+
+# SEGUNDO CURSO : ANÁLISIS FORENSE AVANZADO EN SISTEMAS WINDOWS (Tiempo de realización: 6-7 dias aproximadamente)
+
+## _CAPTURAR ESTRUCTURA MAC DE FICHEROS Y ARCHIVOS_
+
+En este apartado lo que vamos a hacer es capturar el "timeline" de un archivo. Con una serie de comandos en consola, veremos que ha pasado y cuando en diferentes archivos.
+
+ En este caso, voy a listar los archivos del directorio en donde tengo las herramientas; pero antes crearé un archivo llamado "prueba" y le añadiré un texto para ver si se muestra como el último archivo modificado:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/05dd4e7dd876b05cc8376c784598d859ba65b6ce/Hacking_%C3%89tico/mac1.png)
+
+Y con el siguiente comando vamos a obtener los diretorios cuyo tipo sean de escritura, ordenados por fecha y buscando también en los subdirectorios. Incluye también la paginación:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/05dd4e7dd876b05cc8376c784598d859ba65b6ce/Hacking_%C3%89tico/mac2.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/05dd4e7dd876b05cc8376c784598d859ba65b6ce/Hacking_%C3%89tico/mac3.png)
+
+En donde podemos ver, que al final de todo y antes de que muestre los archivos de un subdirectorio llamado "muicacheview", aparece el archivo de prueba que hemos creado anteriormente.
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/05dd4e7dd876b05cc8376c784598d859ba65b6ce/Hacking_%C3%89tico/mac4.png)
+
+Al comando visto anteriormente, podemos cambiarle por ejemplo, a que en vez de mostrar los archivos por última modificación, nos muestre los archivos pero por último acceso. El comando en cuestión quedaría asi:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/05dd4e7dd876b05cc8376c784598d859ba65b6ce/Hacking_%C3%89tico/mac5.png)
+
+En donde sólo sustituiriamos la 'w' por la 'a' en el tipo. Evidentemente seguiría apareciendo el archivo creado de último porque a parte de modificarlo, lo he abierto para comprobar y enseñaros la modificación. En este apartado, sólo listamos los archivos del directorio "herramientas" porque si llegamos a ejecutar este comando en la raiz de C:, nos listaria los archivos de todo el sistema y seria mucha información.
+
+También cabe decir que ordenar toda la información por fecha, nos servirá para encontrar el o los archivos que en la fecha del incidente han sido modificados o abiertos. 
+De ahi, ya habría que analizar el archivo y ver que ha pasado en el sistema.
+
+Toda esta información, debemos agregarla a un archivo y guardarla en una carpeta de evidencias. En este caso y de forma sencilla guardariamos esta información en un archivo llamado **"archivos.txt"** con este comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/05dd4e7dd876b05cc8376c784598d859ba65b6ce/Hacking_%C3%89tico/mac6.png)
+
+En donde solo agregariamos el más igual junto con el nombre que le queremos poner al archivo. El archivo vemos que se guarda en la carpeta "herramientas":
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/05dd4e7dd876b05cc8376c784598d859ba65b6ce/Hacking_%C3%89tico/mac7.png)
+
+## _CAPTURAR CONTRASEÑAS DESDE NAVEGADORES_
+
+En este apartado, necesitaremos una herramienta llamada **"WebBrowserPassView"** ((Descarga WebBrowserPassView)[https://www.nirsoft.net/utils/web_browser_password.html]). Con ella ya descargada, introducimos su ejecutabale en la carpeta herramientas (opcional) y la ejecutamos **en modo administrador**. La apariencia es la siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/05dd4e7dd876b05cc8376c784598d859ba65b6ce/Hacking_%C3%89tico/contra0.png)
+
+Como podemos ver, no aparece nada, y eso se debe a que en la máquina virtual que estoy utilizando no hay guardada ninguna contraseña de ningún sitio web en ningún navegador. Dicho esto, pongo 3 imágenes sacadas del video de este curso y explicando un poco el programa:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/05dd4e7dd876b05cc8376c784598d859ba65b6ce/Hacking_%C3%89tico/contra1.png)
+
+En la imagen anterior, podemos ver que el programa encuentra dos contraseñas; una de amazon y otra de facebook. En un equipo normal, aparecerían muchas más como cuentas bancarias, correos electrónicos, juegos, etc. Si damos doble click sobre la primera, se no abrirá una ventana en donde nos darán más información:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/05dd4e7dd876b05cc8376c784598d859ba65b6ce/Hacking_%C3%89tico/contra2.png)
+
+Nos dice:
+1. El sitio web es amazon.com.
+2. La contraseña está guardada en Mozilla (en este caso está guardada aqui, pero nos podemos encontrar contraseñas de muchos navegadores).
+3. El nombre de ususario.
+4. En el apartado de Password Field nos dice que la contraseña está encriptada (por eso en el apartado de password hay una cadena tan larga).
+5. En el apartado password strenght nos dice que la contraseña es muy fuerte.
+6. Fecha de creación y modificación.
+7. Directorio en donde se guarda toda esta información.
+
+Si le damos doble click en la segunda contraseña, nos aparecerá la misma información (evidentemente con sus datos correspondientes) pero veriamos que en este caso facebook no encripta la contraseña:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/05dd4e7dd876b05cc8376c784598d859ba65b6ce/Hacking_%C3%89tico/contra3.png)
+
+Visto esto también vamos a ver en donde podemos "filtrar" los navegadores que nos interesan. Para ello, vamos a "Options" y entramos en "Advanced Options". Nos saldrá la siguiente ventana emergente en donde podremos seleccionar los navegadores que nos convengan:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/05dd4e7dd876b05cc8376c784598d859ba65b6ce/Hacking_%C3%89tico/contra4.png)
+
+Por último, guardariamos las contraseñas que nos interesaran en un archivo; para ello, seleccionamos con un click aquellas que nos interesen y le damos a la opción "File" y "Save Selected Items". Le indicaremos en donde queremos guardar el fichero junto con su nombre y listo (lo suyo sería guardarlo directamente en la carpeta de evidencias).
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/05dd4e7dd876b05cc8376c784598d859ba65b6ce/Hacking_%C3%89tico/contra5.png)
+
+## _CAPTURAR DISPOSITIVOS USB QUE SE HAYAN CONECTADO_
