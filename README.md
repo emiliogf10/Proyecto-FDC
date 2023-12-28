@@ -287,7 +287,7 @@ Este archivo, básicamente es un resumen de todo lo que ha analizado y al final 
 
 ## _FIRMAR NUESTROS ARCHIVOS_
 
-Por último, necesitariamos firmar nuestros archivos para que sirvieran como prueba de que el archivo es veridico y no ha sido cambiado. Tendriamos que buscar algun programa para ello, firmar los archivos y guardar la clave HASH que te daria el programa junto con su respectivo archivo.
+Por último, necesitariamos firmar nuestros archivos para que sirvieran como prueba de que el archivo es veridico y no ha sido cambiado. Tendriamos que buscar algun programa para ello, firmar los archivos y guardar la clave HASH que te daria el programa junto con su respectivo archivo. Evidentemente, los firmariamos todos y los guardariamos cada uno en una carpeta con su HASH y a la vez todos dentro de una carpeta general de evidencias.
 
 ## Dia 27/12/2023
 
@@ -363,4 +363,62 @@ Por último, guardariamos las contraseñas que nos interesaran en un archivo; pa
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/05dd4e7dd876b05cc8376c784598d859ba65b6ce/Hacking_%C3%89tico/contra5.png)
 
+## Dia 28/12/2023
+
 ## _CAPTURAR DISPOSITIVOS USB QUE SE HAYAN CONECTADO_
+
+En este apartado utilizaremos una herramienta llamada **"USBHistory"** ((Descarga USBHistory aqui)[https://sourceforge.net/projects/usbhistory/]). Esta herramienta, al igual que algunas anteriores que hemos utilizado, no se lanza como entorno gráfico sino que se lanza desde linea de comandos. Para ello lanzamos una consola **en modo administrador** y nos vamos a la carpeta en donde tenemos el ejecutable (yo meti la carpeta del programa en la carpeta herramientas). Desde ahi lanzamos el archivo .exe y ocurre esto:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/ee0ea80a05e71ab892e08f39ce7bad12eed04a51/Hacking_%C3%89tico/usb1.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/ee0ea80a05e71ab892e08f39ce7bad12eed04a51/Hacking_%C3%89tico/usb2.png)
+
+Vemos que no nos aparece nada, y eso es debido a que estamos trabajando en una máquina virtual y no hemos introducido ningún USB. Si hubieramos introducido algún dispositivo USB en la máquina en esa lista nos aparecería el nombre del dispositivo, la MAC y la fecha de introducción entre otras cosas.
+
+Es importante listar estos dispositivos, debido a que la mayoria de incidentes de fuga de información se producen a través de ellos. 
+
+## _CAPTURA LA CONFIGURACIÓN FIREWALL_
+
+En este apartado vamos a ver el registro de las reglas del firewall. Esto consiste en inspeccionar, analizar y verificar las reglas de firewall.
+
+Para ver estas reglas debemos de entrar al editor de registro. Esto se hace buscando en tu equipo **"regedit"** y lo abrimos **en modo administrador**. Nos saldrá esto:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/ee0ea80a05e71ab892e08f39ce7bad12eed04a51/Hacking_%C3%89tico/firewall1.png)
+
+Desde aqui tendremos que navegar hasta una carpeta llamada "FirewallRules", que se encontrará en la siguiente dirección: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules**. Nos encontraremos con todo esto:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/ee0ea80a05e71ab892e08f39ce7bad12eed04a51/Hacking_%C3%89tico/firewall2.png)
+
+Lo que haremos será exportar las reglas y guardarlas en nuestra carpeta de evidencias. Lo haremos haciendo click con el botón derecho encima de la carpeta FirewallRules y exportar. Se abrirá una ventana en donde nos pedirá el nombre y la ubicación de guardado (lo guardaremos en nuestra carpeta de eviencias). Hecho esto, iremos a abrir el archivo que hemos guardado pero **OJO, NO SE PUEDE ABRIR HACIENDO DOBLE CLICK, SI NO LAS REGLAS SE CARGARIAN OTRA VEZ EN EL REGISTRO, POR LO TANTO ABRIMOS EL ARCHIVO CON OTRA APLICACIÓN, COMO POR EJEMPLO EL BLOC DE NOTAS**. El resultado es el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/ee0ea80a05e71ab892e08f39ce7bad12eed04a51/Hacking_%C3%89tico/firewall3.png)
+
+Aqui se tendrian que analizar las últimas entradas de estas reglas, pero eso ya es un uso muy avanzado que no explican en este curso.
+
+## _CAPTURA DE REGISTRY SPAWINGS_
+
+En este apartado vamos a revisar los programas por defecto que tienen asignadas ciertos tipos de extensiones; algunos atacantas modifican estos registros para que por ejemplo un archivo .txt en vez de abrirlo con un bloc de notas se abra una consola. Para ver esto, nos vamos otra vez al regedit. Buscamos en nuestro equipo regedit y lo ejecutamos **en modo administrador**. Desde aqui, desplegamos la opción de "HKEY_CLASSES_ROOT" y tendremos que buscar las extensiones que nos interesen. En mi caso, en primer lugar voy a buscar los archivos .txt. Veamos que nos aparece:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/ee0ea80a05e71ab892e08f39ce7bad12eed04a51/Hacking_%C3%89tico/registro1.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/ee0ea80a05e71ab892e08f39ce7bad12eed04a51/Hacking_%C3%89tico/registro2.png)
+
+Podemos ver que los archivos .txt, se abren por defecto con notepad. Ahora vamos a ver los documentos docx:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/ee0ea80a05e71ab892e08f39ce7bad12eed04a51/Hacking_%C3%89tico/registro3.png)
+
+En donde vemos que se abririan con Microsoft Word. De este modo revisariamos todas las extensiones que nos interesasen y las copiariamos y pegariamos en un documento de texto que posteriormente guardaremos en nuestra carpeta de evidencias.
+
+## _CAPTURA DE LISTADO DE APLICACIONES INSTALADAS_
+
+En este apartado vamos a listar todas las aplicaciones que tenemos instaladas en el sistema. Para ello vamos a ir otra vez al regedit, lo buscamos y lo abrimos **en modo administrador**. Nos vamos a la siguiente dirección: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall**.
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/ee0ea80a05e71ab892e08f39ce7bad12eed04a51/Hacking_%C3%89tico/app1.png)
+
+Y podremos ver información de las aplicaciones:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/ee0ea80a05e71ab892e08f39ce7bad12eed04a51/Hacking_%C3%89tico/app2.png)
+
+Aqui lo que nos interesaria es ver si todas las aplicaciones son legítimas; podemos ver que de toda la información que nos da, también aparece la URL del desarrollador. Si no apareciera el nombre de desarrollador pero si la URL, estariamos hablando de una aplicación potencialmente maliciosa.
+
+Con todo esto, exportamos todo esto a un fichero mediante botón derecho encima de la carpeta "uninstall" y le damos a exportar con el nombre que queramos y en la ubicación que queramos; preferiblemente en la carpeta de evidencias.
