@@ -447,6 +447,22 @@ En donde podemos ver que nos da una lista (incompleta porque no cabian todos en 
 
 Para estos dos siguientes cursos, voy a crear una máquina virtual Linux, en mi caso una Ubuntu de 2GB de RAM. Dicho esto y con la máquina ya configurada, empezamos con el primer punto:
 
+Para empezar este curso deberemos saber unos comandos básicos en consola (iremos viendo su funcionamiento a medida que avance el curso):
+
+1. sudo -> Este comando lo utilizaremos para ejecutar otros comandos con privilegios de superusuario o administrador.
+2. cd -> Este comando lo utilizaremos para navegar entre las distintas carpetas.
+3. ls -> Este comando se utiliza para listar el contenido de un directorio.
+4. cat -> Este comando sirve para concatenar archivos, pero nosotros lo vamos a utilizar mayoritariamente para mostrar el contenido de un archivo.
+5. grep -> Este comando lo utilizaremos para buscar patrones de texto en archivos o para filtrar lineas de texto que coincidan con un patrón específico.
+6. nano -> Lo vamos a utilizar para editar archivos de texto o incluso sólo para ver su contenido, al igual que cat.
+7. su -> Este comando lo pondremos solo, y lo que va a hacer es que vamos a cambiar al usuario root con todos los privilegios.
+
+Evidentemente, también deberemos crear una carpeta de evidencias en donde guardaremos todas las pruebas que vayamos recavando (en mi caso la crearé en el escritorio). Esto se puede hacer fácilmente con el comando "mkdir":
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/9d1e7c45e2a4a11043571eab14df4420d2149259/Hacking_%C3%89tico/evidencias1.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/9d1e7c45e2a4a11043571eab14df4420d2149259/Hacking_%C3%89tico/evidencias2.png)
+
 ## _ARCHIVOS DE REGISTRO_
 
 Los archivos de registro también conocidos por "logs" o "registros" son archivos que contienen información de diversas actividades del sistema, aplicaciones o servicios. Son muy útiles a la hora de detectar fallos e intentar solucionarlos. Los podremos encontrar en la carpeta **/var/log**. Dicho esto, nos vamos a nuestra máquina virtual y escribimos el siguiente comando:
@@ -461,15 +477,58 @@ Vemos que nos aparecen diferentes archivos de registro (evidentemente solo apare
 
 1. Auth.log -> log de autenticación.
 2. Boot.log -> Registro de inicio del sistema.
+3. Kern.log -> Registro de kernel.
 
 Al ser una máquina virtual nunca antes usada solo aparecen estos dos archivos "destacables" pero nos podriamos encontrar con otros como :
 
 1. Message -> Registro de mensajes del sistema.
-2. Kern.log -> Registro de kernel.
-3. Maillog -> Registro de servidor de mails.
-4. mysqld.log -> Registro de la base de datos Mysql.
+2. Maillog -> Registro de servidor de mails.
+3. mysqld.log -> Registro de la base de datos Mysql.
 
-## _REGISTROS DEL SISTEMA EN LA TERMINAL_
+Si quisieramos abrir alguno de estos archivos para ver su contenido, lo primero que hariamos seria pasarlos a usuario root:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/9d1e7c45e2a4a11043571eab14df4420d2149259/Hacking_%C3%89tico/reg3.png)
+
+Y despues ejecutariamos el siguiente comando para ver el contenido del archivo:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/9d1e7c45e2a4a11043571eab14df4420d2149259/Hacking_%C3%89tico/reg4.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/9d1e7c45e2a4a11043571eab14df4420d2149259/Hacking_%C3%89tico/reg5.png)
+
+El resultado del comando ls, lo meteremos en un archivo y lo enviaremos a la carpeta de evidencias:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/9d1e7c45e2a4a11043571eab14df4420d2149259/Hacking_%C3%89tico/reg6.png)
+
+Y firmaremos el archivo, metiendo su hash en un archivo .txt de firmas ubicado también en la carpeta evidencias:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/9d1e7c45e2a4a11043571eab14df4420d2149259/Hacking_%C3%89tico/reg7.png)
+
+
+## _ARCHIVO SUDOERS_
+
+En este fichero se especifican los permisos que tiene cada usuario en nuestro sistema. Accederemos a el y comprobaremos que no hay ningún usuario que no tenga que estar ahí. Para ello, con el usuario root ejecutaremos el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/9d1e7c45e2a4a11043571eab14df4420d2149259/Hacking_%C3%89tico/sudoers1.png)
+
+Y el resultado será el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/9d1e7c45e2a4a11043571eab14df4420d2149259/Hacking_%C3%89tico/sudoers2.png)
+
+En donde vemos los permisos que tiene cada usuario y por supuesto que no hay nigún usuario extraño. Vemos que el usuario "emilio" no aparece, y la razón es que el usuario "emilio" pertenece al grupo "emilio" y este grupo no tiene permisos para utilizar el comando sudo, con lo cual no va a aparecer en el fichero sudoers. Evidentemente esto se podría cambiar con un comando, agregando al usuario "emilio" al grupo "sudo" (un usuario puede pertenecer a varios grupos).
+
+Este archivo lo copiaremos y lo meteremos en la carpeta de evidencias:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/9d1e7c45e2a4a11043571eab14df4420d2149259/Hacking_%C3%89tico/sudoers3.png)
+
+Y lo firmaremos, metiendo su hash en el fichero de firmas anterior:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/9d1e7c45e2a4a11043571eab14df4420d2149259/Hacking_%C3%89tico/sudoers4.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/9d1e7c45e2a4a11043571eab14df4420d2149259/Hacking_%C3%89tico/sudoers5.png)
+
+Podemos ver que esta firma y la anterior se metieron correctamente en el fichero firmas.txt.
+
+## _LISTADO DE PAQUETES INSTALADOS_
 
 
 
