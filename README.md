@@ -269,13 +269,13 @@ Entre todas las evidencias que estamos guardando, es importante recavar informac
 
 ## _CAPTURA MBR (REGISTRO DE ARRANQUE PRINCIPAL)_
 
-Para esto, necesitamos saber un poco sobre un dsipositivo de almacenamiento de datos ([Más información aqui](https://www.ionos.es/digitalguide/servidores/herramientas/una-introduccion-a-netstat/)). Lo básico es saber que la parte mínima de un dispositivo de almacenamiento de datos es un sector (normalmente 512 bytes) y éstos se agrupan en clústers (grupo de sectores); pues bien, en el sector 0 se encuentra alojado el MBR. Contiene informacíon relativa a cómo iniciar el sistema, qué tipo de particiones hay en el dispositivo y el tamaño de las mismas, etc. En cierto tipo de incidentes, principalmente relacionados con malware, puede resultar de interés extraerlo para que en un posterior análisis se determine si está infectado.
+Para esto, necesitamos saber un poco sobre un diSpositivo de almacenamiento de datos ([Más información aqui](https://www.ionos.es/digitalguide/servidores/herramientas/una-introduccion-a-netstat/)). Lo básico es saber que la parte mínima de un dispositivo de almacenamiento de datos es un sector (normalmente 512 bytes) y éstos se agrupan en clústers (grupo de sectores); pues bien, en el sector 0 se encuentra alojado el MBR. Contiene informacíon relativa a cómo iniciar el sistema, qué tipo de particiones hay en el dispositivo y el tamaño de las mismas, etc. En cierto tipo de incidentes, principalmente relacionados con malware, puede resultar de interés extraerlo para que en un posterior análisis se determine si está infectado.
 
 En este caso, vamos a analizar el análisis directamente y para ello, vamos a descargar una herramienta llamada **MBRCheck** ([Descarga MBRCheck](https://www.majorgeeks.com/files/details/mbrcheck.html)). Con ella ya descargada, vamos al directorio en donde tenemos el ejecutable, y lo ejecutamos. La apariencia es la siguiente:
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/68a68ce6b9ec58c2ca46f407fc49ab95c0e41a35/Hacking_%C3%89tico/mbr1.png)
 
-Vemos que básicamente, el MBR no está infectado; pero si lo estuviera, seguiriamos los pasos que nos da el programa. A esto, se le añade que el programa crea un fichero de todo este análisis y lo guarda (en mi caso) en el escritorio. Veamoslo:
+Vemos que básicamente, el MBR no está infectado; pero si lo estuviera, seguiriamos los pasos que nos da el programa. A esto, se le añade que el programa crea un fichero de todo este análisis y lo guarda (en mi caso) en el escritorio. Veámoslo:
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/68a68ce6b9ec58c2ca46f407fc49ab95c0e41a35/Hacking_%C3%89tico/mbr2.png)
 
@@ -528,10 +528,47 @@ Y lo firmaremos, metiendo su hash en el fichero de firmas anterior:
 
 Podemos ver que esta firma y la anterior se metieron correctamente en el fichero firmas.txt.
 
+## Dia 10/01/2024
+
 ## _LISTADO DE PAQUETES INSTALADOS_
 
+Un paquete no es más que una unidad de software que contiene archivos y metadatos necesarios para instalar y gestionar un programa o una aplicación. Para ver los paquetes que tenemos instalados en el sistema, utilizaremos el siguiente comando:
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/bc23a473ad55081295f8ab392c2c189279b22cc4/Hacking_%C3%89tico/paquetes1.png)
 
+En donde le añadimos "-l" para visualizarlo en formato lista. El resultado sería el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/bc23a473ad55081295f8ab392c2c189279b22cc4/Hacking_%C3%89tico/paquetes2.png)
+
+Un comando similar sería este:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/bc23a473ad55081295f8ab392c2c189279b22cc4/Hacking_%C3%89tico/paquetes3.png)
+
+En donde el resultado sería el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/bc23a473ad55081295f8ab392c2c189279b22cc4/Hacking_%C3%89tico/paquetes4png.png)
+
+Podemos ver que nos aparece el nombre y la versión, pero si sólo queremos el nombre, ejecutariamos el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/bc23a473ad55081295f8ab392c2c189279b22cc4/Hacking_%C3%89tico/paquetes5.png)
+
+En donde podemos ver que efectivamente, aparece sólo el nombre del paquete:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/bc23a473ad55081295f8ab392c2c189279b22cc4/Hacking_%C3%89tico/paquetes6.png)
+
+Todos estos comandos, es recomendable que los ejecutemos siempre **en modo root**.Los guardaremos directamente en un archivo de texto como hemos hecho en casos anteriores. Como ejemplo, voy a guardar el último comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/bc23a473ad55081295f8ab392c2c189279b22cc4/Hacking_%C3%89tico/paquetes7.png)
+
+Estos tres comandos, al mostrarnos algo similar, sólo guardaremos en un archivo uno de ellos; evidentemente alguno de los dos que hemos visto que nos de más información.
+
+Lo siguiente es eliminar los paquetes que no se usan nunca en el sistema. Para ello, Linux tiene un comando que los elimina a todos automáticamente y es el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/bc23a473ad55081295f8ab392c2c189279b22cc4/Hacking_%C3%89tico/paquetes8.png)
+
+En donde nos pregunta si estamos seguros de que queremos eliminar 391 MB de espacio en disco (paquetes que no se utilizan). Le decimos que si y este es el resultado:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/bc23a473ad55081295f8ab392c2c189279b22cc4/Hacking_%C3%89tico/paquetes9.png)
 
 
 
