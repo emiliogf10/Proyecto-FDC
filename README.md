@@ -275,7 +275,7 @@ En este caso, vamos a analizar el análisis directamente y para ello, vamos a de
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/68a68ce6b9ec58c2ca46f407fc49ab95c0e41a35/Hacking_%C3%89tico/mbr1.png)
 
-Vemos que básicamente, el MBR no está infectado; pero si lo estuviera, seguiriamos los pasos que nos da el programa. A esto, se le añade que el programa crea un fichero de todo este análisis y lo guarda (en mi caso) en el escritorio. Veámoslo:
+Vemos que nos dice que el MBR no es estándar y esto se debe a que estamos utilizando una máquina virtual(si en una máquina real hubiera algún problema con el MBR, seguiriamos los pasos que nos da el programa). El programa crea un fichero de todo este análisis y lo guarda (en mi caso) en el escritorio. Veámoslo:
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/68a68ce6b9ec58c2ca46f407fc49ab95c0e41a35/Hacking_%C3%89tico/mbr2.png)
 
@@ -449,13 +449,14 @@ Para estos dos siguientes cursos, voy a crear una máquina virtual Linux, en mi 
 
 Para empezar este curso deberemos saber unos comandos básicos en consola (iremos viendo su funcionamiento a medida que avance el curso):
 
-1. sudo -> Este comando lo utilizaremos para ejecutar otros comandos con privilegios de superusuario o administrador.
-2. cd -> Este comando lo utilizaremos para navegar entre las distintas carpetas.
-3. ls -> Este comando se utiliza para listar el contenido de un directorio.
-4. cat -> Este comando sirve para concatenar archivos, pero nosotros lo vamos a utilizar mayoritariamente para mostrar el contenido de un archivo.
-5. grep -> Este comando lo utilizaremos para buscar patrones de texto en archivos o para filtrar lineas de texto que coincidan con un patrón específico.
-6. nano -> Lo vamos a utilizar para editar archivos de texto o incluso sólo para ver su contenido, al igual que cat.
-7. su -> Este comando lo pondremos solo, y lo que va a hacer es que vamos a cambiar al usuario root con todos los privilegios.
+1. 'sudo' -> Este comando lo utilizaremos para ejecutar otros comandos con privilegios de superusuario o administrador.
+2. 'cd' -> Este comando lo utilizaremos para navegar entre las distintas carpetas.
+3. 'ls' -> Este comando se utiliza para listar el contenido de un directorio.
+4. 'cat' -> Este comando sirve para concatenar archivos, pero nosotros lo vamos a utilizar mayoritariamente para mostrar el contenido de un archivo.
+5. 'grep' -> Este comando lo utilizaremos para buscar patrones de texto en archivos o para filtrar lineas de texto que coincidan con un patrón específico.
+6. 'nano' -> Lo vamos a utilizar para editar archivos de texto o incluso sólo para ver su contenido, al igual que cat.
+7. 'su' -> Este comando lo pondremos solo, y lo que va a hacer es que vamos a cambiar al usuario root con todos los privilegios.
+8. 'find' -> Este comando se utiliza para buscar archivos y directorios , basándose en diversos criterios como el nombre del archivo, la fecha de modificación, el tamaño y otros atributos. 
 
 Evidentemente, también deberemos crear una carpeta de evidencias en donde guardaremos todas las pruebas que vayamos recavando (en mi caso la crearé en el escritorio). Esto se puede hacer fácilmente con el comando "mkdir":
 
@@ -569,6 +570,97 @@ Lo siguiente es eliminar los paquetes que no se usan nunca en el sistema. Para e
 En donde nos pregunta si estamos seguros de que queremos eliminar 391 MB de espacio en disco (paquetes que no se utilizan). Le decimos que si y este es el resultado:
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/bc23a473ad55081295f8ab392c2c189279b22cc4/Hacking_%C3%89tico/paquetes9.png)
+
+## Dia 15/01/2024
+
+## _GUARDADO DEL FICHERO SHADOW Y PASSWD_
+
+En este apartado vamos a hacer una copia del fichero 'shadow' y del fichero 'passwd'. Para ello vamos a ver qué es cada fichero:
+
+1. shadow -> Este fichero es el que almacena las contraseñas de los usuarios de manera segura; es decir, cifradas. Este archivo es esencial para el sistema y ayuda a proteger las contraseñas de los usuarios contra accesos no autorizados.
+2. passwd -> Este fichero almacena información sobre los usuarios del sistema. Proporciona una lista de usuarios y sus detalles pero sin sus contraseñas reales, sino que cifradas.
+
+Dicho esto, vamos a hacer una copia de los dos archivos y guardarlas en nuestra carpeta de evidencias. Para ello nos vamos a la consola **en modo root** y ejecutamos los siguientes comandos:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1fd2f3e75f2024d164bffd63e49c23860a62e69a/Hacking_%C3%89tico/copia1.png)
+
+En donde simplemente hacemos uso del comando cp(copy) y le damos el fichero que copiar y la carpeta en donde queremos que nos coloque la copia con su respectivo nombre. Asi para los dos ficheros. Ahora vamos a nuestra carpeta de evidencias y vemos que, efectivamente se han copiado correctamente los ficheros:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1fd2f3e75f2024d164bffd63e49c23860a62e69a/Hacking_%C3%89tico/copia2.png)
+
+Ahora, vamos a firmar nuestros archivos y meter su respectivo HASH en nuestro archivo de firmas. Ejecutariamos los siguientes comandos:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1fd2f3e75f2024d164bffd63e49c23860a62e69a/Hacking_%C3%89tico/copia3.png)
+
+En donde vemos que firmamos los archivos y añadimos el HASH a nuestro archivo de firmas. Nos vamos al archivo firmas y vemos que efectivamente se añadieron correctamente los HASH:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1fd2f3e75f2024d164bffd63e49c23860a62e69a/Hacking_%C3%89tico/copia4.png)
+
+## _FILTRADO DEL FICHERO SHADOW_
+
+En este apartado vamos a filtrar el archivo shadow del sistema y lo vamos a comparar con nuestro archivo shadow guardado en el apartado anterior. Para ello ejecutamos el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1fd2f3e75f2024d164bffd63e49c23860a62e69a/Hacking_%C3%89tico/filtrado1.png)
+
+En donde:
+
+1. 'cut' -> Es el comando principal de filtrado; extrae secciones específicas de lineas de texto según unos criterios.
+2. '-d:' -> Especifica el delimitador que el comando cut va a utilizar para dividir las lineas. En este caso el delimitador van a ser los dos puntos (el fichero shadow utiliza los dos puntos para separar sus campos).
+3. '-f2' -> Indica que solo se debe extraer el segundo campo después del primer delimitador de cada línea (en el fichero shadow, el segundo campo de cada línea suele ser la contraseña cifrada de cada usuario).
+4. '/etc/shadow' -> El archivo del cual se extraerán los datos.
+5. '|more' -> El indicador '|' indica que la salida del comando anterior se redirige al siguiente comando, que en este caso es more, y significa que el contenido se va a mostrar de forma paginada.
+
+El resultado seria el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1fd2f3e75f2024d164bffd63e49c23860a62e69a/Hacking_%C3%89tico/filtrado2.png)
+
+En donde comparariamos este contenido con el fichero que teniamos guardado previamente y revisariamos si se produció algún cambio.
+
+## _GUARDADO DE FICHEROS Y DIRECTORIOS_
+
+En este apartado vamos a guardar una lista con los ficheros con permisos 444 (sólo lectura) y otra lista con los directorios con permisos 111 (sòlo ejecución). Esto es importante, ya que por ejemplo la lista de los directorios con permisos de sólo ejecución, nos va a ayudar a saber en donde puede el usuario ejecutar programas o scripts pero no visualizar el contenido de ese directorio. En el caso de los ficheros, es importante saber los ficheros de sólo lectura porque éstos podrian contener información crítica o logs y si observamos algún cambio en alguno de ellos podrían indicar una manipulación indebida.
+
+En definitiva, estas dos listas son dos pruebas más para el forense que le ayudarán a ver o comprender el por qué del problema al que nos enfrentamos. Dicho esto, vamos a guardar primero los archivos con permisos 444 ejecutando el siguiente comando **en la raíz del sistema**:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1fd2f3e75f2024d164bffd63e49c23860a62e69a/Hacking_%C3%89tico/fi1.png)
+
+En donde:
+
+1. 'find' -> Comando principal para buscar archivos y directorios.
+2. '-type f' -> Especifica que se están buscando archivos mediante 'f'.
+3. '-perm -444' -> Especifica que se están buscando archivos con permisos 444 (sólo lectura para todos los usuarios).
+4. '> /home/emilio/Desktop/evidencias/ficheros_444' -> Indica que la salida del comando find sea redirigida a un archivo llamado 'ficheros_444'.
+
+Y vemos que el archivo se guardó correctamente en nuestra carpeta de evidencias:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1fd2f3e75f2024d164bffd63e49c23860a62e69a/Hacking_%C3%89tico/fi2.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1fd2f3e75f2024d164bffd63e49c23860a62e69a/Hacking_%C3%89tico/fi3.png)
+
+Ahora vamos a guardar los directorios con permisos 111. Ejecutamos el siguiente comando **en la raíz del sistema**:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1fd2f3e75f2024d164bffd63e49c23860a62e69a/Hacking_%C3%89tico/fi4.png)
+
+En donde:
+
+1. 'find' -> Comando principal para buscar archivos y directorios.
+2. '-type d' -> Especifica que se están buscando directorios mediante 'd'.
+3. '-perm -111' -> Especifica que se están buscando archivos con permisos 111 (sólo ejecución para todos los usuarios).
+4. '> /home/emilio/Desktop/evidencias/directorios_111' -> Indica que la salida del comando find sea redirigida a un archivo llamado 'directorios_111'.
+
+Y vemos que el archivo se guardó correctamente en nuestra carpeta de evidencias:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1fd2f3e75f2024d164bffd63e49c23860a62e69a/Hacking_%C3%89tico/fi5.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1fd2f3e75f2024d164bffd63e49c23860a62e69a/Hacking_%C3%89tico/fi6.png)
+
+Con los dos archivos guardados, como de costumbre, hay que firmarlos. Para ello ejecutariamos los siguientes comandos desde la carpeta de eviencias:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1fd2f3e75f2024d164bffd63e49c23860a62e69a/Hacking_%C3%89tico/fi7.png)
+
+Y vemos que, efectivamente los archivos se firmaron correctamente y se guardaron sus respectivos HASH en el fichero firmas:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1fd2f3e75f2024d164bffd63e49c23860a62e69a/Hacking_%C3%89tico/fi8.png)
 
 
 
