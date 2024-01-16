@@ -1,4 +1,4 @@
-# CARRERA DE ESPECIALISTA EN HACKING ETICO
+<img width="489" alt="image" src="https://github.com/emiliogf10/Proyecto-FDC/assets/113925988/e4371d49-a994-4a21-8350-7b47eaa0c7c4"># CARRERA DE ESPECIALISTA EN HACKING ETICO
 
 # PRIMER CURSO : ANÁLISIS FORENSE BÁSICO EN SISTEMAS WINDOWS (Tiempo de realización: 6-7 dias aproximadamente)
 
@@ -662,5 +662,111 @@ Y vemos que, efectivamente los archivos se firmaron correctamente y se guardaron
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/1fd2f3e75f2024d164bffd63e49c23860a62e69a/Hacking_%C3%89tico/fi8.png)
 
+## Dia 16/01/2024
 
+## _CAPTURA DE LO QUE HA ESCRITO EL USUARIO EN LA CONSOLA_
+
+En este apartado vamos a guardar en un fichero, lo que ha escrito el usuario por consola. Esta información se encuentra en un archivo oculto del sistema en la carpeta de usuario. Lo que guarda este archivo, es básicamente cada comando que ejecuta el usuario en la terminal. Dicho esto, vamos a copiar el archivo a nuestra carpeta de evidencias:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/h1.png)
+
+En donde simplemente hacemos uso del comando cat, redirigido a un archivo con el nombre de 'bash_history'.
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/h2.png)
+
+Y podemos ver que se ha guardado correctamente con los comandos hechos hasta ahora. Con este archivo guardado, revisaríamos si hay algún comando inusual o que nos parezca extraño.
+
+Por último faltaría firmar el archivo y guardar su HASH en nuestro archivo de firmas:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/h3.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/h4.png)
+
+## _CAPTURA DEL ENTORNO DE RED_
+
+En este apartado, simplemente vamos copiar a un archivo, todo el entorno de red del sistema. Para ver todo ello, ejecutaremos el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/ip1.png)
+
+Con el resultado siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/ip2.png)
+
+En donde podemos ver todas las interfaces de red disponibles, con su dirección IP, dirección MAC,etc. Lo siguiente es introducir todo esto en un fichero, mediante el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/ip3.png)
+
+En donde redirigimos la salida del comando 'ip addr' a un fichero de texto llamado 'red.txt' situado en evidencias.
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/ip4.png)
+
+Vemos que el archivo se guardó correctamente y su contenido es el visto anteriormente.
+
+## _INFORMACIÓN DE LAS CONEXIONES DE RED_
+
+En este apartado vamos a capturar la información de las conexiones de red. Para ello vamos a ejecutar el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/net1.png)
+
+En donde las opciones '-an' muestran todas las conexiones, escuchas y direcciones y números de puerto en formato numérico (sin resolver los nombres mediante DNS). El resultado es el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/net2.png)
+
+Toda esta información, la introduciremos en el mismo archivo del apartado anterior, ya que es información de red. Para ello, ejecutaremos el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/net3.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/net4.png)
+
+Y podemos ver que la información se añadió correctamente.
+
+## _DIAGNOSIS CON EL COMANDO DIG_
+
+En este apartado vamos a realizar una diagnosis del estado de ciertos entornos de la red. Para ello, vamos a ver cómo funciona el comando 'dig'. Básicamente, dicho comando realiza consultas DNS en donde nos da información detallada como direcciones IP asociadas, servidores de nombres autoritativos, registros de recursos, etc. Dicho esto, nosotros vamos a ejecutar el comando 'dig' solo para que haga una consulta al servidor de nombres local y nos de información.Para ello ejecutamos el comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/dig1.png)
+
+Y la respuesta es la siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/dig2.png)
+
+En donde en la sección 'answer section' nos muestra la lista de los servidores DNS de nivel superior ([Dominios de nivel superior](https://www.redeszone.net/tutoriales/internet/dominios-tld/)) para el dominio raiz ('.').Entre otras opciones, también nos aparece en la sección 'SERVER' la dirección IP y el puerto del servidor DNS utilizado para la consulta . 
+
+Dicho todo esto, añadiriamos toda esta información al archivo de los dos apartados anteriores. Ejecutamos el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/dig3.png)
+
+Y observariamos que se añadió correctamente al archivo:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/dig4.png)
+
+[MÁS INFORMACIÓN SOBRE EL COMANDO DIG](https://www.hostinger.es/tutoriales/comando-dig-linux)
+
+## _CAPTURA DE LA TABLA DE ENRUTAMIENTO_
+
+En este apartado queremos capturar la tabla de enrutamiento del sistema. La razón de ello es que esta tabla nos proporciona información sobre la conectividad de red y cómo el sistema decide enviar paquetes de datos a través de la red ([Más información sobre el comando route](https://somebooks.es/comando-route-ubuntu/)). Para ello vamos a ejecutar el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/route1.png)
+
+En donde la salida es la siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/route2.png)
+
+[MÁS INFORMACIÓN SOBRE LAS TABLAS DE ENRUTAMIENTO](https://www.mallotore.com/blog/entendiendo-la-tabla-de-rutas-linux/)
+
+Guardamos la salida de este comando en el archivo de red, ejecutando el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/route3.png)
+
+Y vemos que se añadió correctamente la información a nuestro archivo de red:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/route4.png)
+
+Solo faltaría firmar nuestro archivo de red y guardar su corrspondiente HASH en nuestro fichero de firmas:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/dig5.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/dig6.png)
+
+## _CAPTURA DE FICHEROS DE LOG_
 
