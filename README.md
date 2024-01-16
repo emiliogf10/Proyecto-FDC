@@ -1,4 +1,4 @@
-<img width="489" alt="image" src="https://github.com/emiliogf10/Proyecto-FDC/assets/113925988/e4371d49-a994-4a21-8350-7b47eaa0c7c4"># CARRERA DE ESPECIALISTA EN HACKING ETICO
+# CARRERA DE ESPECIALISTA EN HACKING ÉTICO
 
 # PRIMER CURSO : ANÁLISIS FORENSE BÁSICO EN SISTEMAS WINDOWS (Tiempo de realización: 6-7 dias aproximadamente)
 
