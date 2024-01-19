@@ -476,9 +476,10 @@ En donde simplemente nos colocamos en la carpeta arriba indicada. Ahora hacemos 
 
 Vemos que nos aparecen diferentes archivos de registro (evidentemente solo aparecen los disponibles y esto variará dependiendo del equipo) como:
 
-1. Auth.log -> log de autenticación.
-2. Boot.log -> Registro de inicio del sistema.
-3. Kern.log -> Registro de kernel.
+1. auth.log -> log de autenticación.
+2. boot.log -> Registro de inicio del sistema (muy importante tener una copia desde el primer arranque del sistema).
+3. kern.log -> Registro de kernel.
+4. dpkg.log -> Este archivo registra las acciones del comando 'dpkg', que básicamente lo que hace es instalar,actualizar o eliminar paquetes de nuestro sistema.
 
 Al ser una máquina virtual nunca antes usada solo aparecen estos dos archivos "destacables" pero nos podriamos encontrar con otros como :
 
@@ -504,6 +505,18 @@ Y firmaremos el archivo, metiendo su hash en un archivo .txt de firmas ubicado t
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/9d1e7c45e2a4a11043571eab14df4420d2149259/Hacking_%C3%89tico/reg7.png)
 
+A parte de capturar la lista de ficheros de log que hay, deberiamos guardar una copia de los más importantes y guardarlos en nuestra carpeta de evidencias. En mi caso voy a guardar los archivos "auth.log","boot.log","dpkg.log" y "kern.log". Para ello, ejecutamos los siguientes comandos:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7042be41fa5c71e273b89100f51e9f8172312d3/Hacking_%C3%89tico/reg8.png)
+
+Y vemos que los archivos se guardaron correctamente. Ahora los firmariamos y meteriamos el HASH en nuestro archivo de firmas:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7042be41fa5c71e273b89100f51e9f8172312d3/Hacking_%C3%89tico/reg9.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7042be41fa5c71e273b89100f51e9f8172312d3/Hacking_%C3%89tico/reg10.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7042be41fa5c71e273b89100f51e9f8172312d3/Hacking_%C3%89tico/reg11.png)
+
 
 ## _ARCHIVO SUDOERS_
 
@@ -528,6 +541,7 @@ Y lo firmaremos, metiendo su hash en el fichero de firmas anterior:
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/9d1e7c45e2a4a11043571eab14df4420d2149259/Hacking_%C3%89tico/sudoers5.png)
 
 Podemos ver que esta firma y la anterior se metieron correctamente en el fichero firmas.txt.
+
 
 ## Dia 10/01/2024
 
@@ -768,5 +782,31 @@ Solo faltaría firmar nuestro archivo de red y guardar su corrspondiente HASH en
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/e3c42c8c60f7687caeed11d595897cf632a66685/Hacking_%C3%89tico/dig6.png)
 
-## _CAPTURA DE FICHEROS DE LOG_
+## Dia 19/01/2024
+
+# CUARTO CURSO : ANÁLISIS FORENSE AVANZADO EN SISTEMAS LINUX (Tiempo de realización: 6-7 dias aproximadamente)
+
+## _VOLCADO DE MEMORIA_
+
+En este apartado vamos a realizar un volcado de la memoria del sistema. Para ello, voy a seguir con la misma máquina virtual del curso anterior. Lo primero que vamos a hacer es instalar git (lo utilizaremos para descargar desde un repositorio de github la herramienta Lime). Para ello hacemos lo siguiente, preferiblemente **como root**:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7042be41fa5c71e273b89100f51e9f8172312d3/Hacking_%C3%89tico/volcado1.png)
+
+Después, clonaremos un repositorio de github en la raíz de root:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7042be41fa5c71e273b89100f51e9f8172312d3/Hacking_%C3%89tico/volcado2.png)
+
+En donde se nos creará una carpeta llamada 'Lime':
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7042be41fa5c71e273b89100f51e9f8172312d3/Hacking_%C3%89tico/volcado3.png)
+
+Para utilizar esta herramienta, vamos a necesitar la versión de kernel que estamos usando, así como unos paquetes. La versión de kernel la variamos mediante el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7042be41fa5c71e273b89100f51e9f8172312d3/Hacking_%C3%89tico/volcado4.png)
+
+Es importante quedarnos con la versión de kernel, porque la necesitaremos en el paso siguiente. A continuación, instalaremos los paquetes que son necesarios para la ejecución de la herramienta:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7042be41fa5c71e273b89100f51e9f8172312d3/Hacking_%C3%89tico/volcado5.png)
+
+En donde vemos que al final, ponemos la versión de nuestro kernel; ya que si instalamos otros paquetes, pueden no ser compatibles con nuestro kernel, y por lo tanto para nuestro sistema. Hecho esto, nos dirigimos a la carpeta '/src/' para crear un módulo, que no es más que una unidad de código que se carga dinámicamente en el kernel para permitir la extracción forense de información de la memoria RAM.
 
