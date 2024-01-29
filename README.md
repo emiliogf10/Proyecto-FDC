@@ -810,3 +810,68 @@ Es importante quedarnos con la versión de kernel, porque la necesitaremos en el
 
 En donde vemos que al final, ponemos la versión de nuestro kernel; ya que si instalamos otros paquetes, pueden no ser compatibles con nuestro kernel, y por lo tanto para nuestro sistema. Hecho esto, nos dirigimos a la carpeta '/src/' para crear un módulo, que no es más que una unidad de código que se carga dinámicamente en el kernel para permitir la extracción forense de información de la memoria RAM.
 
+## Dia 29/01/2024
+
+Lo siguiente es crear un "kernel object", que no es más que un módulo que utilizaremos posteriormente para el volcado de la memoria. Para ello, nos vamos a la carpeta "Lime/src" y ejecutamos el comando "make". Se vería así:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/cc63286dd3549c3e4b444013be1f60418198b5ad/Hacking_%C3%89tico/volcado6.png)
+
+Y vemos que se creó un archivo con extensión ".ko":
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/cc63286dd3549c3e4b444013be1f60418198b5ad/Hacking_%C3%89tico/volcado7.png)
+
+Con todos estos pasos hechos, estamos preparados para el volcado de memoria. Para ello ejecutaremos el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/cc63286dd3549c3e4b444013be1f60418198b5ad/Hacking_%C3%89tico/volcado8.png)
+
+En donde:
+
+1. "sudo insmod" -> Ejecuta con privilegios de superusuario el comando insmod, que lo que hace es cargar el módulo de kernel que se le pasa con los parámetros correspondientes.
+2. "lime-6.2.0-39-generic.ko" -> Es el módulo que se le pasa al comando insmod.
+3. "path=/home/emilio/Desktop/evidencias/volcado_memoria format=raw" -> Aqui, le indicamos la ruta en donde queremos que nos guarde el volcado, con su nombre y su formato.
+
+Y vemos que se creó de forma correcta el archivo:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/cc63286dd3549c3e4b444013be1f60418198b5ad/Hacking_%C3%89tico/volcado9.png)
+
+Podemos ver también, que el tamaño del volcado es de 2GB, al igual que la cantidad de memoria RAM que tenemos en nuestra máquina virtual:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/cc63286dd3549c3e4b444013be1f60418198b5ad/Hacking_%C3%89tico/volcado10.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/cc63286dd3549c3e4b444013be1f60418198b5ad/Hacking_%C3%89tico/volcado11.png)
+
+## _VERIFICACIÓN DEL KERNEL Y DE LOS PROCESOS DE INICIALIZACIÓN_
+
+En este apartado, simplemente vamos a comprobar dos archivos: el HASH del kernel (este archivo debería crearse en cuanto se inicia un nuevo equipo) y el HASH del kernel en el momento de la intrusión (archivo que se va a generar como primer paso cuando tengamos algún tipo de problema y tengamos que verificar si el kernel del sistema fue manipulado). En este caso, voy a hacerlos los dos al mismo tiempo, pero evidentemente con distinto nombre:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/cc63286dd3549c3e4b444013be1f60418198b5ad/Hacking_%C3%89tico/ker1.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/cc63286dd3549c3e4b444013be1f60418198b5ad/Hacking_%C3%89tico/ker2.png)
+
+En donde simplemente firmamos el kernel del sistema (OJO con poner la versión de kernel adecuada, porque pueden aparecer varios archivos con versiones distintas) y redireccionamos su HASH a un archivo de texto ubicado en nuestra carpeta de evidencias. Ahora vamos a compararlos:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/cc63286dd3549c3e4b444013be1f60418198b5ad/Hacking_%C3%89tico/ker3.png)
+
+Vemos que no nos dice nada, y es evidente porque es lo mismo pero con diferente nombre. Ahora bien, esto en una situación real puede cambiar; vamos a simular que el kernel fue modificado y ver que la comparación nos va a dar alguna diferencia. Para ello modificamos el segundo archivo, por ejemplo borrándole alguna letra de su HASH y vemos que ya nos salta una diferencia:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/cc63286dd3549c3e4b444013be1f60418198b5ad/Hacking_%C3%89tico/ker4.png)
+
+Ahora vamos a hacer exactamente lo mismo, pero para el archivo "dpkg.log" que tenemos en nuestra carpeta de evidencias. Para ello, haremos una copia de dicho archivo que simulará la copia creada después del problema. Después cambiaremos algo de su contenido y los compararemos:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/cc63286dd3549c3e4b444013be1f60418198b5ad/Hacking_%C3%89tico/ker5.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/cc63286dd3549c3e4b444013be1f60418198b5ad/Hacking_%C3%89tico/ker6.png)
+
+Añadir que se podrían comparar los achivos en "crudo" como lo estamos haciendo ahora mismo, o comparar sus HASH, siempre y cuando hubieramos firmado el primer archivo (el que se hace al iniciar un nuevo equipo).
+
+Para comparar, también podemos utilizar el comando "diff", que es un comando muy rápido. Veamos un ejemplo con los archivos dpkg:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/cc63286dd3549c3e4b444013be1f60418198b5ad/Hacking_%C3%89tico/ker7.png)
+
+A mi, en especial me gusta más este último comando, por una sencilla razón: te muestra el número de linea en la que está el cambio y el cambio realizado con el antes y el despúes.
+
+## _FICHERO LASTLOG_
+
+En este apartado vamos a ver qué usuarios se han logueado en el sistema. Para ello, veremos un fichero llamado "lastlog".
+
+
