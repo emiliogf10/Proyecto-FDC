@@ -870,8 +870,86 @@ Para comparar, también podemos utilizar el comando "diff", que es un comando mu
 
 A mi, en especial me gusta más este último comando, por una sencilla razón: te muestra el número de linea en la que está el cambio y el cambio realizado con el antes y el despúes.
 
+## Dia 05/02/2024
+
 ## _FICHERO LASTLOG_
 
 En este apartado vamos a ver qué usuarios se han logueado en el sistema. Para ello, veremos un fichero llamado "lastlog".
 
+## _CAMBIOS EN EL NIVEL DE EJECUCIÓN_
 
+En este apartado vamos a ver en qué "runlevel" (nivel de ejecución) está nuestra máquina. Los "runlevels" no son más que estados específicos del sistema que determinan qué servicios y procesos están activos en un momento dado, en donde 0 es el apagado del sistema y 6 es el reinicio del sistema. Para más información de estos estados, ([pulsa aquí](https://es.wikipedia.org/wiki/Nivel_de_ejecución)).
+
+Para ello vamos a ejecutar el comando "runlevel" en nuestra consola:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08fff0c9831a96de9fa04d5a8885aa71158c2f8f/Hacking_%C3%89tico/runlevel1.png)
+
+vemos que nuestra máquina está en el runlevel 5; lo que significa que está como multiusuario gráfico. En la siguiente foto, al igual que en el enlace anterior, se pueden ver los distintos niveles:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08fff0c9831a96de9fa04d5a8885aa71158c2f8f/Hacking_%C3%89tico/runlevel2.png)
+
+Es importante revisar en qué "runlevel" estamos porque nos da mucha información sobre la configuración actual de nuestro sistema.
+
+## _ELEVACIÓN DE PRIVILEGIOS_
+
+En este apartado, vamos a ver el fichero guardado en apartados anteriores "auth.log". Como ya lo tenemos guardado en nuestra carpeta de evidencias y en principio el fichero se comprobaría en ese mismo momento, podriamos utilizar ese, pero hay que tener en cuenta una cosa muy importante; **la copia del fichero que tenemos guardada, no va a tener la misma información que el fichero original por el simple hecho de que después de la copia se ejecutaron más comandos con sudo y éstos se guardaron en el archivo original y por lo tanto la copia está desactualizada**. Dicho esto, ejecutaremos el siguiente comando sobre el fichero principal, no sobre la copia:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08fff0c9831a96de9fa04d5a8885aa71158c2f8f/Hacking_%C3%89tico/privilegios1.png)
+
+En donde:
+
+1. "sudo cat /var/log/auth.log" -> Simplemente leemos el archivo que le indicamos en la ruta con permisos de       superusuario.
+2. "| grep sudo" -> Utilizamos el comando grep para filtrar, en este caso queremos encontrar la cadena "sud".
+
+La salida es la siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08fff0c9831a96de9fa04d5a8885aa71158c2f8f/Hacking_%C3%89tico/privilegios2.png)
+
+En donde podemos ver que nos aparece la fecha, hora, usuario y el comando que ejecutamos. Una curiosidad que podemos ver es que cada vez que ejecutamos un comando con sudo, se abre una sesión de root y después se cierra.
+
+En este fichero, básicamente lo que tenemos que comprobar es que en la fecha de la intrusión o ataque no se ejecutaron comandos con permisos de superusuario ejecutando scripts, no se cambiaron los permisos de algún fichero, no se intentó copiar algún archivo del sistema o incluso que no se ejecutó un comando que nos parezca extraño.
+
+Es importante decir que en servidores más grandes como servidores de empresas, sería interesante tener una tarea programada en la que se copia el archivo "auth.log" periódicamente (por ejemplo cada hora) a un archivo oculto y cifrado que sólo sepan los administradores del sistema, ya que en un análisis forense, se va a necesitar este fichero lo más íntegro posible (quien tenga conocimientos suficientes sobre sistemas, podrá manipular dicho archivo). En este caso estamos hablando del archivo "auth.log", pero **lo ideal sería guardar una copia de todos los archivos de "/var/log/" en una carpeta oculta y programar dicha tarea para todos**.
+
+## _PAQUETES MODIFICADOS_
+
+En este apartado vamos a comprobar también un archivo que ya tenemos guardado en nuestra carpeta eviencias, que es el "dpkg.log". Vamos a ejecutar el siguiente comando desde la carpeta de usuario:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08fff0c9831a96de9fa04d5a8885aa71158c2f8f/Hacking_%C3%89tico/modif0.png)
+
+En donde:
+
+1. "cat /var/log/dpkg.log" -> Leemos el archivo de la ruta especificada.
+2. "| grep install" -> Utilizamos el comando grep para filtrar, en este caso queremos encontrar la cadena "install".
+
+La salida es la siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08fff0c9831a96de9fa04d5a8885aa71158c2f8f/Hacking_%C3%89tico/modif1.png)
+
+Vemos que nos aparece la fecha, hora y el paquete que este caso se instaló. Hacemos exactamente lo mismo con el upgrade:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08fff0c9831a96de9fa04d5a8885aa71158c2f8f/Hacking_%C3%89tico/modif2.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08fff0c9831a96de9fa04d5a8885aa71158c2f8f/Hacking_%C3%89tico/modif3.png)
+
+En este apartado comprobaremos qué paquetes se han eliminado, instalado o modificado. En mi caso, con el "delete" habría que hacer exactamente lo mismo que el "install" y el "upgrade", pero en mi máquina no hay paquetes eliminados en este momento.
+
+## _BÚSQUEDA DE ARCHIVOS GRANDES_
+
+En este apartado vamos a buscar en nuestro sistema archivos que tengan un tamaño grande, en mi caso voy a poner 1GB como mínimo:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08fff0c9831a96de9fa04d5a8885aa71158c2f8f/Hacking_%C3%89tico/aGrandes1.png)
+
+En donde:
+
+1. "find" -> Es el comando utilizado para buscar archivos y directorios.
+2. "." -> El punto representa el directorio actual y por lo tanto desde donde se empezará la búsqueda.
+3. "-size +1000M" -> Especifica el criterio de búsqueda basado en el tamaño. En este caso, se buscan archivos con un tamaño superior a 1000 megabytes.
+
+La salida es la siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08fff0c9831a96de9fa04d5a8885aa71158c2f8f/Hacking_%C3%89tico/aGrandes2.png)
+
+En donde vemos que nos encuentra el archivo de volcado de memoria que hicimos que apartados anteriores (el volcado era de 2GB, al igual que la RAM de la máquina virtual).
+
+La búsqueda se podría ampliar a todo el sistema, cambiando el "." por el "/" que es el directorio raíz. Evidentemente también podemos cambiar los tamaños de archivo según nuestro criterio.
