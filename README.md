@@ -874,7 +874,15 @@ A mi, en especial me gusta más este último comando, por una sencilla razón: t
 
 ## _FICHERO LASTLOG_
 
-En este apartado vamos a ver qué usuarios se han logueado en el sistema. Para ello, veremos un fichero llamado "lastlog".
+En este apartado vamos a ver qué usuarios se han logueado en el sistema (mediante acceso remoto). Para ello, veremos un fichero llamado "lastlog".
+
+Abrimos una consola de comandos, y simplemente escribimos "lastlog" y le damos a enter. Nos saldrá lo siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/5effafa87137992695a94dd516964f37f7d7baf2/Hacking_%C3%89tico/lastlog1.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/5effafa87137992695a94dd516964f37f7d7baf2/Hacking_%C3%89tico/lastlog2.png)
+
+En donde vemos que nos dice que ningún usuario se ha logueado; y es normal, porque yo en esta máquina estoy logueado de forma gráfica.
 
 ## _CAMBIOS EN EL NIVEL DE EJECUCIÓN_
 
@@ -953,3 +961,7 @@ La salida es la siguiente:
 En donde vemos que nos encuentra el archivo de volcado de memoria que hicimos que apartados anteriores (el volcado era de 2GB, al igual que la RAM de la máquina virtual).
 
 La búsqueda se podría ampliar a todo el sistema, cambiando el "." por el "/" que es el directorio raíz. Evidentemente también podemos cambiar los tamaños de archivo según nuestro criterio.
+
+## Dia 09/03/2024
+
+BÚSQUEDA DE INFORMACIÓN DE VOLATILITY EN WINDOWS Y LINUX (EL VOLCADO DE MEMORIA EN WINDOWS NO ME SUGIERE UN PERFIL PARA PODER EJECUTAR SUS COMANDOS, Y TENGO QUE BUSCAR POR QÚE).
