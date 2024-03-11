@@ -427,21 +427,51 @@ Con todo esto, exportamos todo esto a un fichero mediante botón derecho encima 
 
 ## _USO DE VOLATILITY_
 
-Con esta herramienta vamos a analizar en volcado de memoria que hicimos con la herramienta **Dumpit** en el primer curso. Para ello tendremos que generar u obtener previamente un archivo .raw y situarlo por ejemplo en nuestra carpeta de herramientas. A continuación, descargaremos la herramienta **Volatility** ((Descarga Volatility aqui)[https://www.volatilityfoundation.org/releases]) y colocaremos el ejecutable en la carpeta herramientas. A continuación ejecutaremos el siguiente comando:
+## Dia 11/03/2024
 
-![](https://github.com/emiliogf10/Proyecto-FDC/blob/02f3c86325dd4b760b7db37a5a0c0cf82e737497/Hacking_%C3%89tico/vol1.png)
+Volatility es un framework de código abierto, completamente programado en Python y que tiene como función el análisis forense de la memoria volátil (memoria RAM). Como se verá en el video de la instalación, va a ser necesaria la instalación de Python, asi como algunos ([paquetes complementarios (https://github.com/volatilityfoundation/volatility/wiki/installation)) que nos dicen en el github oficial y un compilador.
 
-En donde "volatilityxxx.exe" es el ejecutable antes mencionado, "imageinfo" es un plugin de Volatility que se utiliza para obtener información sobre la imagen de la memoria, "-f" se utiliza para especificar que a continuación se escribirá un archivo y por último, como acabo de decir, el propio archivo que será el ".raw".El comando en si lo que hace es analizar el volcado de memoria que le damos y muestra información general, como la versión, arquitectura,etc. El resultado del siguiente comando es el siguiente:
+Con esta herramienta vamos a analizar en volcado de memoria que hicimos con la herramienta **Dumpit** en el primer curso. Para ello tendremos que generar u obtener previamente un archivo .raw y situarlo por ejemplo en nuestra carpeta de herramientas. A continuación, descargaremos la herramienta **Volatility** ((Video Tutorial de la descarga del Framework Volatility)[https://www.youtube.com/watch?v=iU9mqB4h3Tg&t=304]).Cuando tengamos completamente instalado Volatility, con todos sus paquetes y por supuesto Python, iremos a la carpeta en donde tengamos la carpeta de volatility y la imagen .raw y ejecutamos el siguiente comando:
 
-![](https://github.com/emiliogf10/Proyecto-FDC/blob/02f3c86325dd4b760b7db37a5a0c0cf82e737497/Hacking_%C3%89tico/vol2.png)
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08ece591b5ef474ad26694494f5e3330db61367d/Hacking_%C3%89tico/vol1.png)
 
-En el apartado "Suggested Profile(s)" nos dice que no hay un perfil aconsejado, entoces tendremos que ver los perfiles que hay y ver cual es el que más nos interesa. Para ello vamos a escribir el siguiente comando:
+En donde "vol.py" es un script de python que es la interfaz principal para utilizar Volatility en la linea de comandos, "imageinfo" es un plugin de Volatility que se utiliza para obtener información sobre la imagen de la memoria, "-f" se utiliza para especificar que a continuación se escribirá un archivo y por último, como acabo de decir, el propio archivo que será el ".raw".El comando en si lo que hace es analizar el volcado de memoria que le damos y muestra información general, como la versión, arquitectura,etc. El resultado del siguiente comando es el siguiente:
 
-![](https://github.com/emiliogf10/Proyecto-FDC/blob/02f3c86325dd4b760b7db37a5a0c0cf82e737497/Hacking_%C3%89tico/vol3.png)
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08ece591b5ef474ad26694494f5e3330db61367d/Hacking_%C3%89tico/vol2.png)
 
-![](https://github.com/emiliogf10/Proyecto-FDC/blob/02f3c86325dd4b760b7db37a5a0c0cf82e737497/Hacking_%C3%89tico/vol4.png)
+En el apartado "Suggested Profile(s)" nos dice que hay un perfil aconsejado; que es el **Win10x64_19041**. Este perfil lo guardaremos porque nos hará falta en futuros comandos. Si nos dijera que no hay ningún perfil aconsejado, entoces tendríamos que ver los perfiles que hay y ver cual es el que más nos interesa. Para ello vamos a escribir el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08ece591b5ef474ad26694494f5e3330db61367d/Hacking_%C3%89tico/vol3.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08ece591b5ef474ad26694494f5e3330db61367d/Hacking_%C3%89tico/vol4.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08ece591b5ef474ad26694494f5e3330db61367d/Hacking_%C3%89tico/vol5.png)
 
 En donde podemos ver que nos da una lista (incompleta porque no cabian todos en pantalla) de los perfiles que hay disponibles, a parte de mas información que ahora mismo no nos interesa.
+
+Ahora vamos a ver unos cuantos comandos en volatility para extraer información de nuestra imagen .raw. Lo primero que vamos a extraer, son los procesos en ejecución en el momento que se hizo la captura de memoria. Ejecutariamos el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08ece591b5ef474ad26694494f5e3330db61367d/Hacking_%C3%89tico/vol6.png)
+
+En donde:
+1. 'vol.py' -> Como se mencionó anteriormente, es un script de python que vamos a utilizar en todos nuestros comandos.
+2. '-f (nombre archivo .raw)' -> Hace referencia al volcado de la memoria (archivo .raw).
+3. '--profile==Win10x64_19041' -> Le indica el perfil del sistema operativo utilizado en el volcado de memoria.
+4. 'pslist' -> Comando específico que le damos a volatility para ejecutar y que en este caso significa que nos liste todos los procesos en ejecución en el momento del volcado de memoria (nos dará nombre, PID,hilos...).
+
+La respuesta a este comando es la siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08ece591b5ef474ad26694494f5e3330db61367d/Hacking_%C3%89tico/vol7.png)
+
+En los comandos posteriores, será todo igual a excepción evidentemente del comando específico que queremos ejecutar. Dicho esto, lo siguiente que vamos a ver es la lista de servicios en ejecución en el momento del volcado. Ejecutaremos el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08ece591b5ef474ad26694494f5e3330db61367d/Hacking_%C3%89tico/vol8.png)
+
+En donde vemos que el comando específico es 'psscan'. La salida es la siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/08ece591b5ef474ad26694494f5e3330db61367d/Hacking_%C3%89tico/vol9.png)
+
+Podemos observar que nos dan todos los servicios en ejecución en el momento del volcado, con su nombre, PID y la fecha y hora en la que se crearon, entre demás información.
 
 # TERCER CURSO : ANÁLISIS FORENSE BÁSICO EN SISTEMAS LINUX (Tiempo de realización: 6-7 dias aproximadamente)
 
