@@ -473,6 +473,32 @@ En donde vemos que el comando específico es 'psscan'. La salida es la siguiente
 
 Podemos observar que nos dan todos los servicios en ejecución en el momento del volcado, con su nombre, PID y la fecha y hora en la que se crearon, entre demás información.
 
+Lo siguiente que vamos a ver, son las ((DLL)[https://programarfacil.com/blog/dll-que-son-y-para-que-sirven/]) que carga cada proceso en el momento del volcado de memoria. Ejecutaremos el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/222f1e29781f46f3edda73b7d3cea53aa272d713/Hacking_%C3%89tico/vol10.png)
+
+En donde vemos que el comando específico a ejecutar es 'dlllist'. La respuesta es la siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/222f1e29781f46f3edda73b7d3cea53aa272d713/Hacking_%C3%89tico/vol11.png)
+
+![]()
+
+En donde podemos ver dos procesos diferentes con algunas de sus 'dll'. Ahora vamos a ver el mismo comando pero filtrando las dll de un proceso en específico. Lo único que hay que hacer es añadirle al comando anterior un PID de un proceso después del comando dlllist:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/222f1e29781f46f3edda73b7d3cea53aa272d713/Hacking_%C3%89tico/vol12.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/222f1e29781f46f3edda73b7d3cea53aa272d713/Hacking_%C3%89tico/vol13.png)
+
+Por último, vamos a ver los servicios que estaban en ejecución en el sistema en el momento del volcado de memoria. Ejecutamos el siguiente comando:
+
+![]((https://github.com/emiliogf10/Proyecto-FDC/blob/222f1e29781f46f3edda73b7d3cea53aa272d713/Hacking_%C3%89tico/vol15.png))
+
+En donde vemos que le añadimos el comando específico 'svcscan'. La salida es la siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/222f1e29781f46f3edda73b7d3cea53aa272d713/Hacking_%C3%89tico/vol15.png)
+
+
+
 # TERCER CURSO : ANÁLISIS FORENSE BÁSICO EN SISTEMAS LINUX (Tiempo de realización: 6-7 dias aproximadamente)
 
 Para estos dos siguientes cursos, voy a crear una máquina virtual Linux, en mi caso una Ubuntu de 2GB de RAM. Dicho esto y con la máquina ya configurada, empezamos con el primer punto:
@@ -995,3 +1021,21 @@ La búsqueda se podría ampliar a todo el sistema, cambiando el "." por el "/" q
 ## Dia 09/03/2024
 
 BÚSQUEDA DE INFORMACIÓN DE VOLATILITY EN WINDOWS Y LINUX (EL VOLCADO DE MEMORIA EN WINDOWS NO ME SUGIERE UN PERFIL PARA PODER EJECUTAR SUS COMANDOS, Y TENGO QUE BUSCAR POR QÚE).
+
+## Dia 12/03/2024
+
+## _USO DE VOLATILITY_
+
+Como bien se dijo en el curso de Windows, Volatility es un framework de código abierto  completamente programado en Python que tiene como función el análisis forense de la memoria volátil (memoria RAM del sistema).
+
+En este apartado, vamos a utilizar esta herramienta para analizar el volcado de memoria que hicimos en el primer apartado de este curso. Para ello, tendremos que instalar una serie de paquetes en nuestra máquina virtual: ((Video tutorial de la instalación de Volatility en Linux)[https://www.youtube.com/watch?v=5-2-ORNC8CA]).
+
+Para empezar a extraer información, debemos averiguar cuál es el perfil de la captura de memoria volátil que se va a analizar. Para ello, situamos el volcado dentro de la  carpeta de volatility y ejecutamos el siguiente comando:
+
+![]()
+
+En donde podemos ver que que hacemos el comando imageinfo del volcado de memoria que ya teniamos. El resultado es el siguiente:
+
+![]()
+
+
