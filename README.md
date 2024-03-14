@@ -1038,4 +1038,31 @@ En donde podemos ver que que hacemos el comando imageinfo del volcado de memoria
 
 ![]()
 
+## Dia 14/03/2024
+
+# QUINTO CURSO : CURSO DE OSINT (Tiempo de realización: 6-7 dias aproximadamente)
+
+## _OSINT_
+
+Antes de nada, vamos a hacer un resumen de lo que va a ser este apartado y vamos a ver unos cuantos conceptos clave.
+
+**¿Qúe es OSINT?**
+
+Las siglas OSINT (Open Source Intelligence) se refiere a la recopilación, análisis y utilización de información que se encuentra disponible públicamente.
+
+Conceptos clave:
+
+1. 'Información' ->Se refiere a datos o hechos que han sido recopilados, almacenados o transmitidos de alguna manera.
+2. 'Inteligencia' -> Es el resultado del procesamiento, análisis y evaluación de la información para generar conocimiento útil y accionable. La finalidad es la toma de decisiones. Este producto llamado inteligencia, se da después de un **proceso cíclico** que mencionaremos más adelante.
+3. 'Ciberinteligencia' -> Aplicar la inteligencia en el ciberespacio. Abarca el ámbito tradicional y tecnológico.
+4. 'Fuente abierta' -> se refiere a cualquier recurso o conjunto de datos que esté disponible públicamente y no requiera acceso restringido o privilegiado para ser consultado, ya sea en papel, fotográfico, sonoro, etc. Ejemplos de fuentes abiertas son una enciclopedia, una rueda de prensa, la radio, un blog o una retransmisión de TV.
+
+Ahora vamos a ver otras tres disciplinas dentro de la inteligencia (este curso se centra en la disciplina OSINT), aunque existen más:
+
+1. 'HUMINT' -> Por sus siglas en inglés (Human Intelligence), es la información de fuentes humanas.
+2. 'SOCMINT' -> Por sus siglas en inglés (Social Media Intelligence), es la inteligencia en las redes sociales.
+3. 'CYBINT' -> Por sus siglas en inglés (Cyber Intelligence), es la inteligencia en el ciberespacio.
+
+
+
 
