@@ -1063,6 +1063,55 @@ Ahora vamos a ver otras tres disciplinas dentro de la inteligencia (este curso s
 2. 'SOCMINT' -> Por sus siglas en inglés (Social Media Intelligence), es la inteligencia en las redes sociales.
 3. 'CYBINT' -> Por sus siglas en inglés (Cyber Intelligence), es la inteligencia en el ciberespacio.
 
+**Ciclo de Inteligencia**
+
+Ahora vamos a ver algo que mencioné antes; y es el ciclo de inteligencia.
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/eeba410f867d36c46c35e24290ad358600072cde/Hacking_%C3%89tico/osint1.png)
+
+Podemos ver que se divide en 6 fases:
+
+1. 'Requisitos' ->Toma de datos con el cliente, recibir toda la información que nos interese, saber cuál es el objetivo de nuestra investigación, saber las necesidades del cliente,etc.
+2. 'Fuentes de información' -> Saber con qué fuentes vamos a trabajar o consultar.
+3. 'Adquisición' -> Obtendremos la información que nos interese.
+4. 'Procesamiento' -> Le daremos un formato a la información que tenemos.
+5. 'Análisis' -> Analizamos la información que tenemos.
+6. 'Inteligencia' -> Producción de inteligencia. Elaboraremos un informe con nuestras conclusiones, perspectivas, etc. Al final de todo, lo que se saca es un producto==inteligencia y su finalidad, es la toma de decisiones.
+
+Este ciclo tiene varias problemáticas; la primera es el exceso de información (hay gran cantidad de fuentes y herramientas, lo que nos lleva a un sobreexceso de información), la segunda es la fiabilidad de las fuentes (es necesario clasificar las fuentes y saber si son fiables) y como última problemática tenemos la información errónea o malintencionada (tenemos que comprobar que la información y saber que está contrastada).
+
+**Credibilidad VS fiabilidad**
+
+En la elección de las fuentes de información, es recomendado utilizar el Sistema Internacional de Fuentes; que es básicamente un sistema para clasificar las fuentes de información. En el SIF, la fiabilidad de la fuente se clasifica de la A-F y la credibilidad del contenido del 1-6. Aqui dejo una muestra de como sería:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/eeba410f867d36c46c35e24290ad358600072cde/Hacking_%C3%89tico/osint2.png)
+
+**Factor humano**
+
+En este punto vamos a resaltar la figura del analista. Hay que tener muy claro que ninguna herramienta va a suplir a un analista humano; ya sea porque las herramientas no nos puedan dar unas conclusiones, no puedan descartar falsos positivos, no van a saber qué es relevante y no, no van a poder darnos una perspectiva, etc.
+
+## _HACKING CON BUSCADORES_
+
+**Google Hacking**
+
+Para empezar este punto es necesario saber que hay diferentes metabuscadores (Un metabuscador consiste en un sistema de búsqueda que nos ofrece una amplia muestra sobre la información que buscamos a través de diferentes motores de búsqueda existentes, tipo Google,Bing,Yahoo...); centrados en una temática o de una zona geográfica concreta. Todos ellos tienen como límite la información pública y usan diferentes operadores de búsqueda.
+
+El buscador más utilizado de todos es **Google** y vamos a ver su búsqueda avanzada, vamos a crear nuestro propio motor de búsqueda y vamos a hablar de la Google Hacking Database.
+
+Vamos a empezar por ver los principales Dorks de Google (símbolos que especifican una consición). A continuación dejo una tabla con los más importantes:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/eeba410f867d36c46c35e24290ad358600072cde/Hacking_%C3%89tico/h1.png)
+
+Vemos que tenemos bastantes dorks para una búsqueda de Google; que serán muy importantes para obtener información específica sobre un tema.
+
+Si nos vamos a Google y seleccionamos la opción de la esquina inferior derecha 'Configuración', podremos acceder a la búsqueda avanzada:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/eeba410f867d36c46c35e24290ad358600072cde/Hacking_%C3%89tico/h2.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/eeba410f867d36c46c35e24290ad358600072cde/Hacking_%C3%89tico/h3.png)
+
+En esta página, se van a aplicar internamente los dorks que vimos anteriormente; pero mucho más fácil de entender para un usuario normal.
+
 
 
 
