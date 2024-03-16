@@ -1102,7 +1102,9 @@ Vamos a empezar por ver los principales Dorks de Google (símbolos que especific
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/eeba410f867d36c46c35e24290ad358600072cde/Hacking_%C3%89tico/h1.png)
 
-Vemos que tenemos bastantes dorks para una búsqueda de Google; que serán muy importantes para obtener información específica sobre un tema.
+Vemos que tenemos bastantes dorks para una búsqueda de Google; que serán muy importantes para obtener información específica sobre un tema. A continuación os dejo una breve descripción de cada uno:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/h4.png)
 
 Si nos vamos a Google y seleccionamos la opción de la esquina inferior derecha 'Configuración', podremos acceder a la búsqueda avanzada:
 
@@ -1111,6 +1113,77 @@ Si nos vamos a Google y seleccionamos la opción de la esquina inferior derecha 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/eeba410f867d36c46c35e24290ad358600072cde/Hacking_%C3%89tico/h3.png)
 
 En esta página, se van a aplicar internamente los dorks que vimos anteriormente; pero mucho más fácil de entender para un usuario normal.
+
+Ahora vamos a ver como crear un motor de búsqueda personalizado. Simplemente ([pulsa aquí para crear uno nuevo](https://programmablesearchengine.google.com/controlpanel/create)). Nos aparecerá la siguiente ventana:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/h5.png)
+
+El motor de búsqueda que crearemos funcionará de la siguientr manera; primero le asignaremos un nombre, que en mi caso va a ser 'Noticias' y en el apartado de 'Sitios web en los que buscar' añadiremos todos los dominios en donde queremos que se busquen nuestras consultas (en mi caso voy a añadir La voz de Galicia, El mundo y El pais):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/h6.png)
+
+Después podemos habilitar la opción de buscar en toda la web en vez de buscar en los domios específicos que hemos especificado y también podemos habilitar la búsqueda por imágenes y la búsqueda segura:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/h7.png)
+
+Le damos a crear y listo:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/h8.png)
+
+Aqui, tendríamos que darle a personalizar y nos aparecerían un montón de propiedades para cambiarle como la región en donde queremos que nos busque, los sitios que queremos que nos excluya (en caso de buscar en toda la web) o el idioma. A nosotros lo que nos interesa es la URL pública para poder utilizarlo:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/h9.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/h10.png)
+
+Si le damos click al enlace vemos que nos redirige a nuestro buscador sencillo. Si buscamos, por ejemplo 'madrid' nos aparecerá lo siguiente (evidentemente aparecerán también anuncios relacionados):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/h11.png)
+
+Nos aparecerán, en este caso, noticias relacionadas con la palabra 'madrid' sólo en 'El pais', 'El mundo' y 'La voz de Galicia'.
+
+Por último en este apartado, vamos a mencionar la 'Google Hacking Database', que no es más que una base de datos de los 'Dorks' mencionados anteriormente que la gente sube:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/h12.png)
+
+En la barra de búsqueda podemos buscar los 'Dorks' por el término de búsqueda o abajo de todo irnos a las categorías:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/h13.png)
+
+Todos estos parámetros de búsqueda nos servirán para ampliar al máximo y especificar nuestra búsqueda de información en fuentes abiertas.
+
+**Dorks en buscadores generalistas**
+
+En este aprtado vamos a ver los 'Dorks' más importantes en algunos navegadores generalistas. Empezaremos con el navegador Bing:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/d1.png)
+
+El siguiente navegador es DuckDuckGo que comparte los operadores habituales pero añade los ([Bangs](https://duckduckgo.com/bangs)), que no son más que atajos de teclado para hacer nuestra búsqueda más completa.
+
+Los últimos son Yandex y Baidu (navegador por región ruso y chino respectivamente). Ambos comparten los operadores habituales.
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/d2.png)
+
+([Pincha en este enlace para ver los Dorks en estos navegadores]([https://drive.google.com/file/d/1GIfRKE0ctkOoqnc2lwGzYu5rh88T4hs8/view))
+
+**Búsqueda inversa de imágenes**
+
+En este aprtado vamos a ver unos buscadores que se emplean para la búsqueda inversa de imágenes; y su utilidad es reconocer las noticias falsas, bulos, suplantaciones de marcas, etc.
+
+Los buscadores tradicionales son Google Imágenes y Yandex Imágenes. Un buscador especializado es TinEye (se centra en el color y texto de la imagen).
+
+Si, por ejemplo, buscamos el logo de OpenWebinars en Google y Yandex, nos van a aparecer resultados e imagenes similares; como las redes sociales, páginas en donde aparezca la imagen o incluso foros:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/i1.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/i2.png)
+
+Finalmente, tenemos TinEye, que buscará en profundidad el logo exacto y nos dirá en donde se muestra:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/i3.png)
+
+**Buscadores tecnológicos**
+
 
 
 
