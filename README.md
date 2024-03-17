@@ -1184,6 +1184,32 @@ Finalmente, tenemos TinEye, que buscará en profundidad el logo exacto y nos dir
 
 **Buscadores tecnológicos**
 
+En este aparatdo vamos a ver buscadores especializados en tecnología. El más usado es [Shodan](https://www.shodan.io).
+
+[Pincha aqui para obtener más información sobre Shodan](https://www.xataka.com/basics/shodan-que-se-puede-usar-este-buscador-dispositivos-conectados-a-internet).
+
+En este navegador también existen Dorks; para filtrar por ciudad, país, dominio, SO, título, etc. Los principales los vamos a encontrar en el fichero del apartado anterior: [pincha aquí para ver el documento](https://drive.google.com/file/d/1GIfRKE0ctkOoqnc2lwGzYu5rh88T4hs8/view).
+
+Ahora, vamos a poner un ejemplo de todo esto. Voy a buscar servidores apache en la ciudad de Madrid (posiblemente requiera un registro previo totalmente gratuito):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/8ba3041f90be8717dd2bb7dbdfacb7c157ea9e76/Hacking_%C3%89tico/bt1.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/8ba3041f90be8717dd2bb7dbdfacb7c157ea9e76/Hacking_%C3%89tico/bt2.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/8ba3041f90be8717dd2bb7dbdfacb7c157ea9e76/Hacking_%C3%89tico/bt3.png)
+
+Podemos ver que en la consulta ponemos primero el tipo de servidor que queremos buscar y despues ponemos la ciudad con el Dork city:Madrid. Podemos observar que nos aparecen 81743 banners (datos que el servidor le devuelve al cliente) de servidores apache en Madrid, con sus IP, nombres de las empresas,si tienen certificado SSL, etc.
+
+Otros buscadores tecnológicos son:
+1. [Zoomeye](https://www.zoomeye.org) -> Es un buscador chino, que necesita registro previo y es muy similar al Shodan.
+2. [Mr.Looquer](https://mrlooquer.com) -> Está desarrollado por expertos en ciberseguridad españoles, centrado en IPV6, uso de [wildcards](https://apunteimpensado.com/wildcards-que-son-para-que-sirven/) y expresiones regulares (esta opción sólo si tienes cuenta premium).
+
+**Buscadores en Deep&Dark Web**
+
+En este apartado vamos a tratar la búsqueda en buscadores de Deep y Dark web. A continuación dejo una imagen que define lo que es cada concepto (los porcentajes son incorrectos; debido a que no se puede saber lo grande que es la Deep y Dark web, incluso la surface web):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/8ba3041f90be8717dd2bb7dbdfacb7c157ea9e76/Hacking_%C3%89tico/dweb1.png)
+
 
 
 
