@@ -1046,7 +1046,7 @@ En donde podemos ver que que hacemos el comando imageinfo del volcado de memoria
 
 Antes de nada, vamos a hacer un resumen de lo que va a ser este apartado y vamos a ver unos cuantos conceptos clave.
 
-**¿Qúe es OSINT?**
+**¿QUE ES OSINT?**
 
 Las siglas OSINT (Open Source Intelligence) se refiere a la recopilación, análisis y utilización de información que se encuentra disponible públicamente.
 
@@ -1063,7 +1063,9 @@ Ahora vamos a ver otras tres disciplinas dentro de la inteligencia (este curso s
 2. 'SOCMINT' -> Por sus siglas en inglés (Social Media Intelligence), es la inteligencia en las redes sociales.
 3. 'CYBINT' -> Por sus siglas en inglés (Cyber Intelligence), es la inteligencia en el ciberespacio.
 
-**Ciclo de Inteligencia**
+## Dia 15/03/2024
+
+**CICLO DE INTELIGENCIA**
 
 Ahora vamos a ver algo que mencioné antes; y es el ciclo de inteligencia.
 
@@ -1080,19 +1082,19 @@ Podemos ver que se divide en 6 fases:
 
 Este ciclo tiene varias problemáticas; la primera es el exceso de información (hay gran cantidad de fuentes y herramientas, lo que nos lleva a un sobreexceso de información), la segunda es la fiabilidad de las fuentes (es necesario clasificar las fuentes y saber si son fiables) y como última problemática tenemos la información errónea o malintencionada (tenemos que comprobar que la información y saber que está contrastada).
 
-**Credibilidad VS fiabilidad**
+**CREDIBILIDAD VS FIABILIDAD**
 
 En la elección de las fuentes de información, es recomendado utilizar el Sistema Internacional de Fuentes; que es básicamente un sistema para clasificar las fuentes de información. En el SIF, la fiabilidad de la fuente se clasifica de la A-F y la credibilidad del contenido del 1-6. Aqui dejo una muestra de como sería:
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/eeba410f867d36c46c35e24290ad358600072cde/Hacking_%C3%89tico/osint2.png)
 
-**Factor humano**
+**FACTOR HUMANO**
 
 En este punto vamos a resaltar la figura del analista. Hay que tener muy claro que ninguna herramienta va a suplir a un analista humano; ya sea porque las herramientas no nos puedan dar unas conclusiones, no puedan descartar falsos positivos, no van a saber qué es relevante y no, no van a poder darnos una perspectiva, etc.
 
 ## _HACKING CON BUSCADORES_
 
-**Google Hacking**
+**GOOGLE HACKING**
 
 Para empezar este punto es necesario saber que hay diferentes metabuscadores (Un metabuscador consiste en un sistema de búsqueda que nos ofrece una amplia muestra sobre la información que buscamos a través de diferentes motores de búsqueda existentes, tipo Google,Bing,Yahoo...); centrados en una temática o de una zona geográfica concreta. Todos ellos tienen como límite la información pública y usan diferentes operadores de búsqueda.
 
@@ -1114,11 +1116,13 @@ Si nos vamos a Google y seleccionamos la opción de la esquina inferior derecha 
 
 En esta página, se van a aplicar internamente los dorks que vimos anteriormente; pero mucho más fácil de entender para un usuario normal.
 
+## Dia 16/03/2024
+
 Ahora vamos a ver como crear un motor de búsqueda personalizado. Simplemente ([pulsa aquí para crear uno nuevo](https://programmablesearchengine.google.com/controlpanel/create)). Nos aparecerá la siguiente ventana:
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/h5.png)
 
-El motor de búsqueda que crearemos funcionará de la siguientr manera; primero le asignaremos un nombre, que en mi caso va a ser 'Noticias' y en el apartado de 'Sitios web en los que buscar' añadiremos todos los dominios en donde queremos que se busquen nuestras consultas (en mi caso voy a añadir La voz de Galicia, El mundo y El pais):
+El motor de búsqueda que crearemos funcionará de la siguiente manera; primero le asignaremos un nombre, que en mi caso va a ser 'Noticias' y en el apartado de 'Sitios web en los que buscar' añadiremos todos los dominios en donde queremos que se busquen nuestras consultas (en mi caso voy a añadir La voz de Galicia, El mundo y El pais):
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/h6.png)
 
@@ -1152,7 +1156,7 @@ En la barra de búsqueda podemos buscar los 'Dorks' por el término de búsqueda
 
 Todos estos parámetros de búsqueda nos servirán para ampliar al máximo y especificar nuestra búsqueda de información en fuentes abiertas.
 
-**Dorks en buscadores generalistas**
+**DORKS EN BUSCADORES ANALISTAS**
 
 En este aprtado vamos a ver los 'Dorks' más importantes en algunos navegadores generalistas. Empezaremos con el navegador Bing:
 
@@ -1166,7 +1170,7 @@ Los últimos son Yandex y Baidu (navegador por región ruso y chino respectivame
 
 ([Pincha en este enlace para ver los Dorks en estos navegadores]([https://drive.google.com/file/d/1GIfRKE0ctkOoqnc2lwGzYu5rh88T4hs8/view))
 
-**Búsqueda inversa de imágenes**
+**BUSQUEDA INVERSA DE IMAGENES**
 
 En este aprtado vamos a ver unos buscadores que se emplean para la búsqueda inversa de imágenes; y su utilidad es reconocer las noticias falsas, bulos, suplantaciones de marcas, etc.
 
@@ -1182,7 +1186,7 @@ Finalmente, tenemos TinEye, que buscará en profundidad el logo exacto y nos dir
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/30737cd6d7de06f79c049b232b0d4dc66d0d235d/Hacking_%C3%89tico/i3.png)
 
-**Buscadores tecnológicos**
+**BUSCADORES TECNOLOGICOS**
 
 En este aparatdo vamos a ver buscadores especializados en tecnología. El más usado es [Shodan](https://www.shodan.io).
 
@@ -1204,11 +1208,133 @@ Otros buscadores tecnológicos son:
 1. [Zoomeye](https://www.zoomeye.org) -> Es un buscador chino, que necesita registro previo y es muy similar al Shodan.
 2. [Mr.Looquer](https://mrlooquer.com) -> Está desarrollado por expertos en ciberseguridad españoles, centrado en IPV6, uso de [wildcards](https://apunteimpensado.com/wildcards-que-son-para-que-sirven/) y expresiones regulares (esta opción sólo si tienes cuenta premium).
 
-**Buscadores en Deep&Dark Web**
+**BUSCADORES EN DEEP&DARK WEB**
 
 En este apartado vamos a tratar la búsqueda en buscadores de Deep y Dark web. A continuación dejo una imagen que define lo que es cada concepto (los porcentajes son incorrectos; debido a que no se puede saber lo grande que es la Deep y Dark web, incluso la surface web):
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/8ba3041f90be8717dd2bb7dbdfacb7c157ea9e76/Hacking_%C3%89tico/dweb1.png)
+
+## Dia 18/03/2024
+
+Antes de conocer a los buscadores más usados, mencionaremos al navegador [TOR](https://www.xataka.com/basics/red-tor-que-como-funciona-como-se-usa), que es un software diseñado para permitir a los usuarios navegar por internet de forma segura y anónima (evidentemente no al 100%; depende de cómo se configure y cómo se use el navegador TOR).
+
+Los principales buscadores son:
+
+1. AHMIA -> Tiene acceso mediante TOR O I2P (capa de abstracción) mediante este enlace : msydqstlz2kzerdg.onion. También tiene acceso mediante los navegadores comunes mediante [este enlace](https://ahmia.fi/).
+2. TORCH -> Tiene acceso mediante TOR O I2P (capa de abstracción) mediante este enlace : xmh57jrzrnw6insl.onion. También tiene acceso mediante los navegadores comunes mediante [este enlace](http://www.torchtorsearch.com/). A diferencia de AHMIA, TORCH dispone de búsqueda avanzada y de medio millón de enlaces .onion.
+
+Otros buscadores son [Onion Link](http://onion.link/), Not Evil, Grams o Candle. Los buscadores que no tienen enlace, es porque tienen enlaces .onion, por lo tanto es necesario instalar el navegador TOR para acceder a ellos.
+
+Es importante mencionar también, un repositorio en donde hay muchos enlaces .onion de diferentes temas. Vamos a ver la Hiden Wiki y para eso descargamos el navegador TOR en una máquina virtual y lo abrimos:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/tor1.png)
+
+Vemos que es como un navegador normal. Activamos la opción de onionizar y pegamos la ruta "zqktlwi4fecvo6ri.onion":
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/tor2.png)
+
+Vemos que el resultado nos lleva como a una 'wikipwdia' llamada The Hidden Wiki. También podemos comprobar que nuestra conexión salta por 3 nodos de 3 países diferentes para enmascarar nuestra identidad. Entramos en la Hidden Wiki y nos aparece lo siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/tor3.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/tor4.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/tor5.png)
+
+Como podemos apreciar es un repositorio en donde aparecen infinidad de enlaces ordenados por temas. Otro repositorio de este tipo es TorLinks:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/tor6.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/tor7.png)
+
+En donde vemos que entro otros enlaces, aparecen los buscadores antes mencionados con una breve descripción.
+
+**RETO: HACKING CON BUSCADORES**
+
+En este apartado vamos a resolver un reto en el que tenemos que comprobar si la información de un tweet es verídica.
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/reto1.png)
+
+El tuit : https://twitter.com/PabloPardo1/status/1008923855954567170
+
+Solución: Dado que el profesor no presenta ninguna solución, yo propongo la mia.
+
+Utilizando la búsqueda inversa de imágenes, guardo la imagen del tweet en mi PC y utilizo Google Imágenes, Yandex y TinEye para buscar coincidencias:
+
+Google Imágenes:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/reto2.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/reto3.png)
+
+Yandex:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/reto4.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/reto5.png)
+
+TinEye:
+
+En TinEye apliqué el filtro de las más antiguas y los resultados son los siguientes:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/reto6.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/reto7.png)
+
+Dados los resultados de la búsqueda, mi conclusión es que el tweet es una 'fake new' debido a que las noticas más antiguas con esa foto datan del año 2014, año en el que el presidente de EEUU era Barack Obama:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/reto8.png)
+
+[Noticia de 2014, El Pais](https://elpais.com/internacional/2014/06/21/album/1403368866_679675.html)
+[Infobae](https://www.infobae.com/america/eeuu/2018/06/21/la-foto-de-2014-que-se-viralizo-como-una-supuesta-evidencia-de-la-actual-crisis-con-los-inmigrantes-en-la-frontera-de-eeuu-y-mexico/)
+[Ok Diario](https://okdiario.com/internacional/utilizan-unas-imagenes-ninos-enjaulados-2014-bajo-mandato-obama-atacar-trump-2456031)
+[Noticia DE 2014, The Objective](https://okdiario.com/internacional/utilizan-unas-imagenes-ninos-enjaulados-2014-bajo-mandato-obama-atacar-trump-2456031)
+
+## _METADATOS_
+
+Los [metadatos](https://www.powerdata.es/metadatos) no son más que datos que describen otros datos. Los metadatos están en todo tipos de ficheros y son dificilmente visibles. Un resumen un poco más completo sería el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/meta1.png)
+
+Para poner un ejemplo, una fotografía puede contener metadatos de dimensión, si se ha activado el flash, gps, fecha de captura, modelo de cámara, etc.
+
+Para ver esto, creamos un fichero o con uno que tengamos (en mi caso una presentación de powerpoint), damos click derecho y propiedades. En el apartado de detalles se nos muestra un montón de información:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/meta2.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/meta3.png)
+
+Para eliminar esta información, le damos a la opción en azul de quitar propiedades e información personal y se nos abrirá otra ventana:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/meta4.png)
+
+En donde seleccionamos los datos que queremos eliminar o la opción de seleccionar todos (se eliminarán todos los que se puedan porque hay metadatos como la fecha de creación, tiempo de edición, último guardado, etc que no se pueden eliminar):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/meta5.png)
+
+Y vemos que ya no aparecen.
+
+**HERRAMIENTAS PARA LA EXTRACCIÓN DE METADATOS: ExifTool**
+
+En esta lección vamos a hablar de una herramienta específica para la extracción de metadatos; su nombre es ExifTool.
+
+Esta herramienta nos permite obtener, editar y eliminar metadatos de casi la totalidad de todos los ficheros. La podemos utilizar tanto en linea de comandos como en entorno gráfico. Para ello, antes de nada instalamos la herramienta que viene adjunta al curso (son dos zip, que hay que extraer):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/exif1.png)
+
+En un zip solo hay un archivo, que tendremos que mover a la carpeta del otro zip (ya extraído), como se ve en la imagen anterior.
+A continuación ejecutamos **en modo administrador** el ExifToolGUI:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/exif2.png)
+
+
+
+
+
+
+
+
+
 
 
 
