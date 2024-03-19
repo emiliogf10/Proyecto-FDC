@@ -1327,6 +1327,64 @@ A continuación ejecutamos **en modo administrador** el ExifToolGUI:
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/643d856c05fc814092817f4413992921b9463562/Hacking_%C3%89tico/exif2.png)
 
+## Dia 19/03/2024
+
+Vemos a ver por ejemplo un archivo de texto que voy a crear, le voy a introducir una frase y lo guardaré como prueba.txt:
+
+![]()
+
+Vemos que el programa se divide en varias ventanas; la de la ruta (en donde se puede ver todo el árbol de directorios de nuestro PC), la de la previsualización (que en este caso está vacia porque es un archivo de texto llano), la de los ficheros (en donde eliges el fichero) y la de los metadatos. En esta última, nos vamos a la pestaña de ALL para ver todos los metadatos asociados a este fichero. En este caso hay muy pocos metadatos, pero en otros puede haber infinidad de ellos. Ahora vamos a ver el caso de una imagen; en donde vamos a ver que aparecen muchos más metadatos:
+
+![]()
+
+Vemos que en la ventana de previsualización ya vemos la imagen y en la ventana de metadatos ya aparecen bastantes más que en el caso anterior. Esta imagen fue descargada de internet, por lo tanto seguramente le hayan eliminado metadatos importantes; pero si la foto estuviera intacta, podrían aparecer datos como el modelo del móvil, la marca, la latitud y longitud de donde se sacó la foto, el sistema operativo, etc.
+
+Con esto queremos sacar una conclusión y es que hay que tener mucho cuidado con las imágenes que se envian, por ejemplo por correo. Dichas imágenes tienen diversos metadatos que alguien de forma maliciosa puede usar en nuestra contra. Por otra parte decir que las redes sociales suelen borrar estos metadatos cuando subimos las fotos.
+
+Volviendo a la herramienta, en el apartado de workspace, podremos editar los metadatos que nos interesen o eliminarlos. Después guardamos los cambios y las personas que vean esta foto, la verá con los metadatos que nosotros queremos:
+
+![]()
+
+**HERRAMIENTAS PARA LA EXTRACCIÓN DE METADATOS: Foca**
+
+En este apartado vamos a utilizar la herramienta Foca (Fingerprint Organizations with Collected Archives) en español 
+Organizaciones de huellas dactilares con archivos recopilados, es una herramienta que ha sido creada por ElevenPaths, 
+ciberseguridad de Telefónica. Esta herramienta nos permitirá la descarga, extracción y análisis de metadatos de un dominio. También podemos utilizarla como ExifTool, subiendo un archivo local y analizando sus metadatos. Foca emplea 3 buscadores: Google, Bing y DuckDuckGo (antiguamente Exalated). Podemos indicarle que busque en los 3 o que busque en 1 o 2. A continuación dejo 2 links, uno de descarga y otro de Github:
+
+[Link de descarga](https://cybersecuritycloud.telefonicatech.com/innovacion-labs/tecnologias-innovacion/foca)
+
+[Github ElevenPaths: Foca](https://github.com/ElevenPaths/FOCA)
+
+Desde el github, descargamos la útima versión de Foca y descomprimimos el zip. Hay que comprobar que tuvieramos todos los requisitos instalados (están en el apartado de 'Requisites' en el readme de github y en mi caso si que tengo todo instalado) y procederemos a abrir el ejecutable:
+
+![]()
+
+![]()
+
+Lo primero que tenemos que hacer es crear un proyecto. Para ello, nos vamos a la primera opción de la esquina superior izquierda, y seleccionamos new project (o simplemente en la pestaña principal). Seleccionamos el dominio que queremos analizar; en mi caso realmadrid.com. Después elegimos la ruta en donde se nos creará el proyecto y le damos a crear:
+
+![]()
+
+Podemos ver que en la interfaz principal de Foca, en custom search, esta búsqueda se basan en los Dorks mencionados en apartados anteriores; utilizando site:dominio que le hemos dicho e internamente filetype:extensión de archivo:
+
+![]()
+
+También podemos ver en la esquina superior derecha, tres checkboxes para seleccionar en qué navegadores de los 3 mencionados anteriormente buscará:
+
+![]()
+
+Y por supuesto, también tendremos la opción de seleccionar el tipo de archivos a buscar:
+
+![]()
+
+Ahora, le damos al botón de search y se iniciará la búsqueda:
+
+**PROBLEMAS CON FOCA**
+
+
+
+
+
 
 
 
