@@ -1331,11 +1331,11 @@ A continuación ejecutamos **en modo administrador** el ExifToolGUI:
 
 Vemos a ver por ejemplo un archivo de texto que voy a crear, le voy a introducir una frase y lo guardaré como prueba.txt:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a58f0acf4f232939a16a776e3a26045bfe8638b4/Hacking_%C3%89tico/exif3.png)
 
 Vemos que el programa se divide en varias ventanas; la de la ruta (en donde se puede ver todo el árbol de directorios de nuestro PC), la de la previsualización (que en este caso está vacia porque es un archivo de texto llano), la de los ficheros (en donde eliges el fichero) y la de los metadatos. En esta última, nos vamos a la pestaña de ALL para ver todos los metadatos asociados a este fichero. En este caso hay muy pocos metadatos, pero en otros puede haber infinidad de ellos. Ahora vamos a ver el caso de una imagen; en donde vamos a ver que aparecen muchos más metadatos:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a58f0acf4f232939a16a776e3a26045bfe8638b4/Hacking_%C3%89tico/exif4.png)
 
 Vemos que en la ventana de previsualización ya vemos la imagen y en la ventana de metadatos ya aparecen bastantes más que en el caso anterior. Esta imagen fue descargada de internet, por lo tanto seguramente le hayan eliminado metadatos importantes; pero si la foto estuviera intacta, podrían aparecer datos como el modelo del móvil, la marca, la latitud y longitud de donde se sacó la foto, el sistema operativo, etc.
 
@@ -1343,13 +1343,13 @@ Con esto queremos sacar una conclusión y es que hay que tener mucho cuidado con
 
 Volviendo a la herramienta, en el apartado de workspace, podremos editar los metadatos que nos interesen o eliminarlos. Después guardamos los cambios y las personas que vean esta foto, la verá con los metadatos que nosotros queremos:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a58f0acf4f232939a16a776e3a26045bfe8638b4/Hacking_%C3%89tico/exif5.png)
 
 **HERRAMIENTAS PARA LA EXTRACCIÓN DE METADATOS: Foca**
 
 En este apartado vamos a utilizar la herramienta Foca (Fingerprint Organizations with Collected Archives) en español 
 Organizaciones de huellas dactilares con archivos recopilados, es una herramienta que ha sido creada por ElevenPaths, 
-ciberseguridad de Telefónica. Esta herramienta nos permitirá la descarga, extracción y análisis de metadatos de un dominio. También podemos utilizarla como ExifTool, subiendo un archivo local y analizando sus metadatos. Foca emplea 3 buscadores: Google, Bing y DuckDuckGo (antiguamente Exalated). Podemos indicarle que busque en los 3 o que busque en 1 o 2. A continuación dejo 2 links, uno de descarga y otro de Github:
+ciberseguridad de Telefónica. Esta herramienta nos permitirá la descarga, extracción y análisis de metadatos de un dominio. También podemos utilizarla como ExifTool, subiendo un archivo local y analizando sus metadatos (sólo vamos a ver la primera opción). Foca emplea 3 buscadores: Google, Bing y DuckDuckGo (antiguamente Exalated). Podemos indicarle que busque en los 3 o que busque en 1 o 2. A continuación dejo 2 links, uno de descarga y otro de Github:
 
 [Link de descarga](https://cybersecuritycloud.telefonicatech.com/innovacion-labs/tecnologias-innovacion/foca)
 
@@ -1357,39 +1357,65 @@ ciberseguridad de Telefónica. Esta herramienta nos permitirá la descarga, extr
 
 Desde el github, descargamos la útima versión de Foca y descomprimimos el zip. Hay que comprobar que tuvieramos todos los requisitos instalados (están en el apartado de 'Requisites' en el readme de github y en mi caso si que tengo todo instalado) y procederemos a abrir el ejecutable:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a58f0acf4f232939a16a776e3a26045bfe8638b4/Hacking_%C3%89tico/foca1.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a58f0acf4f232939a16a776e3a26045bfe8638b4/Hacking_%C3%89tico/foca2.png)
 
-Lo primero que tenemos que hacer es crear un proyecto. Para ello, nos vamos a la primera opción de la esquina superior izquierda, y seleccionamos new project (o simplemente en la pestaña principal). Seleccionamos el dominio que queremos analizar; en mi caso realmadrid.com. Después elegimos la ruta en donde se nos creará el proyecto y le damos a crear:
+Lo primero que tenemos que hacer es crear un proyecto. Para ello, nos vamos a la primera opción de la esquina superior izquierda, y seleccionamos new project (o simplemente en la pestaña principal). Primero le damos un nombre (en mi caso Asus), y seleccionamos el dominio que queremos analizar; en mi caso asus.com. Después elegimos la ruta en donde se nos creará el proyecto y le damos a crear:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a58f0acf4f232939a16a776e3a26045bfe8638b4/Hacking_%C3%89tico/foca3.png)
 
-Podemos ver que en la interfaz principal de Foca, en custom search, esta búsqueda se basan en los Dorks mencionados en apartados anteriores; utilizando site:dominio que le hemos dicho e internamente filetype:extensión de archivo:
+Podemos ver que en la interfaz principal de Foca, en custom search, esta búsqueda se basan en los Dorks mencionados en apartados anteriores; utilizando site:dominio que le hemos dicho y filetype:extensión de archivo:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a58f0acf4f232939a16a776e3a26045bfe8638b4/Hacking_%C3%89tico/foca4.png)
 
 También podemos ver en la esquina superior derecha, tres checkboxes para seleccionar en qué navegadores de los 3 mencionados anteriormente buscará:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a58f0acf4f232939a16a776e3a26045bfe8638b4/Hacking_%C3%89tico/foca5.png)
 
 Y por supuesto, también tendremos la opción de seleccionar el tipo de archivos a buscar:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a58f0acf4f232939a16a776e3a26045bfe8638b4/Hacking_%C3%89tico/foca6.png)
 
 Ahora, le damos al botón de search y se iniciará la búsqueda:
 
-**PROBLEMAS CON FOCA**
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a58f0acf4f232939a16a776e3a26045bfe8638b4/Hacking_%C3%89tico/foca7.png)
 
+## Dia 20/03/2024
 
+Vemos que nos encuentra un montón de archivos; en concreto 24. A continuación procedemos a descargarlos todos (botón derecho encima de cualquier fichero y seleccionamos la opción 'Download all'):
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a58f0acf4f232939a16a776e3a26045bfe8638b4/Hacking_%C3%89tico/foca8.png)
 
+Ahora vamos a extraer todos los metadatos de los ficheros (botón derecho encima de cualquier fichero y seleccionamos la opción 'Extract all metadata') y vamos a ver cómo se clasifican según su categoría en el árbol de la izquierda:
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a58f0acf4f232939a16a776e3a26045bfe8638b4/Hacking_%C3%89tico/foca9.png)
 
+En este punto, ya tendremos todos los metadatos extraídos y deberemos analizarlos todos.
 
+**RETO: METADATOS**
 
+El reto es el siguiente:
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a58f0acf4f232939a16a776e3a26045bfe8638b4/Hacking_%C3%89tico/retoMeta1.png)
 
+Deberemos verificar la veracidad del tweet aplicando Google Hacking.
+
+Mi solución: El profesor no plantea una solución; asi que ahí va la mia. Primeramente fui a Google y busqué el documento del Plan Económico-Financiero 2012-2014 de la comunidad de Madrid. La idea es ver cuál es exactamente la fecha de creación del mismo para saber cuándo se conocieron estos hechos. Abriendo el archivo con ExifTool, veo lo siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a58f0acf4f232939a16a776e3a26045bfe8638b4/Hacking_%C3%89tico/retoMeta2.png)
+
+Veo que la fecha exacta de creación del documento es el 14 de Mayo de 2012, que cuadra en un Lunes. Dicho esto, puedo decir que la información del tweet es falsa; debido a que el consejero dice que en cuanto el documento fue definitivo (el Lunes 14 de Mayo), dio una rueda de prensa, pero añade que fue un Viernes, no el Lunes 12 de la fecha de creación del documento.
+
+## _HERRAMIENTAS_
+
+**ENTORNO**
+
+En este apartado, vamos a configurar el entorno. En este caso, voy a instalar una máquina virtual Kali Linux que se puede descargar desde [aquí](https://www.tracelabs.org/initiatives/osint-vm#downloads). Le cambiamos el idioma al teclado y ejecutamos 'sudo apt-get update' y 'sudo apt-get upgrade' para actualizar nuestra máquina.
+
+Con la máquina ya instalada, podemos ir a por el siguiente apartado.
+
+**OSR FRAMEWORK P1**
 
 
 
