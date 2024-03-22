@@ -1411,13 +1411,29 @@ Veo que la fecha exacta de creación del documento es el 14 de Mayo de 2012, que
 
 **ENTORNO**
 
-En este apartado, vamos a configurar el entorno. En este caso, voy a instalar una máquina virtual Kali Linux que se puede descargar desde [aquí](https://www.tracelabs.org/initiatives/osint-vm#downloads). Le cambiamos el idioma al teclado y ejecutamos 'sudo apt-get update' y 'sudo apt-get upgrade' para actualizar nuestra máquina.
+En este apartado, vamos a configurar el entorno. En este caso, voy a instalar una máquina virtual llamada Huron; que es parecida a la máquina que nos dice en el video que es Buscador de Michael Bazzell y se puede descargar desde [aquí](https://github.com/HuronOsint/OsintDistro). La máquina ya viene configurada con todas las herramientas, pero vamos a ejecutar 'sudo apt-get update' y 'sudo apt-get upgrade' para actualizar nuestra máquina.
 
-Con la máquina ya instalada, podemos ir a por el siguiente apartado.
+Esta máquina cuenta con herramientas como TOR browser, Maltego (herramienta de minería de datos de OSINT), Creepy (herramienta de geolocalización en Twitter, ahora X) o Tinfoleak (herramienta enfocada a la extracción de información de Twitter).
+
+Con la máquina ya lista, podemos ir a por el siguiente apartado.
 
 **OSR FRAMEWORK P1**
 
+## Dia 22/03/2024
 
+En este apartado vamos a tratar una de las herramientas más completas para extraer información en OSINT. Dicha herramienta es OSRFramework (Open Sources Research Framework). Está desarrollada por Féix Brezo, (@febrezo) y Yaiza Rubio, (@yrubiosec), grupo i3Visio, analistas de ElevenPaths (ciberseguridad de Telefonica).
+
+Vamos a poder trabajar con hasta 279 plataformas diferentes. Para ello, necesitaremos que en nuestra máquina esté instalado python2.7 (en hurón ya viene por defecto). 
+
+En caso de que nuestrá máquina no tuviera OSRFramework, iremos a su [github](https://github.com/i3visio/osrframework) y descargaremos el .zip.
+
+Cuando tengamos la herramienta lista, tendrá una serie de funcionalidades que podremos utilizar:
+
+![]()
+
+![]()
+
+Vemos que tenemos distintas funcionalidades
 
 
 
