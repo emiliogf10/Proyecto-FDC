@@ -1429,11 +1429,72 @@ En caso de que nuestrá máquina no tuviera OSRFramework, iremos a su [github](h
 
 Cuando tengamos la herramienta lista, tendrá una serie de funcionalidades que podremos utilizar:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr1.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr2.png)
 
-Vemos que tenemos distintas funcionalidades
+Vemos que tenemos distintas funcionalidades; la primera de ellas es la de encontrar un nombre de usuario en las plataformas antes mencionadas (hasta 279). Son las siguientes:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr3.png)
+
+## Dia 23/03/2024
+
+Y para buscar por ejemplo en dos de ellas, aplicaremos el siguiente comando (en mi caso voy a utilizar instagram, en donde si que tiene que haber 1 resultado y coinbase en donde no):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr4.png)
+
+En donde el comando es general y solo cambias el nombre de usuario y la plataforma. Se usa usufy.py porque es el script que busca el nombre de usuario que le indicas y en la plataforma también indicada. El resultado es el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr5.png)
+
+Vemos que el resultado es cómo esperabamos y hay una coincidencia. Vamos a ver el resultado con la plataforma coinbase:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr6.png)
+
+El resultado también es el esperado y no hay ninguna coincidencia. Este script también tiene la posibilidad de buscar en todas las plataformas; poniendo all. También se nos creará un fichero en nuestra carpeta personal con los resultados (se llamará profiles.csv).
+
+Seguidamente vamos con el siguiente script; que es el alias_generator. Este script nos crea diferentes 'alias' a partir de información que le damos. Ejecutamos el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr7.png)
+
+En donde nos empezaran a pedir una serie de datos. Si no queremos introducir algunos campos, lo dejamos en blanco y le damos a enter. En el último apartado, añadimos cosas relacionadas separadas por ',' (en mi caso voy a poner colegiovivas):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr8.png)
+
+Y le damos a enter para que nos de los resultados (se creará un archivo en nuestra carpeta personal con los resultados):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr9.png)
+
+Vemos que creó 146 resultados y que creó un fichero llamado 'output.txt':
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr10.png)
+
+Y los alias son los siguientes (captura de la consola):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr11.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr12.png)
+
+Vemos que creó diferentes combinaciones para la información que le dimos previamente (no se muestran todos los resultados).
+
+El siguiente script es mailfy.py; que lo que hace es enfrentar el nombre que le damos con hasta 28 provedores de correo diferentes y comprobar si la cuenta se encuentra en leaks (esto significa comprobar si la cuenta ha estado comprometida en una brecha de seguridad). El problema de este script es que la API de la web en las que hace las consultas, ahora es de pago, con lo cual no vamos a poder acceder. Lo que si que voy a mostrar son las combinaciones:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr13.png)
+
+Lo que haría a continuación es comprobar una a una si la cuenta se encuentra en leaks y nos lo mostraría. A parte, nos mostraría en qué sitios hubo una filtración y se añadirían los resultados al fichero creado en el script usufy.py.
+
+Vamos con el siguiente script que es searchfy.py. Lo que hace este script; es básicamente, buscar un nombre y apellidos en 6 plataformas diferentes:
+Las plataformas son las siguientes:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr14.png)
+
+Y el comando sería el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr15.png)
+
+En donde primero iría el script searchfy.py, después las plataformas en donde queremos buscar las coincidencias (en mi caso en todas) y por último el nombre y apellidos que queremos buscar. El resultado sería el siguiente:
+
+
 
 
 
