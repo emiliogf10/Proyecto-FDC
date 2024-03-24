@@ -1417,7 +1417,7 @@ Esta máquina cuenta con herramientas como TOR browser, Maltego (herramienta de 
 
 Con la máquina ya lista, podemos ir a por el siguiente apartado.
 
-**OSR FRAMEWORK P1**
+**OSR FRAMEWORK**
 
 ## Dia 22/03/2024
 
@@ -1432,6 +1432,8 @@ Cuando tengamos la herramienta lista, tendrá una serie de funcionalidades que p
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr1.png)
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr2.png)
+
+Podemos acceder a las ayudas de los distintos scripts mediante el nombre del script y '--help'; por ejemplo **'usufy --help'**.
 
 Vemos que tenemos distintas funcionalidades; la primera de ellas es la de encontrar un nombre de usuario en las plataformas antes mencionadas (hasta 279). Son las siguientes:
 
@@ -1477,26 +1479,60 @@ Y los alias son los siguientes (captura de la consola):
 
 Vemos que creó diferentes combinaciones para la información que le dimos previamente (no se muestran todos los resultados).
 
-El siguiente script es mailfy.py; que lo que hace es enfrentar el nombre que le damos con hasta 28 provedores de correo diferentes y comprobar si la cuenta se encuentra en leaks (esto significa comprobar si la cuenta ha estado comprometida en una brecha de seguridad). El problema de este script es que la API de la web en las que hace las consultas, ahora es de pago, con lo cual no vamos a poder acceder. Lo que si que voy a mostrar son las combinaciones:
+El siguiente script es mailfy.py; que lo que hace es enfrentar el nombre que le damos con hasta 28 provedores de correo diferentes y comprobar si la cuenta se encuentra en leaks (esto significa comprobar si la cuenta ha estado comprometida en una brecha de seguridad). El problema de este script es que la API de la web en las que hace las consultas, ahora es de pago, con lo cual no vamos a poder acceder. Lo que si que voy a mostrar es el comando y las combinaciones:
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr13.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr14.png)
 
 Lo que haría a continuación es comprobar una a una si la cuenta se encuentra en leaks y nos lo mostraría. A parte, nos mostraría en qué sitios hubo una filtración y se añadirían los resultados al fichero creado en el script usufy.py.
 
 Vamos con el siguiente script que es searchfy.py. Lo que hace este script; es básicamente, buscar un nombre y apellidos en 6 plataformas diferentes:
 Las plataformas son las siguientes:
 
-![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr14.png)
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr15.png)
 
 Y el comando sería el siguiente:
 
-![](https://github.com/emiliogf10/Proyecto-FDC/blob/919843c02fe3978d43851958f10f51700dea5550/Hacking_%C3%89tico/osr15.png)
+## Dia 24/03/2024
 
-En donde primero iría el script searchfy.py, después las plataformas en donde queremos buscar las coincidencias (en mi caso en todas) y por último el nombre y apellidos que queremos buscar. El resultado sería el siguiente:
+![]()
 
+En donde primero iría el script searchfy.py, después las plataformas en donde queremos buscar las coincidencias (en mi caso en todas) y por último el nombre y apellidos que queremos buscar. El resultado tendría que arrojar una seria de perfiles en instagram que tuvieran el nombre Emilio Garcia en su biografía por ejemplo (da igual que el nombre de usuario sea distinto); pero el script me dice que no hubo coincidencias.
 
+![]()
 
+El siguiente script es phonefy.py; que lo que haces es básicamente ver si un número de teléfono dado está reportado como spam teléfonico. El comando es el siguiente:
 
+![]()
+
+Y le damos a enter para que nos diga si el número es SPAM:
+
+![]()
+
+Efectivamente, este número está reportado en 3 plataformas como spam (por comentarios de usuarios que han recibido llamadas del mismo número). Estos resultados los añade también al archivo profiles.csv.
+
+El siguiente script es entify.py, que busca expresiones regulares de un sitio web (se pueden buscar hasta 12 tipos de expresiones regulares diferentes). Vamos a ejecutar el siguiente comando:
+
+![]()
+
+Y el resultado sería el siguiente:
+
+![]()
+
+El resultado también podriamos verlo en el archivo profiles.csv.
+
+El último script que vamos a ver es domainfy.py; que nos va a enfrentar un nombre con hasta 844 [TLD](https://kinsta.com/es/base-de-conocimiento/que-es-un-tld/) diferentes y nos va a decir si existe alguno. En mi caso voy a ejecutar el script con el nombre colegiovivas porque sé que existe un dominio denominado colegivivas.com:
+
+![]()
+
+![]()
+
+Vemos que efectivamente aparece el dominio colegiovivas.com. El resultado se guardará en profiles.csv.
+
+OSRFramework dispone de más funcionalidades como la de crear tu propio script en python con su mismo formato y añadirlo (esto es para gente más avanzada y que necesita más funcionalidades de las que ya tiene la herramienta).
+
+**MALTEGO**
 
 
 
