@@ -1534,6 +1534,43 @@ OSRFramework dispone de más funcionalidades como la de crear tu propio script e
 
 **MALTEGO**
 
+En este apartado vamos a ver una herramienta que ya tenemos en nuestra máquina hurón. La herramienta en cuestión es Maltego; que nos servirá para encontrar relaciones entre piezas de información ubicadas en diversas fuentes en internet (minería de datos). Esta herramienta utiliza un concepto que es **Transformadas**, que no es más que una aplicación que va a realizar determinadas acciones en función de unos datos de entrada.
+
+Vamos a utilizar la versión Comunnity (CE,versión gratuíta) y es necesario el registro previo. Por lo tanto, nos creamos una cuenta y actualizamos a la última versión de Maltego.
+
+Cuando abrimos maltego por primera vez, nos aparece una ventana en donde descargar trandsformadas; nosotros por defecto vamos a descargar las que nos dice en el curso (sólo las que están disponibles):
+
+![]()
+
+![]()
+
+![]()
+
+En total descargamos 5 paquetes. Ahora vamos a crear una nueva investigación; vamos al menú superior, y en la primera opción 'Investigate', le damos al botón 'New' y se nos creará un nuevo proyecto:
+
+![]()
+
+Ahora tenemos que seleccionar sobre qué vamos a trabajar; en nuestro caso, un dominio. Por lo tanto, en el menú de la izquierda buscamos 'Domain' y arrastramos el objeto a la hoja de proyecto:
+
+![]()
+
+Como podemos ver, yo ya le cambié el dominio (hacemos doble click encima del dominio y le ponemos openwebinars). Ahora tenemos que seleccionar qué queremos que haga. Si le damos click derecho encima del dominio, nos aparecerán las transformadas que hemos descargado anteriormente:
+
+![]()
+
+Nostros como primera prueba, vamos a ir a la opción de 'standard transforms' (que son las transformadas por defecto de Maltego) y vamos a escoger la opción 'Domain owner detail', que nos va a dar todos los detalles del dueño del dominio (si no encontramos la opción, la podemos buscar en la barra de búsqueda). Para que empiece a correr el proyecto, tendremos que darle a la flecha que tiene cada opción (Run all):
+
+![]()
+
+![]()
+
+Vemos que el resultado es un gráfico, pero podemos verlo en formato lista dándole en el menú vertical de 'View' a la opción 'List View':
+
+![]()
+
+
+
+
 
 
 
