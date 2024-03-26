@@ -1494,39 +1494,39 @@ Las plataformas son las siguientes:
 
 Y el comando sería el siguiente:
 
-## Dia 24/03/2024
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/osr23.png)
 
-![]()
+## Dia 24/03/2024
 
 En donde primero iría el script searchfy.py, después las plataformas en donde queremos buscar las coincidencias (en mi caso en todas) y por último el nombre y apellidos que queremos buscar. El resultado tendría que arrojar una seria de perfiles en instagram que tuvieran el nombre Emilio Garcia en su biografía por ejemplo (da igual que el nombre de usuario sea distinto); pero el script me dice que no hubo coincidencias.
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/osr16.png)
 
 El siguiente script es phonefy.py; que lo que haces es básicamente ver si un número de teléfono dado está reportado como spam teléfonico. El comando es el siguiente:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/osr17.png)
 
 Y le damos a enter para que nos diga si el número es SPAM:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/osr18.png)
 
 Efectivamente, este número está reportado en 3 plataformas como spam (por comentarios de usuarios que han recibido llamadas del mismo número). Estos resultados los añade también al archivo profiles.csv.
 
 El siguiente script es entify.py, que busca expresiones regulares de un sitio web (se pueden buscar hasta 12 tipos de expresiones regulares diferentes). Vamos a ejecutar el siguiente comando:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/osr19.png)
 
 Y el resultado sería el siguiente:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/osr20.png)
 
 El resultado también podriamos verlo en el archivo profiles.csv.
 
 El último script que vamos a ver es domainfy.py; que nos va a enfrentar un nombre con hasta 844 [TLD](https://kinsta.com/es/base-de-conocimiento/que-es-un-tld/) diferentes y nos va a decir si existe alguno. En mi caso voy a ejecutar el script con el nombre colegiovivas porque sé que existe un dominio denominado colegivivas.com:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/osr21.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/osr22.png)
 
 Vemos que efectivamente aparece el dominio colegiovivas.com. El resultado se guardará en profiles.csv.
 
@@ -1540,37 +1540,139 @@ Vamos a utilizar la versión Comunnity (CE,versión gratuíta) y es necesario el
 
 Cuando abrimos maltego por primera vez, nos aparece una ventana en donde descargar trandsformadas; nosotros por defecto vamos a descargar las que nos dice en el curso (sólo las que están disponibles):
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego1.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego2.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego3.png)
 
 En total descargamos 5 paquetes. Ahora vamos a crear una nueva investigación; vamos al menú superior, y en la primera opción 'Investigate', le damos al botón 'New' y se nos creará un nuevo proyecto:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego4.png)
 
 Ahora tenemos que seleccionar sobre qué vamos a trabajar; en nuestro caso, un dominio. Por lo tanto, en el menú de la izquierda buscamos 'Domain' y arrastramos el objeto a la hoja de proyecto:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego5.png)
 
 Como podemos ver, yo ya le cambié el dominio (hacemos doble click encima del dominio y le ponemos openwebinars). Ahora tenemos que seleccionar qué queremos que haga. Si le damos click derecho encima del dominio, nos aparecerán las transformadas que hemos descargado anteriormente:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego6.png)
 
 Nostros como primera prueba, vamos a ir a la opción de 'standard transforms' (que son las transformadas por defecto de Maltego) y vamos a escoger la opción 'Domain owner detail', que nos va a dar todos los detalles del dueño del dominio (si no encontramos la opción, la podemos buscar en la barra de búsqueda). Para que empiece a correr el proyecto, tendremos que darle a la flecha que tiene cada opción (Run all):
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego7.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego8.png)
 
 Vemos que el resultado es un gráfico, pero podemos verlo en formato lista dándole en el menú vertical de 'View' a la opción 'List View':
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego9.png)
+
+## Dia 26/03/2024
+
+Vemos que de la información recopilada, podemos encontrarnos con números de teléfono, direcciones de correo y organizaciones o compañías. Si queremos ver de donde viene toda esta información, hacemos click sobre el dominio openwebinars y nos vamos al menú inferior de la derecha. En donde pone 'WHOIS info', hacemos click en los puntos suspensivos:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego10.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego11.png)
+
+Aqui vemos que tenemos la información categorizada; y es posible gracias a laz expresiones regulares que se ejcutan sobre el dominio y extraen la información.
+
+Ahora vamos a ejecutar todas las transformadas de Maltego del dominio openwebinars.com (nos va a ofrecer información sobre la infraestructura del dominio). Para ello, borramos todos los datos anteriores y nos quedamos sólo con el dominio. Al igual que antes, click derecho encima del dominio y esta vez elegimos la primera opción; 'All transforms' y le damos a la flechita. El resultado será el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego12.png)
+
+Vemos que no se puede ver toda la información en formato gráfico, por lo que vamos a optar por verla en formato tabla para que sea más cómodo:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego13.png)
+
+La información que nos da ahora, es mucho más extensa que la que nos dio antes; ahora nos da subdominios, más compañías, más nombres de dominio y más direcciones de correo (entre otra información). El objetivo de esta herramienta, es ir recavando inforamción y ejecutando más transformadas de la información que nos interese; y de ahí, sacar conclusiones.
+
+No solo se puede trabajar con dominios, se puede trabajar con infinidad de cosas y nosotros ahora vamos a probar con un alias (nombre de usuario). Para ello, yo en mi caso, creo un nuevo proyecto y busco en la barra de búsqueda del menú de la izquierda 'Alias', y lo añado al proyecto:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego14.png)
+
+Yo voy a buscar información, por ejemplo, del usuario 'colegiovivas', y en concreto las redes sociales. Para ello, tenemos que instalar un nuevo tipo de transformadas de tipo redes sociales. Para ello nos vamos al menú principal, filtramos por social media e instalamos las de Google:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego15.png)
+
+Ahora volvemos a nuestro proyecto, click derecho encima del Alias y escogemos las transformadas de Google. Escogemos la segunda opción (To social media profiles) y el reultado es el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego16.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego17.png)
+
+Vemos que nos ofrece varios resultados, entre ellos la cuenta oficial de instagram y twitter. También vemos que aparecen resultados que no parecen ser de nuestra búsqueda, y para investigar si son cuentas que nosotros buscamos, dariamos doble click encima de la cuenta que deseamos investigar y nos vamos al apartado de properties:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/maltego18.png)
+
+Vemos que nos aparece la url del canal, asi como el nombre y alias.
+
+Vemos que podemos sacar infinidad de información de un montón de cosas y que la aplicación está muy completa y muy conseguida. Lo malo, es que tiene un límite de transformadas y si quieres más, tienes una suscripción de pago.
+
+**REPOSITORIOS OSINT**
+
+En este apartado veremos repositorios que nos servirán en nuestra búsqueda en OSINT. Dejo los links a continuación:
+
+1. IntelTechniques -> (Pincha aqui para ir a su web)[https://inteltechniques.com/menu.html]
+2. OSINTFramework -> (Pincha aqui para ir a su web)[http://osintframework.com/]
+3. Ciberpatrulla -> (Pincha aqui para ir a su web)[https://ciberpatrulla.com/links/]
+
+Es importante destacar la primera web; en donde en la pestaña 'Tools' tenemos multitud de herramientas para extraer información. Podemos encontrar la búsqueda reversa de imágenes, búsqueda de información de perfiles de instagram y otras redes sociales, búqueda de información de emails, etc. Estos repositorios podrían utilizarse o consultarse cuando por ejemplo no sabemos a qué fuente acudir para extraer información sobre algo.
+
+**WHOIS Y DIRECCIONES IP**
+
+En este apartado vamos a tratar herramientas para analizar información [WHOIS](https://www.redeszone.net/tutoriales/internet/que-es-whois/) y direcciones IP.
+
+Hay multitud de herramientas, pero en este caso vamos a ver DomainTools. Accedemos a [esta dirección](https://whois.domaintools.com/) y buscamos por ejemplo el dominio colegiovivas.com:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/whois1.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/whois2.png)
+
+Vemos que nos aparece información como fecha de creación de dominio, IP, Localización del dominio, estado del dominio, etc. En la parte derecha, también podemos ver que se comparó el nombre del dominio con varios TLD y nos dice si cada uno de ellos está ocupado o no (mínimo el dominio colegiovivas.com tiene que estar ocupado):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/whois3.png)
+
+También podemos ver la última captura que tiene DomainTools sobre el sitio web:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/whois4.png)
+
+También dispone de muchas opciones de pago, por ejemplo historial de hosting, historial de fechas, reversa de IP, etc.
+
+Otras herramientas en cuanto a información WHOIS son [MXToolBox](https://mxtoolbox.com/) que por ejemplo nos dejará hacer 'Blacklisting' (nos dirá si una IP está adherida a una lista de SPAM) y analizar cabeceras de correo electrónico. Otra herramienta es [ViewDNS.info](https://viewdns.info/) que ofrece opciones gratuítas frente a DomainTools y permite el uso de comodines(*).
+
+En cuanto a información de direcciones IP, tenemos la herramienta [IP2Location](https://www.ip2location.com/)  que nos permitirá la geolocalización exacta de laS coordenadas de la dirección IP e información detallada del ISP.hosting en donde esté alojada la dirección IP.
+
+**RETO: HERRAMIENTAS**
+
+En este apartado, como bien dice el título, nos proponen el siguiente reto:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/rh1.png)
+
+Enlace del tweet: [](https://twitter.com/JulianC92181512/status/831214812592033798)
+
+Mi solución: Lo primero que hago es buscar el evento : [](https://www.meetup.com/es-ES/Growth-Hack-Spain-Meetup/events/235930447/). Vemos que el evento empezaba a las 19h y terminaba a las 22h y efectivamente era en el Campus de Madrid:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/rh2.png)
+
+El tweet del usuario Julian es el mismo día del evento, 53 minutos más tarde de que éste empezara. La charla trataba sobre búsqueda avanzada de Google: Google Hacking. En los comentarios, veo que el primero deja un link con la presentación del curso, pero el acceso está restringido en Google Drive:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/rh3.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/rh4.png)
+
+Igualmente, compruebo quién es ese usuario y busco en la lista de personas participantes en el evento. El resultado es que ese usuario es uno de los organizadores del evento:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/rh5.png)
+
+En la lista de asistentes al evento, busco a Julián y no encuentro a ninguno, lo que me lleva a pensar lo siguiente: El usuario posteó ese tweet diciendo que le estaban enseñando a robar datos a Paginas Amarillas, entendiendo erróneamente el concepto de Google Hacking (que lo único que hace es buscar en profundidad mediante Dorks información que **es pública** y por lo tanto no estás robando). Además, como dije antes, el usuario no aparece en la lista de asistentes, pero a mi forma de entender, la única manera de acceder a la presentación del curso es con un correo y este correo tenía que estar en una 'lista' para que fuera aceptado (solo podrían ver la presentación los asistentes del curso). Con lo cual determino que el usuario SI acudió a dicho evento.
 
 
+## _MONITORIZACION EN OSINT_
 
+**HERRAMIENTAS DE MONITORIZACION OSINT**
 
+En este apartado vamos a ver unas herramientas para la monitorización en OSINT. La mayoría de herramientas se proveen de Twitter por dos motivos: facilidad de la API (poco restrictiva y se le puede sacar mucho partido) y por su finalidad (la finalidad de twitter no es sòlo para exponer críticas y demás; sino que se publican noticias, información sobre eventos e incluso debates sobre algún tema.
 
-
-
+En mi caso, vamos a centrarnos en una herramienta en concreto llamada 
