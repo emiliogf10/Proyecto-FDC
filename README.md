@@ -1650,9 +1650,9 @@ En este apartado, como bien dice el título, nos proponen el siguiente reto:
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/rh1.png)
 
-Enlace del tweet: [](https://twitter.com/JulianC92181512/status/831214812592033798)
+[Enlace del tweet](https://twitter.com/JulianC92181512/status/831214812592033798)
 
-Mi solución: Lo primero que hago es buscar el evento : [](https://www.meetup.com/es-ES/Growth-Hack-Spain-Meetup/events/235930447/). Vemos que el evento empezaba a las 19h y terminaba a las 22h y efectivamente era en el Campus de Madrid:
+Mi solución: Lo primero que hago es buscar el [evento](https://www.meetup.com/es-ES/Growth-Hack-Spain-Meetup/events/235930447/). Vemos que el evento empezaba a las 19h y terminaba a las 22h y efectivamente era en el Campus de Madrid:
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/a5aaba60bfa9977b2cfa12aab50cb4daba2d930c/Hacking_%C3%89tico/rh2.png)
 
@@ -1673,6 +1673,28 @@ En la lista de asistentes al evento, busco a Julián y no encuentro a ninguno, l
 
 **HERRAMIENTAS DE MONITORIZACION OSINT**
 
-En este apartado vamos a ver unas herramientas para la monitorización en OSINT. La mayoría de herramientas se proveen de Twitter por dos motivos: facilidad de la API (poco restrictiva y se le puede sacar mucho partido) y por su finalidad (la finalidad de twitter no es sòlo para exponer críticas y demás; sino que se publican noticias, información sobre eventos e incluso debates sobre algún tema.
+En este apartado vamos a mencionar unas herramientas para la monitorización en OSINT. La mayoría de herramientas se proveen de Twitter por dos motivos: facilidad de la API (poco restrictiva y se le puede sacar mucho partido) y por su finalidad (la finalidad de twitter no es sòlo para exponer críticas y demás; sino que se publican noticias, información sobre eventos e incluso debates sobre algún tema.
 
-En mi caso, vamos a centrarnos en una herramienta en concreto llamada 
+## Dia 28/03/2024
+
+En el momento de la realización del curso, había dos herramientas similares **gratuitas**, pero ahora mismo las dos son de pago. He buscado alguna herramienta similar, pero no he encontrado ninguna que haga lo mismo que las otras dos, que son [TweetDeck](https://pro.twitter.com/i/premium_sign_up?referring_page=pro) y [HootSuite](https://www.hootsuite.com/en-gb/plans). Además, todas estas herramientas, que son complementarias y te ayudan a tener un informe de tus cuentas, son de pago.
+
+**SERVICIOS DE ALERTA**
+
+En este apartado vamos a ver herramientas para monitorizar en sitios web, blogs, foros, etc.
+
+Primero tenemos 'Google alerts': Servicio de alertas de Google. Solamente necesitas una cuenta de Google y es muy intuitivo y fácil de utilizar. Pincha [aqui](https://www.google.es/alerts) para crear una alerta de Google. Pinchamos en el enlace anterior y nos aparece lo siguiente:
+
+![]()
+
+En esta barra de búsqueda se pueden utilizar tanto operadores booleanos como Dorks. Por lo tanto, vamos a crear una alerta:
+
+![]()
+
+Voy a crear una alerta para 'curso' y 'osint'. Esto quiere decir que todas las publicaciones que contengan estas dos palabras se me mostrarán. También vemos que tenemos una pestaña de 'Mostrar opciones'. La vamos a desplegar para ver que contiene:
+
+![]()
+
+Vemos que tenemos opciones como la frecuencia, las fuentes de donde queremos la información (noticias, blogs, videos, foros, etc), el idioma y el correo a donde queremos que nos mande la alerta.
+
+
