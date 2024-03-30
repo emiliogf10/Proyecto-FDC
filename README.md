@@ -1685,16 +1685,95 @@ En este apartado vamos a ver herramientas para monitorizar en sitios web, blogs,
 
 Primero tenemos 'Google alerts': Servicio de alertas de Google. Solamente necesitas una cuenta de Google y es muy intuitivo y fácil de utilizar. Pincha [aqui](https://www.google.es/alerts) para crear una alerta de Google. Pinchamos en el enlace anterior y nos aparece lo siguiente:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/alertas1.png)
 
 En esta barra de búsqueda se pueden utilizar tanto operadores booleanos como Dorks. Por lo tanto, vamos a crear una alerta:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/alertas2.png)
 
 Voy a crear una alerta para 'curso' y 'osint'. Esto quiere decir que todas las publicaciones que contengan estas dos palabras se me mostrarán. También vemos que tenemos una pestaña de 'Mostrar opciones'. La vamos a desplegar para ver que contiene:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/alertas3.png)
 
-Vemos que tenemos opciones como la frecuencia, las fuentes de donde queremos la información (noticias, blogs, videos, foros, etc), el idioma y el correo a donde queremos que nos mande la alerta.
+Vemos que tenemos opciones como la frecuencia, las fuentes de donde queremos la información (noticias, blogs, videos, foros, etc), el idioma y el correo a donde queremos que nos mande la alerta. En mi caso, creé una alerta asi:
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/alertas4.png)
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/alertas5.png)
+
+## Dia 30/03/2024
+
+Y vemos que ya nos aparece la alerta creada. La alerta, por supuesto se puede modificar con otros datos por ejemplo. En caso de que hubiera una alerta, nos mandarían un correo electrónico a la dirección que le hemos indicado con duchos datos.
+
+Una herramienta parecida a Google Alerts es TalkWalker Alerts. La diferencia es que TalkWalker Alerts también nos va a incluir Twitter (ahora X). Pincha [aqui](https://www.talkwalker.com/alerts) para crear una alerta en TalkWalker Alerts. Vemos que la interfaz es la siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/alertas6.png)
+
+Le damos a crear alerta, y nos aparece los siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/alertas7.png)
+
+Aqui, evidentemente, escribimos los criterios de alerta, al igual que hicimos antes con Google Alert:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/alertas8.png)
+
+Y le damos a crear alerta:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/alertas9.png)
+
+Vemos que ya nos aparece la alerta creada. Esta herramienta requiere que confirmes el correo electrónico o que te crees una cuenta.
+
+## _PRIVACIDAD Y ANONIMATO_
+
+**CREACION DE IDENTIDAD ANONIMA Y DIGITAL**
+
+En este apartado vamos a tratar, como bien dice el título, de la creación de identidad anónima y digital. Primeramente vamos a ver un resumen de todo lo que necesitamos saber:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/privacidad1.png)
+
+La idea de cuanto realizamos una ciberinvestigación, es la de dejar el menor número de huellas digitales posibles, adoptando una serie de medidas y partiendo de que dejar un rastro de cero huellas digitales es **IMPOSIBLE**. Para ello, dispondremos de correos electrónicos, números de teléfono, perifles de redes sociales, etc sin ningún dato personal y exclusivamente dedicado a cada investigación. Después entra el tema de la organización, que es muy importante y debemos cumplir. Necesitaremos un mapa de fuentes **finito**, es decir, que no sea muy extenso para poder ser más eficientes y rápidos en nuestra investigación. Por último, es recomendable tener un documento en donde poder plasmar toda la información que vamos recavando (preferiblemente en formato excel) y anotar toda la información sobre la investigación (objetivo, pasos a seguir, herramientas que se van a emplear, perfiles de RRSS que se van a utilizar, resultados y borrado de huellas).
+
+Lo siguiente es la creación de las RRSS y el correo:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/privacidad2.png)
+
+En donde básicamente nos dice que la creación de perfiles en RRSS tiene que ser lo más realista posible, alimentándola con amigos, publicaciones y foto de perfil.
+La foto de perfil puede ser sacada de un banco de imágenes gratuítas (para no vulnerar ningún derecho) , pero OJO, tendremos que editarla con algún editor para que no sea resultado de una búsqueda inversa de imágenes (cambiar el color de pelo, color de ojos, color de piel, etc).
+
+Para todo esto, existe una herramienta que es FakeNameGenerator y que nos servirá para crear un perfil falso según los datos que le demos. El enlace es [este](https://es.fakenamegenerator.com/) y aparecería lo siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/privacidad3.png)
+
+Le damos a opciones avanzadas y nos aparece esto:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/privacidad4.png)
+
+En mi caso, le voy a dar un nombre español, con sexo masculino y con una edad comprendida entre 32 y 40 años de edad:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/privacidad5.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/privacidad6.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/privacidad7.png)
+
+Vemos que nos crea un perfil súper completo con los datos que le hemos dado. Vemos también, que nos creó una dirección de correo electrónico desechable, que podemos utilizar sin ningún problema para recibir mensajes:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/privacidad8.png)
+
+En el caso del email, podemos utilizar el que nos crea FakeNameGenerator o disponer de un [ProtonMail](https://proton.me/mail), que facilitándole un usuario y una contraseña, nos proveerá de un correo electrónico cifrado. Si queremos un email un poco más real, con un dominio gmail.com por ejemplo, tendremos que crear un correo desde una VPN (para enmascarar nuestra ubicación), sin datos personales y con un correo de recuperación desechable o ProtonMail. En caso de que nos pidiera algún número de teléfono, tendríamos que recurrir a un número de teléfono virtual, que es de pago. Esto se debe a que si optamos por un número de teléfono temporal (gratuíto), éste seguramente fue utilizado por más gente y estará baneado, con lo cual, tardaremos muchísmo tiempo en encontrar un número de teléfono que nos sirva.
+
+**ENMASCARANDO NUESTRA IDENTIDAD**
+
+En este apartado vamos a enmascarar nuestra identidad. Primeramente, hay que decir que todas las investigaciones deben hacerse desde una máquina virtual (la MV se ejecuta en memoria y  por lo tanto no afectará a nuestro sistema anfitrión y además, cuando terminemos nuestra investigación, borraremos la MV y con ella todas las huellas digitales).
+
+Es recomendable también, disponer de una memoria USB en la que tengamos aplicaciones para trabajar en diferentes equipos distintos al propio. Por ejemplo, podemos tener un SO llamado [Tails](https://tails.boum.org/) que se centra en la privacidad, el navegador TOR y la sincronización de nuestro navegador web (poniendo la contraseña podremos acceder a nuestros marcadores, pestañas, etc).
+
+La idea de todo esto es enmascarar nuestra IP:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4984a54e836e1a10e248b9dc102435f99a9a87a7/Hacking_%C3%89tico/privacidad9.png)
+
+Como bien apreciamos en la foto anterior, podremos enmascarar nuestra IP de 3 formas: un [Proxy](https://www.xataka.com/basics/que-es-un-proxy-y-como-puedes-utilizarlo-para-navegar-de-forma-mas-anonima), el navegador TOR (menos recomendable porque al utilizar tanto enrutamiento, se disminuye la velocidad de navegación) y la opción más recomendada que es una [VPN](https://www.xataka.com/basics/que-es-una-conexion-vpn-para-que-sirve-y-que-ventajas-tiene). Hoy en dia existen diversas VPN, pero algunas de las mejores son NordVPN o ProtonVPN.
+
+Hay que hacer mención también a la volatilidad de la información; hay información en internet que puede durar unos pocos minutos o incluso segundos. Por ello, es importante obtener alguna evidencia de donde se saca esa información. Para ello, vamos a utilizar una herramienta que se llama [eGarante](https://www.egarante.com), en donde le enviaremos el link del sitio web que queramos certificar y se generará un pdf con un sello temporal. Este documento tiene validez judicial.
+
+Por último, también vamos a mencionar que es importante tener un buen gestor de contraseñas en donde sólo tengas que saber una contraseña maestra, y de ahí acceder a un contenedor que contenga el resto de contraseñas. Uno de los mejores gestores de contraseñas es [Bitwarden](https://bitwarden.com).
