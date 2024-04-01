@@ -1,16 +1,16 @@
 # CARRERA DE ESPECIALISTA EN HACKING ÉTICO
 
-# PRIMER CURSO : ANÁLISIS FORENSE BÁSICO EN SISTEMAS WINDOWS (Tiempo de realización: 6-7 dias aproximadamente)
+# PRIMER TALLER : ANÁLISIS FORENSE BÁSICO EN SISTEMAS WINDOWS (Tiempo de realización: 6-7 dias aproximadamente)
 
 ## Dia 14/12/2023
 
-Para estos dos primeros cursos, opto por empezar creando una máquina virtual Windows 10 en Virtual Box. Con la máquina ya creada y configurada con las Guest adittions, configuración de red y demás, empiezo por el primer punto del primer curso:
+Para estos dos primeros talleres, opto por empezar creando una máquina virtual Windows 10 en Virtual Box. Con la máquina ya creada y configurada con las Guest adittions, configuración de red y demás, empiezo por el primer punto del primer curso:
 
 ## _COOKIES_
 
 Las cookies son ficheros de texto que almacenan información. Suelen utilizarse normalmente para recordar accesos a páginas web(la web identifica tu ordenador,por lo tanto, si vuelves a entrar en ellas sabrán quien eres y que has echo anteriormente) y conocer hábitos de navegación.En el caso de un forense de Windows, lo que interesa es encontrar esos archivos en el sistema (mas adelante veremos algunos comandos para encontearlos en el sistema) y dentro de ellos, analizar y comprobar si se ha filtrado información o documentación.
 
-Para todo ellos, con la máquina virtual corriendo, lanzamos una consola **con permisos de administrador**.Nos colocamos en la raiz de C: y escribimos el siguiente comando:
+Para todo ellos, con la máquina virtual corriendo, lanzamos una consola **con permisos de administrador**. Nos colocamos en la raiz de C: y escribimos el siguiente comando:
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/23f98567a166444481860c2b1ea5eab6b4e95008/Hacking_%C3%89tico/cookies1.png)
 
@@ -291,7 +291,7 @@ Por último, necesitariamos firmar nuestros archivos para que sirvieran como pru
 
 ## Dia 27/12/2023
 
-# SEGUNDO CURSO : ANÁLISIS FORENSE AVANZADO EN SISTEMAS WINDOWS (Tiempo de realización: 6-7 dias aproximadamente)
+# SEGUNDO TALLER : ANÁLISIS FORENSE AVANZADO EN SISTEMAS WINDOWS (Tiempo de realización: 6-7 dias aproximadamente)
 
 ## _CAPTURAR ESTRUCTURA MAC DE FICHEROS Y ARCHIVOS_
 
@@ -499,7 +499,7 @@ En donde vemos que le añadimos el comando específico 'svcscan'. La salida es l
 
 
 
-# TERCER CURSO : ANÁLISIS FORENSE BÁSICO EN SISTEMAS LINUX (Tiempo de realización: 6-7 dias aproximadamente)
+# TERCER TALLER : ANÁLISIS FORENSE BÁSICO EN SISTEMAS LINUX (Tiempo de realización: 6-7 dias aproximadamente)
 
 Para estos dos siguientes cursos, voy a crear una máquina virtual Linux, en mi caso una Ubuntu de 2GB de RAM. Dicho esto y con la máquina ya configurada, empezamos con el primer punto:
 
@@ -840,7 +840,7 @@ Solo faltaría firmar nuestro archivo de red y guardar su corrspondiente HASH en
 
 ## Dia 19/01/2024
 
-# CUARTO CURSO : ANÁLISIS FORENSE AVANZADO EN SISTEMAS LINUX (Tiempo de realización: 6-7 dias aproximadamente)
+# CUARTO TALLER : ANÁLISIS FORENSE AVANZADO EN SISTEMAS LINUX (Tiempo de realización: 6-7 dias aproximadamente)
 
 ## _VOLCADO DE MEMORIA_
 
@@ -1040,7 +1040,7 @@ En donde podemos ver que que hacemos el comando imageinfo del volcado de memoria
 
 ## Dia 14/03/2024
 
-# QUINTO CURSO : CURSO DE OSINT (Tiempo de realización: 6-7 dias aproximadamente)
+# PRIMER CURSO : CURSO DE OSINT (Tiempo de realización: 10 dias aproximadamente)
 
 ## _OSINT_
 
@@ -1777,3 +1777,71 @@ Como bien apreciamos en la foto anterior, podremos enmascarar nuestra IP de 3 fo
 Hay que hacer mención también a la volatilidad de la información; hay información en internet que puede durar unos pocos minutos o incluso segundos. Por ello, es importante obtener alguna evidencia de donde se saca esa información. Para ello, vamos a utilizar una herramienta que se llama [eGarante](https://www.egarante.com), en donde le enviaremos el link del sitio web que queramos certificar y se generará un pdf con un sello temporal. Este documento tiene validez judicial.
 
 Por último, también vamos a mencionar que es importante tener un buen gestor de contraseñas en donde sólo tengas que saber una contraseña maestra, y de ahí acceder a un contenedor que contenga el resto de contraseñas. Uno de los mejores gestores de contraseñas es [Bitwarden](https://bitwarden.com).
+
+## Dia 01/04/2024
+
+# QUINTO TALLER : HERRAMIENTAS AVANZADAS PARA BUSQUEDAS OSINT (Tiempo de realización: 7 dias aproximadamente)
+
+En este taller seguiremos con la búsqueda en OSINT (curso anterior). Muchos de los apartados que comentan en este video, ya lo expliqué en el curso anterior, por lo tanto lo obviaremos y nos centraremos en los apartados novedosos. También, mencionaremos el nombre de muchas herramientas que nos servirían para la búsqueda avanzada para OSINT en diferentes plataformas, pero no veremos su uso.
+
+Para empezar, tenemos como novedad nuevos buscadores: [Uvrx](http://www.uvrx.com/es/),[Alltheinternet](https://www.alltheinternet.com/) y [SearchEngineColos
+sus](https://www.searchenginecolossus.com/).
+
+Después tenemos más distribuciones OSINT (máquinas virtuales con las herramientas necesarias ya preinstaladas) a parte de la ya nombrada anteriormente Hurón; que son [Osintux](https://www.osintux.org/descargas) y [CsiLinux](https://csilinux.com/csi-linux-downloads/).
+
+**EMAILS**
+
+Ahora, en el apartado de verificación de emails, tenemos 2 herramientas destacadas: 
+
+1. [verifyemailaddres](https://www.verifyemailaddress.org) que verifica si un email es válido.
+2. [EmailSherlock](https://www.emailsherlock.com) que busca emails en varios servicios.
+
+**GEOLOCALIZACION**
+
+Ahora vamos a mencionar 3 herramientas de geolocalización: 
+
+1. [tracemyip](https://tools.tracemyip.org) que lo que hace es localizar la IP que le mandes.
+2. Creepy que es una herramienta incluida en Hurón Y Osintux y sirve para localizar el origen de un tweet.
+3. [Google Maps](https://www.google.es/maps/preview) que localiza por coordenadas entre otras cosas.
+
+
+**IMAGENES**
+
+El siguiente apartado trata sobre la búsqueda de imágenes. Vamos a mencionar 2 herramientas muy interesantes: 
+
+1. [loc.alize](https://loc.alize.us) que sirve para la localización de fotos.
+2. [pictriev](http://www.pictriev.com) que sirve para el reconocimiento facial.
+
+**FACEBOOK**
+
+En este apartado vamos a mencionar 4 herramientas para Facebook bastante útiles: 
+
+1. [lookup-id](lookup-id.com) es una herramienta utilizada para saber el ID de un usuario de Facebook
+2. [intelx.io/tools](https://intelx.io/tools?tab=facebook) que es como una búsqueda avanzada por filtros
+3. [fdown](https://fdown.net/es/) que es un descargador de videos de Facebook
+4. [whopostedwhat](whopostedwhat.com) que es un buscador de perfilesy palabras clave.
+
+**INSTAGRAM**
+
+En este apartado vamos a ver 3 herramientas para Instagram:
+
+1. [picuki](https://www.picuki.com) que sirve para analizar un perfil de Instagram.
+2. [toopics](toopics.com) que al igual que picuki, sirve para analizar un perfil de Instagram.
+3. [downloadgram](https://downloadgram.org) que sirve para descargar fotos y videos de Instagram.
+
+**TWITTER (X)**
+
+En este apartado vamos a ver 3 herramientas para Twitter:
+
+1. [tinfoleak](https://tinfoleak.com) es una herramienta para analizar un perfil de Twitter.
+2. [onemilliontweetmap](onemilliontweetmap.com) es una herramienta para el mapeo de tweets.
+3. MentionMap es una herramienta incluida en las distros de OSINT que sirve para el mapeo de tweets al igual que onemilliontwwetmap.
+
+**PERSONAS**
+
+En este apartado vamos a ver 2 herramientas para buscar personas:
+
+1. [pipl](https://pipl.com) es una herramienta que sirve para buscar personas.
+2. [lullar](https://com.lullar.com) es una heramienta que sirve para buscar perfiles de personas.
+
+
