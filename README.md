@@ -1839,9 +1839,43 @@ En este apartado vamos a ver 3 herramientas para Twitter:
 
 **PERSONAS**
 
-En este apartado vamos a ver 2 herramientas para buscar personas:
+En este apartado vamos a mencionar 3 herramientas para buscar personas:
 
 1. [pipl](https://pipl.com) es una herramienta que sirve para buscar personas.
 2. [lullar](https://com.lullar.com) es una heramienta que sirve para buscar perfiles de personas.
+3. [Webmii](https://webmii.com) es una herramienta para buscar personas mediante nombre y apellido.
+4. [abc telefonos](https://www.abctelefonos.com) herramienta para buscar personas.
+
+**SOFTWARE**
+
+En este apartado vamos a mencionar sólo una herramienta porque las demás ya las vimos en cursos y talleres anteriores (Foca, Osint Framework y Maltego).
+
+La nueva herramienta de esta apartado se llama [Reaper.social](https://reaper.social) y nos permitirá recopilar y analizar información de redes sociales.
+
+**TELEFONO**
+
+## Dia 03/04/2024
+
+En este apartado vamos a mencionar 4 herramientas que nos van a ayudar a conseguir información sobre teléfonos:
+
+1. [Imei.info](https://www.imei.info) que nos servirá para saber la información del IMEI de un teléfono.
+2. [Sync.me](https://sync.me) que nos servirá para buscar números de teléfono.
+3. [truecaller](https://www.truecaller.com) nos servirá, al igual que sync.me, a buscar números de teléfono.
+4. 
+
+Hemos acabado la parte 'teórica' en donde mencionamos algunas herramientas a mayores para nuestras búsquedas en OSINT. Ahora probaremos alguna herramienta, pero las que ya probamos en apartados anteriores, las pasaré por alto:
+
+1. [Maltego](#maltego)
+2. [OSR Framework](#osr-framework)
+
+Vamos a ver como es la vista de OSR Framework desde el cliente web:
+
+![]()
+
+Vemos que tenemos un montón de apartados, con diferentes herramientas para buscar información. Voy a desplegar dos apartados: Metadata (metadatos) y Domain Name (Nombres de dominio). Veremos que tendremos herramientas ya vistas (pueden ser apps o sitios web) y otras que no:
+
+![]()
+
+En el cliente web, simplemente abririamos el aprtado que nos interese y seleccionaríamos la herramienta que nos interese para obtener información sobre ese tema.
 
 
