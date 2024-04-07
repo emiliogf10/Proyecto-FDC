@@ -1780,7 +1780,7 @@ Por último, también vamos a mencionar que es importante tener un buen gestor d
 
 ## Dia 01/04/2024
 
-# QUINTO TALLER : HERRAMIENTAS AVANZADAS PARA BUSQUEDAS OSINT (Tiempo de realización: 7 dias aproximadamente)
+# QUINTO TALLER : HERRAMIENTAS AVANZADAS PARA BUSQUEDAS OSINT (Tiempo de realización: 2 dias aproximadamente)
 
 En este taller seguiremos con la búsqueda en OSINT (curso anterior). Muchos de los apartados que comentan en este video, ya lo expliqué en el curso anterior, por lo tanto lo obviaremos y nos centraremos en los apartados novedosos. También, mencionaremos el nombre de muchas herramientas que nos servirían para la búsqueda avanzada para OSINT en diferentes plataformas, pero no veremos su uso.
 
@@ -1839,7 +1839,7 @@ En este apartado vamos a ver 3 herramientas para Twitter:
 
 **PERSONAS**
 
-En este apartado vamos a mencionar 3 herramientas para buscar personas:
+En este apartado vamos a mencionar 4 herramientas para buscar personas:
 
 1. [pipl](https://pipl.com) es una herramienta que sirve para buscar personas.
 2. [lullar](https://com.lullar.com) es una heramienta que sirve para buscar perfiles de personas.
@@ -1856,12 +1856,11 @@ La nueva herramienta de esta apartado se llama [Reaper.social](https://reaper.so
 
 ## Dia 03/04/2024
 
-En este apartado vamos a mencionar 4 herramientas que nos van a ayudar a conseguir información sobre teléfonos:
+En este apartado vamos a mencionar 3 herramientas que nos van a ayudar a conseguir información sobre teléfonos:
 
 1. [Imei.info](https://www.imei.info) que nos servirá para saber la información del IMEI de un teléfono.
 2. [Sync.me](https://sync.me) que nos servirá para buscar números de teléfono.
 3. [truecaller](https://www.truecaller.com) nos servirá, al igual que sync.me, a buscar números de teléfono.
-4. 
 
 Hemos acabado la parte 'teórica' en donde mencionamos algunas herramientas a mayores para nuestras búsquedas en OSINT. Ahora probaremos alguna herramienta, pero las que ya probamos en apartados anteriores, las pasaré por alto:
 
@@ -1870,12 +1869,92 @@ Hemos acabado la parte 'teórica' en donde mencionamos algunas herramientas a ma
 
 Vamos a ver como es la vista de OSR Framework desde el cliente web:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/osrweb1.png)
 
 Vemos que tenemos un montón de apartados, con diferentes herramientas para buscar información. Voy a desplegar dos apartados: Metadata (metadatos) y Domain Name (Nombres de dominio). Veremos que tendremos herramientas ya vistas (pueden ser apps o sitios web) y otras que no:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/osrweb2.png)
 
 En el cliente web, simplemente abririamos el aprtado que nos interese y seleccionaríamos la herramienta que nos interese para obtener información sobre ese tema.
 
+## Dia 07/04/2024
 
+Ahora vamos a probar la herramienta 'Pictriev', que nos buscará reconociendo la cara e que hay en la foto. Para ello, buscamos y descargamos una foto cualquiera de una persona y la guardamos en nuestro equipo. A continuación nos vamos al sitio web de Pictriev y subimos la imagen:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/pictriev1.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/pictriev2.png)
+
+Vemos que nos dice que es un hombre 100% seguro y que tiene más o menos 40 años.
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/pictriev3.png)
+
+Ahora vemos que nos dice con qué porcentaje se parece a ciertas personas 'famosas'.
+
+Por último, veremos la herramienta 'Picuki', que simplemente busca perfiles en instagram con el nombre que le damos. Para ello accedemos al sitio web de Picuki y escribimos el nombre que queremos averiguar:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/picuki1.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/picuki2.png)
+
+Vemos que nos aparecen un montón de perfiles. Si entramos en uno cualquiera, vemos que también podemos ver sus estadísticas pulsando en el botón 'stats' en la parte superior derecha:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/picuki3.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/picuki4.png)
+
+También, podremos editar una publicación y despues descargarla y guardarla:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/picuki5.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/picuki6.png)
+
+# SEGUNDO CURSO : CURSO DE HACKING WEB (Tiempo de realización: 7 dias aproximadamente)
+
+## _INTRODUCCION__
+
+**QUE ES EL HACKING**
+
+En este apartado, vamos a introducir el curso definiendo la palabra clave 'Hacking'. **El hacking es la búsqueda y explotación de vulnerabilidades de seguridad en sistemas o redes**. Como bien dice la definición, vamos a encontrar vulnerabilidades de seguridad y aprovecharlas para atacar un sistema o una red. Se puede aplicar el hacking a prácticamente todos los sistemas que estén conectados a una red; como pueden ser servidores, apps móviles, aplicaciones web, bases de datos, etc. En este curso, nos centraremos en el hacking en aplicaciones web.
+
+El referente del Hacking web es la OWASP (Open Web Application Security Project), que es una organización sin ánimo de lucro cuyo objetivo es mejorar la seguridad del software. 
+
+## _INYECCIONES DE CODIGO__
+
+**SQL INJECTION**
+
+En este apartado vamos a hacer un ataque, por lo que se llama 'SQL Injection'. Este término se refiere a la manipulación de una consulta SQL para lograr un resultado diferente al objetivo con el que fue diseñada, es decir, vamos a introducir código para modificar la consulta SQL que hace la propia web para obtener un resultado diferente.
+
+Como ejemplo, vamos a poner un login de un sitio web:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/sqli1.png)
+
+En el sitio web, cuando introduces tu usuario y contraseña y le das a acceder, internamente hace 1 consulta SQL:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/sqli2.png)
+
+Vemos que simplemente está seleccionado de la tabla 'users', el o los usuarios que tengan el usuario y la contraseña dados en los textbox.
+
+Ahora vamos a ver, qué pasa con la siguiente imagen:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/sqli3.png)
+
+Vemos que le ponemos como usuario “999' or ‘1’ = ‘1’ --” que es una inyección de código SQL, y una contraseña cualquiera. A continuación, vamos a ver la consulta que se forma cuando le damos al botón acceder:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/sqli4.png)
+
+Podemos ver que es la misma consulta que antes, pero ahora en el usuario hay una booleana que compara si el usuario es '999' o '1' = '1' (que es una condición que SIEMPRE se va a cumplir). A esto hay que añadirle los dos guiones al final, que quieren decir que lo que venga después de ellos, sea ignorado (comentario SQL en bases de datos ORACLE).
+
+Dicho esto, la consulta nos va a dar todos los registros de la tabla (porque todos cumplen la condición de '1' = '1') y nos vamos a loguear con el primero de ellos sin tener ni usuario ni contraseña.
+
+Como hemos dicho antes, lo que hemos hecho fue modificar la consulta que hace el sitio web para obtener un resultado diferente al que estaba diseñado la consulta inicialmente.
+
+Cómo podemos evitar esto? La manera de que esto no ocurra, es saneando los datos que introduce el usuario:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f6eabb5ef8b1940167bd8b957cf9f48f7f86a1b2/Hacking_%C3%89tico/sqli5.png)
+
+Lo que no se debe hacer, es concatenar directamente lo que nos introduce el usuario, sino que debemos sanearlo antes (por ejemplo eliminar las comillas simples, comillas, comentarios de linea, etc) y después concatenarlo. 
+
+**SQL INJECTION: ATAQUE EN LOGIN**
+
+En este apartado, vamos a hacer un ataque por SQL Injection sobre un formulario de login en una aplicación. Para ello tenemos que instalar Xampp (en mi caso la version 5.6.3, porque el formulario que nos proporcionan en el curso puede tener funciones que en versiones más nuevas estén obsoletas) e importar las bases de datos que vamos a utilizar.
