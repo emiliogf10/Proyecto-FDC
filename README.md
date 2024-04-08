@@ -1957,4 +1957,51 @@ Lo que no se debe hacer, es concatenar directamente lo que nos introduce el usua
 
 **SQL INJECTION: ATAQUE EN LOGIN**
 
-En este apartado, vamos a hacer un ataque por SQL Injection sobre un formulario de login en una aplicación. Para ello tenemos que instalar Xampp (en mi caso la version 5.6.3, porque el formulario que nos proporcionan en el curso puede tener funciones que en versiones más nuevas estén obsoletas) e importar las bases de datos que vamos a utilizar.
+En este apartado, vamos a hacer un ataque por SQL Injection sobre un formulario de login en una aplicación. Esto se podría poner en práctica con páginas que no tengan saneado de datos del usuario. Para ello tenemos que instalar Xampp (en mi caso la version 5.6.3, porque el formulario que nos proporcionan en el curso puede tener funciones que en versiones más nuevas estén obsoletas) e importar las bases de datos que vamos a utilizar. 
+
+## Dia 08/04/2024
+
+Dicho esto, movemos la carpeta del foro a la carpeta 'htdocs' y nos vamos al panel de Xampp para iniciar el Apache y el MySql:
+
+![]()
+
+Hecho esto, nos vamos a nuestro navegador y ponemos nuestra dirección IP + /foro:
+
+![]()
+
+Y vemos que ya nos lleva al login de un foro. Ahora vamos a proceder a entrar sin ninguna credencial. Para ello, vamos a escribir en el campo de usuario, lo que vimos anteriormente con una contraseña cualquiera:
+
+![]()
+
+![]()
+
+Y vemos que nos hemos logueado correctamente con el usuario 'Prabhu Bhakta', que es el primero de los usuarios de la base de datos. 
+
+![]()
+
+Es importante mencionar, que en este caso al final de la condición, hemos puesto un '#' porque es así como se denominan los comentarios de línea en MySql.
+
+**SQL INJECTION: OBTENCION DE DATOS**
+
+En este apartado vamos a ver un ataque de SQL Injection en otro tipo de formulario y como objetivo la obtención de datos. 
+
+Para ello, vamos a utilizar otro formulario que nos dan en el curso. Tenemos que meter su carpeta en la carpeta htdocs e ir a nuestro navegador (en la siguiente imagen se muestra la carpeta 'demos', que es la de este formulario, y la carpeta 'foro' que es la del formulario anterior, las dos dentro de la carpeta htdocs):
+
+![]()
+
+![]()
+
+Ya en este sitio web, vamos a proceder a obtener información mediante SQL Injection. Este formulario, funciona de la siguiente manera:
+
+![]()
+
+Tenemos 4 articulos guardados en la base de datos, con sus respectivos precios. Al escribir el articulo que queremos y darle al botón 'Enviar', nos dirá en una tabla el precio del producto:
+
+![]()
+
+Al igual que antes, vamos a escribir lo siguiente para modificar la consulta sql interna y que nos muestre todos los datos:
+
+![]()
+
+**PROBLEMAS CON EL SEGUNDO FORMULARIO**
+
