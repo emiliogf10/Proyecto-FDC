@@ -1963,21 +1963,21 @@ En este apartado, vamos a hacer un ataque por SQL Injection sobre un formulario 
 
 Dicho esto, movemos la carpeta del foro a la carpeta 'htdocs' y nos vamos al panel de Xampp para iniciar el Apache y el MySql:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/72745fb61b7cbad7d5d495ad8473482ed4f93c6f/Hacking_%C3%89tico/sqli6.png)
 
 Hecho esto, nos vamos a nuestro navegador y ponemos nuestra dirección IP + /foro:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/72745fb61b7cbad7d5d495ad8473482ed4f93c6f/Hacking_%C3%89tico/sqli7.png)
 
 Y vemos que ya nos lleva al login de un foro. Ahora vamos a proceder a entrar sin ninguna credencial. Para ello, vamos a escribir en el campo de usuario, lo que vimos anteriormente con una contraseña cualquiera:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/72745fb61b7cbad7d5d495ad8473482ed4f93c6f/Hacking_%C3%89tico/sqli8.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/72745fb61b7cbad7d5d495ad8473482ed4f93c6f/Hacking_%C3%89tico/sqli9.png)
 
 Y vemos que nos hemos logueado correctamente con el usuario 'Prabhu Bhakta', que es el primero de los usuarios de la base de datos. 
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/72745fb61b7cbad7d5d495ad8473482ed4f93c6f/Hacking_%C3%89tico/sqli10.png)
 
 Es importante mencionar, que en este caso al final de la condición, hemos puesto un '#' porque es así como se denominan los comentarios de línea en MySql.
 
@@ -1987,21 +1987,112 @@ En este apartado vamos a ver un ataque de SQL Injection en otro tipo de formular
 
 Para ello, vamos a utilizar otro formulario que nos dan en el curso. Tenemos que meter su carpeta en la carpeta htdocs e ir a nuestro navegador (en la siguiente imagen se muestra la carpeta 'demos', que es la de este formulario, y la carpeta 'foro' que es la del formulario anterior, las dos dentro de la carpeta htdocs):
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/72745fb61b7cbad7d5d495ad8473482ed4f93c6f/Hacking_%C3%89tico/sqli11.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/72745fb61b7cbad7d5d495ad8473482ed4f93c6f/Hacking_%C3%89tico/sqli12.png)
 
 Ya en este sitio web, vamos a proceder a obtener información mediante SQL Injection. Este formulario, funciona de la siguiente manera:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/72745fb61b7cbad7d5d495ad8473482ed4f93c6f/Hacking_%C3%89tico/sqli13.png)
 
 Tenemos 4 articulos guardados en la base de datos, con sus respectivos precios. Al escribir el articulo que queremos y darle al botón 'Enviar', nos dirá en una tabla el precio del producto:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/72745fb61b7cbad7d5d495ad8473482ed4f93c6f/Hacking_%C3%89tico/sqli14.png)
 
 Al igual que antes, vamos a escribir lo siguiente para modificar la consulta sql interna y que nos muestre todos los datos:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/72745fb61b7cbad7d5d495ad8473482ed4f93c6f/Hacking_%C3%89tico/sqli15.png)
 
-**PROBLEMAS CON EL SEGUNDO FORMULARIO**
+## Dia 13/04/2024
+
+Vemos que como la condición de '1' = '1' SIEMPRE se va a cumplir, nos muestra todos los datos de la tabla. Ahora vamos a escribir el siguiente código a ver que pasa:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli16.png)
+
+En donde podemos ver que estamos utilizando un union para enlazar la primera consulta que no es más que algo que hemos escrito aleatoriamente al igual que antes, y una consulta en donde seleccionamos dos columnas: la primera que es null y sería el nombre del producto y la segunda con la cadena 'hola' que sería la del precio del producto. Vamos a ver el resultado:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli17.png)
+
+Nos dice claramente, que con el 'SELECT' hemos seleccionado el número de columnas incorrecto. Esto se debe a que el número de columnas a un lado y al otro del UNION tienen que ser iguales. Nosotros, hemos puesto la columna que devuelve null y la columna con la cadena 'hola', pensando que la consulta original sólo devuelve dos campos; pero resulta que puede ser que se devuelva otro campo que no se represente. Para todo ello, añadimos un campo más que sea null, pensando que sean 3 campos los que devuelve:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli18.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli19.png)
+
+Vemos que efectivamente, devuelve 3 campos y que sería el primero el que no se representaría porque la cadena 'hola' se ha movido a la columna del nombre del producto. Para que nos sirve todo esto? Pues bien, lo primero para saber que el formulario, efectivamente es vulnerable a un ataque de SQL Injection y segundo para sacar datos que nos interesen:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli20.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli21.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli22.png)
+
+Podemos ver que acabamos de sustraer todas las tablas de la base de datos. En la columna de nombre de producto nos va a mostrar el nombre de la base de datos y en la columna de precio del producto nos va a mostrar las columnas de esa base de datos; por lo tanto podemos ver que tenemos una base de datos llamada 'CHARACTER_SETS' que tiene cuatro columnas, otra llamada 'COLLATIONS' que tiene 6 columnas, etc. La mayoría de estas bases de datos son del catálogo se MySql. Ahora vamos a ver todas las tablas y sus bases de datos y para ello ejecutamos la siguiente consulta:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli23.png)
+
+En donde vemos que seguimos usando el UNION y a su derecha tenemos una consulta que nos devuelve 3 campos al igual que la consulta original. La diferencia está en el segundo campo, en donde utilizamos una función para delimitar el nombre de la base de datos y 
+el nombre de la tabla en este caso por un punto. Ejecutamos la consulta:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli24.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli25.png)
+
+Y vemos que efectivamente, en la columna de lo que sería el nombre del producto, tenemos 'nombre de bd.nombre de tabla' y en la columna de lo que sería el precio del producto tenemos, al igual que antes el nombre de la columna.
+
+Ahora vamos a mostrar los usuarios del foro del apartado anterior y sus contraseñas. Para ello ejecutamos la siguiente consulta:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli26.png)
+
+En donde vemos que básicamente siempre es la misma consulta, pero en este caso seleccionamos las columnas 'username' y 'password' de la tabla users y base de datos forum. Vamos a ver el resultado:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli27.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli28.png)
+
+Vemos que efectivamente, nos muestra en la primera columna el nombre del usuario y el la segunda columna su respectiva contraseña.
+
+**CROSS-SITE SCRIPTING (XSS)**
+
+En este apartado vamos a ver que es el XSS (Cross-Site Scripting). XSS no es más que una vulnerabilidad que permite la ejecución de un script en el lado cliente al visualizar una página web. Es decir, una vez logueados como hemos hecho antes en el foro, nos vamos a ir al apartado de crear topic, arriba a la derecha:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli29.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli30.png)
+
+En la zona de 'Topic Title' de arriba le ponemos un nombre (en mi caso post) y en la zona de abajo es en donde vamos a escribir nuestro código de prueba, que va a ser el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli0.png)
+
+No es más que un alert, en donde nos aparecerá el mensaje 'hola'. Le damos a submit y se crea el topic. Nos vamos a la pestaña principal y vemos nuestro topic creado:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli31.png)
+
+Si le damos al topic, nos aparecerá lo siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli32.png)
+
+Vemos que, efectivamente nos aparece una ventana emergente con el mensaje 'hola'.
+
+Cómo podemos evitar esto? Al igual que antes, es muy importante sanear los datos que introduce el usuario y no concatenar directamente la consulta. 
+
+**TIPOS DE CROSS-SITE SCRIPTING**
+
+En este apartado vamos a ver los 2 tipos de Cross-Site Scripting que existen:
+
+1. **XSS almacenado** -> Es el tipo de Cross-Site Scripting que vimos en el apartado anterior y es aquel en el que la inyección de código se almacena en la base de datos. Quizás sea el más peligroso de los dos. En el apartado anterior, lo que pasó es que nosotros al crear un nuevo topic y escribir el código en uno de sus apartados, este topic con su respectivo código se almacenó en la base de datos y posteriormente cuando le hicimos click encima para verlo, el navegador interpretó ese código como un script y lo ejecutó. El esquema sería el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli33.png)
+
+En donde tenemos un atacante que inyecta código, se guarda en la base de datos y por último, un usuario que desde su equipo va a cargar la información que hay en la base de datos y su navegador lo interpretará como un script.
+
+2. **XSS reflejado** -> En este caso, el código no se guarda en la base de datos; sino que el atacante realiza la inyección y consigue que el usuario acceda a la página con el código ya inyectado. Vamos a poner como ejemplo, un formulario que te pida tu nombre y te lo muestre. Tu lo que haría sería escribir tu nombre y darle al botón de enviar. Al darle al botón, el formulario ya tiene el código inyectado y te mostraría la cadena 'hola' (si tomamos como ejemplo el script del apartado anterior). Este método ya sería algo más difícil, ya que tendría que ser que el usuario entrase en el formulario, por ejemplo mediante un enlace. El esquema es el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli34.png)
+
+**ATAQUE:CROSS-SITE SCRIPTING (XXS)**
+
+
+
+
 
