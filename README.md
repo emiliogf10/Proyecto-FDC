@@ -2090,9 +2090,98 @@ En donde tenemos un atacante que inyecta código, se guarda en la base de datos 
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/035e2d27084846d29be404ddb22f6e6aa59ae787/Hacking_%C3%89tico/sqli34.png)
 
-**ATAQUE:CROSS-SITE SCRIPTING (XXS)**
+## Dia 14/04/2024
 
+**ATAQUE :CROSS-SITE SCRIPTING (XXS)**
 
+En apartados anteriores vimos vulnerabilidades en donde como ejemplo, mostrabamos la cadena 'hola' mediante un alert. Esto a priori, parece que no es peligroso, pero vamos a ver qué ocurre si por ejemplo utilizamos la función de javascript **window.location**. Mediante esta función podemos efectuar un 'robo se desión' (en este apartado, el usuario utilizaría 'document.cookie' para extraer las cookies del usuario y de ahí las credenciales de inicio de sesión. Hay que decir que el usuario tiene que estar ya logueado con su cuenta y hay que hacerlo rápido para que la sesión no se cierre y sea todo en vano), 'Phishing' (el atacante redirige al usuario a una página falsa que es idéntica al sitio web que quiere acceder para capturar las credenciales de inicio de desión del usuario) y 'Deface' (este apartado no es más que inutilizar una función de un sitio web. Por ejemplo, si en un formulario de inicio de sesión, en el apartado del nombre le ponemos un window.location con la URL de Google, un administrador del sitio web cuando entre y por ejemplo quiera ver los usuarios, cuando se cargue el script de nuestro nombre, lo llevará a Google. Esto supondría que el administrador tuviera que buscar de donde viene el problema).
 
+Vamos a hacer un ejemplo en el foro. Vamos a crear un nuevo topic, llamado cookie y en donde le vamos a introducir el siguiente código:
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/sqli35.png)
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/sqli36.png)
+
+Vamos a darle al topic que hemos creado a ver que nos sale:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/sqli37.png)
+
+Vemos que nos da el ID de inicio de sesión del usuario que está logueado en ese momento. Esto, podríamos redirigirlo a una página web nuestra y guardarlo en un archivo, por ejemplo. Ahora vamos a hacer el ejemplo, de redirigir a Google. Crearíamos un nuevo topic, en mi caso con el nombre 'google' y le pondríamos el siguiente código:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/sqli38.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/sqli39.png)
+
+Vamos a ver lo que pasa si hacemos click:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/sqli40.png)
+
+Nos redirigiría automáticamente a la página web de Google. Ahora mismo, estoy poniendo el código, en la parte de abajo del topic, pero qué pasaría si lo pusiera en el título del topic? La respuesta es sencilla; el foro, en su página principal carga todos los topics con su título, con lo cual, nada más acceder a la página principal se interpretaría ese script como código y se redirigiría a Google. Con esto, estaríamos inutilizando la página principal del foro con un ataque Deface de XSS reflejado.
+
+## _FICHEROS__
+
+**UNRESTRICTED FILE UPLOAD**
+
+En esta lección vamos a ver vulnerabilidades sobre el tratamiento de los ficheros. En este apartado en concreto, vamos a empezar con la subida de ficheros sin restricciones (por ejemplo un formulario en el que haya subida de ficheros, sin restricciones de tamaño, extensión ni tipo).
+
+Los tipos de ataque que nos pueden hacer son:
+
+1. Fichero malicioso ejecutable en servidor (.jsp, .php, etc).
+2. Fichero de gran tamaño (puede inutilizar el servidor al colaprsarlo con un fichero demasiado grande).
+3. Fichero con nombre/ruta sensible (sobreescribe fichero del sistema).
+
+Para controlar todo esto, deberían restringirse ciertas extensiones o incluso aceptar sólo un tipo de extension, con un tamaño máximo determinado y saneando el nombre (aqui, incluso podrían hacer alguna inyección de código como las vistas en apartados anteriores). Por último, debería descargar el fichero y no guardarlo en el servidor para que éste, si es un fichero malicioso no lo interprete como tal.
+
+**ATAQUE: UNRESTRICTED FILE UPLOAD**
+
+Lo que vamos a hacer en este apartado es un ataque de tipo Unrestricted File Upload. Para ello, necesitamos un formulario que permita la subida de ficheros. Los pasos a ejecurar van a ser los siguientes:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/ufu1.png)
+
+Para el primer paso, entramos en un formulario super básico en donde sólo te permite la subida de ficheros:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/ufu2.png)
+
+Ahora tocaría subir un fichero. En el curso, ya nos dan el fichero 'shell.php', que no es más que una consola que nos va a permitir ejecutar comandos sobre el servidor atacado. Dicho esto, subimos el archivo:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/ufu3.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/ufu4.png)
+
+Ahora simplemente cambiamos la ruta que tenemos a la que nos dice, y ya podemos entrar en la shell:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/ufu5.png)
+
+Ya estamos en la shell para poder ejecutar comandos sobre el servidor atacado. Desde aquí, si hacemos por ejemplo un 'ls', podemos ver el contenido de las carpetas del servidor y navegar por ellas:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/ufu6.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/ufu7.png)
+
+También podemos crear ficheros, borrar ficheros, crear directorios e incluso tumbar la base de datos o borrar el servidor.
+
+**LOCAL FILE INCLUSION**
+
+En este apartado vamos a tratar la vulnerabilidad LocaL File Inclusion (Manipulación de la ruta a un fichero del servidor que es cargado mediante la aplicación para acceder a otro de forma fraudulenta). Esto se puede evitar, restringiendo el nombre y la ruta a acceder. En el siguiente apartado vamos a ver un ejemplo de ello.
+
+**ATAQUE: LOCAL FILE INCLUSION**
+
+En este apartado vamos a ver un ejemplo de un ataque Local File Inclusion. Para ello, tendremos una web con 3 enlaces diferentes que cargaran archivos diferentes:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/lfi1.png)
+
+Cada enlace, como ya dije, abre un archivo totalmente diferente. Estas peticiones son de tipo 'get', que son las que se encargan de solicitar recursos como páginas web, imágenes o archivos desde un servidor web. Vamos a acceder al fichero 1 y a ver la URL:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/lfi2.png)
+
+Vemos que al final de la URL, aparece 'informe=informe1.txt'. Lo que vamos a hacer es cambiar la ruta que va a la derecha del igual e indicarle el archivo que nosotros queramos. En mi caso, en el escritorio, me creo una carpeta llamada nueva con un archivo prueba.txt. La ruta quedaría asi:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/lfi3.png)
+
+Y se mostraría lo siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/04317c2c5b6a7ece07a2513c16da57628a8b5133/Hacking_%C3%89tico/lfi4.png)
+
+Tendremos acceso a cualquier archivo al cual el usuario del sistema que ha levantado la aplicación tenga permisos de lectura. En el caso que el usuario tuviera permisos de administrador, podriamos ver casi cualquier archivo de todo el servidor.
+
+## _ROBO DE SESIONES__
