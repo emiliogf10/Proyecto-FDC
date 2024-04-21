@@ -2185,3 +2185,40 @@ Y se mostraría lo siguiente:
 Tendremos acceso a cualquier archivo al cual el usuario del sistema que ha levantado la aplicación tenga permisos de lectura. En el caso que el usuario tuviera permisos de administrador, podriamos ver casi cualquier archivo de todo el servidor.
 
 ## _ROBO DE SESIONES__
+
+En este apartado vamos a ver la vulnerabilidad de tipo 'Robo de sesión'. La vulnerabilidad de robo de sesión ocurre cuando un atacante obtiene acceso no autorizado a la sesión activa de un usuario en una aplicación web o sistema.
+
+![]()
+
+Un ejemplo sería el anterior, en donde un usuario se loguea en un sitio web con un ID de sesion 9976 por ejemplo y otro usuario se loguea en esa misma web con ID de sesión 9977. Si el usuario 1 le suma 1 a su ID de sesión, obtendría el ID de sesión del usuario 2 y accedería a su sesión.
+
+El robo de sesión se evita mediante las siguientes reglas:
+
+1. El ID de sesión debe ser creado en el servidor.
+2. El ID debe ser único.
+3. El ID debe ser aleatorio y no secuencial como en el ejemplo anterior.
+4. El ID debe estar encriptado con algún sistema de encriptación.
+5. El ID debe tener un tiempo de expiración para que se cierre automáticamente la sesión al cabo de un tiempo.
+6. Solicitar contraseña del usuario actual para cambiar la contraseña.
+
+## _ATAQUE: ROBO DE SESIONES__
+
+En este apartado vamos a efectuar un ejemplo de un robo de sesión. Para ello vamos a utilizar una herramienta llamada [ZAP](https://www.zaproxy.org/download/). Esta herramienta la vamos a utilizar para capturar la petición que el usuario le manda al servidor y de ahí modificar el ID de sesión. En la aplicación, en el menú de opciones tenemos que habilitar la opción de que escuche en localhost y un puerto (en mi caso voy a poner el 8081):
+
+![]()
+
+Ahora mismo, la herramienta está escuchando en ese puerto. Ahora nos vamos a ir a la configuración del navegador, que en mi caso va a ser Firefox y editamos las opciones de conexión del proxy:
+
+![]()
+
+Con esto ya configurado, nos vamos a un formulario de prueba muy sencillo que nos dan en el curso:
+
+![]()
+
+**PROBLEMAS CON EL FORMULARIO**
+
+## _FUERZA BRUTA__
+
+
+
+
