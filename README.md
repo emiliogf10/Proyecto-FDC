@@ -2188,7 +2188,7 @@ Tendremos acceso a cualquier archivo al cual el usuario del sistema que ha levan
 
 En este apartado vamos a ver la vulnerabilidad de tipo 'Robo de sesión'. La vulnerabilidad de robo de sesión ocurre cuando un atacante obtiene acceso no autorizado a la sesión activa de un usuario en una aplicación web o sistema.
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/robos1.png)
 
 Un ejemplo sería el anterior, en donde un usuario se loguea en un sitio web con un ID de sesion 9976 por ejemplo y otro usuario se loguea en esa misma web con ID de sesión 9977. Si el usuario 1 le suma 1 a su ID de sesión, obtendría el ID de sesión del usuario 2 y accedería a su sesión.
 
@@ -2203,21 +2203,78 @@ El robo de sesión se evita mediante las siguientes reglas:
 
 ## _ATAQUE: ROBO DE SESIONES__
 
-En este apartado vamos a efectuar un ejemplo de un robo de sesión. Para ello vamos a utilizar una herramienta llamada [ZAP](https://www.zaproxy.org/download/). Esta herramienta la vamos a utilizar para capturar la petición que el usuario le manda al servidor y de ahí modificar el ID de sesión. En la aplicación, en el menú de opciones tenemos que habilitar la opción de que escuche en localhost y un puerto (en mi caso voy a poner el 8081):
+En este apartado vamos a efectuar un ejemplo de un robo de sesión. Para ello vamos a utilizar una herramienta llamada [ZAP](https://www.zaproxy.org/download/). Esta herramienta la vamos a utilizar para capturar la petición que el usuario le manda al servidor y de ahí modificar el ID de sesión. En la aplicación, en el menú de opciones tenemos que habilitar la opción de que escuche en localhost y un puerto (ya viene por defecto localhost y el puerto 8080):
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/robos2.png)
 
 Ahora mismo, la herramienta está escuchando en ese puerto. Ahora nos vamos a ir a la configuración del navegador, que en mi caso va a ser Firefox y editamos las opciones de conexión del proxy:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/robos3.png)
+
+Ahora, nos toca añadirle un certificado SSL al navegador para que el proxy no rechace la conexión. Por defecto, la herramienta OWASP ZAP, crea un certificado SSL que podemos usar o crear otro nuevo. Para ello, nos vamos a Herramientas, Opciones y en las pestaña de Network nos vamos a Server Certificates:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/robos4.png)
+
+Y le damos al botón guardar:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/robos5.png)
+
+Ahora toca ir al navegador e importar dicho certificado. Para ello nos vamos a las opciones, y en la barra de búsqueda buscamos 'certificados':
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/robos6.png)
+
+Le damos a ver certificados y a importar. Vamos a la ubicación en donde lo habiamos guardado previamente y lo subimos:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/robos7.png)
 
 Con esto ya configurado, nos vamos a un formulario de prueba muy sencillo que nos dan en el curso:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/robos8.png)
 
-**PROBLEMAS CON EL FORMULARIO**
+En donde simplemente introducimos 'user1' o 'user2' como usuarios y 'pass1' o 'pass2' como contraseña respectivamente y se mostrará el usuario:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/robos9.png)
+
+**PROBLEMAS CON EL PROXY (EL PROXY RECHAZA LAS CONEXIONES)**
+
+**ME VEO VIDEO TUTORIAL DE [OWASP ZAP](https://www.google.com/search?q=tutorial+de+zap&sca_esv=ffa6a5b912f672b6&hl=es&source=hp&ei=dZ8mZsK6MO-Ki-gPtpq7sA0&iflsig=ANes7DEAAAAAZiathZMbyFm0zTT4-3UmIKb7yEyPrrIl&ved=0ahUKEwiCyay1rdaFAxVvxQIHHTbNDtYQ4dUDCBg&uact=5&oq=tutorial+de+zap&gs_lp=Egdnd3Mtd2l6Ig90dXRvcmlhbCBkZSB6YXAyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAESLo3UABY1jZwDHgAkAEAmAHFAaAB0hmqAQQwLjI2uAEDyAEA-AEBmAImoAKkGqgCCsICCxAAGIAEGLEDGIMBwgIREC4YgAQYsQMY0QMYgwEYxwHCAgsQLhiABBixAxiDAcICCBAAGIAEGLEDwgIIEC4YgAQYsQPCAhQQLhiABBixAxiDARjHARiOBRivAcICDhAAGIAEGLEDGIMBGIoFwgIQEAAYAxjlAhjqAhiMAxiPAcICEBAuGAMY5QIY6gIYjAMYjwGYAwKSBwUxMi4yNqAHgqkB&sclient=gws-wiz#fpstate=ive&vld=cid:d6551148,vid:1InikJ74654,st:0)**
+
+Ahora, vamos a empezar a capturar los datos con la herramienta, por lo tanto nos vamos a ella y le damos al icono verde que hay arriba de todo para empezar a capturar:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/robos10.png)
+
+Y nos vamos al formulario y le damos al link que dice 'ver datos':
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/robos11.png)
+
+Vemos que se queda cargando, y eso es porque se acaba de producir un punto de interrupción. Nos vamos a la herramienta, y vemos que nos aparece lo siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/robos12.png)
+
+En la pestaña de la derecha nos aparecen muchos datos, entre ellos nos aparecen el usuario y contraseña de esa sesión, pero lo más importante es el penúltimo dato que es el ID de sesión. Nosotros estamos logueados como user1, y vemos que el ID de sesión se llama igual que el usuario, pero qué pasa si cambio el ID a user2?:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/robos13.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/robos14.png)
+
+Hemos accedido a la sesión del usuario 2. Este caso es un ejemplo de lo más simple que puede haber, pero en páginas web más grandes esto puede suponer un problema muy grande y por ello debemos añadirle una capa más de seguridad con las reglas mencionadas anteriormente.
+
 
 ## _FUERZA BRUTA__
+
+En este apartado, a diferencia del anterior en donde capturabamos un ID de sesión, vamos a intentar conseguir las credenciales del usuario. La vulnerabilidad denominada 'Fuerza bruta' es aquel intento de averiguar una contraseña mediante la prueba consecutiva de todas las posibles combinaciones. Los tipos de ataque de fuerza bruta son:
+
+1. **Fuerza bruta** -> Es la forma principal de conseguir las credenciales de un usuario probando todas las combinaciones de contraseñas posibles.
+2. **Ataques de diccionario** -> Este tipo utiliza 'diccionarios' por ejemplo de las contraseñas más utilizadas, palabras más utilizadas, nombres, etc y por lo tanto es un conjunto finito de opciones.
+3. **Fechas** -> Este tipo es más específico y podría entrar en los ataques de diccionario y comprueba fechas (hay mucha gente que utiliza una fecha como contraseña y le dan el formato de ddmmAAAA por ejemplo). Esto computacionalmente es muy viable ya que es una posiblidad de 1 entre cien millones.
+
+La siguiente imagen sería un resumen básico de lo que sería un ataque por fuerza bruta:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/fb1.png)
+
+Para evitar esto, a parte de una contraseña larga y robusta (longitud adecuada, combinación de caracteres, evitar palabras comunes, aletoriedad, etc), la web podría contar con un contador de reintentos (si introduces mal la contraseña un número de veces x, que se realice algún tipo de acción), un Captcha (asi, no se podrá automatizar un logueo) o un bloqueo de usuario.
+
+## _ATAQUE: FUERZA BRUTA__
 
 
 
