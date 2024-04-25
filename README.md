@@ -2276,6 +2276,55 @@ Para evitar esto, a parte de una contraseña larga y robusta (longitud adecuada,
 
 ## _ATAQUE: FUERZA BRUTA__
 
+En este apartado vamos a realizar un ataque por fuerza bruta. Utilizaremos una herramienta que no está concebida como herramienta para este tipo de pruebas; sino que es una herramienta para pruebas de rendimiento. La herramienta en cuestión es [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi?Preferred=https%3A%2F%2Fdlcdn.apache.org%2F). En este caso en concreto vamos a buscar una contraseña de tipo fecha. El ejemplo va a ser el siguiente; un usuario, por el motivo que sea tiene como contraseña del foro una fecha significativa para él. Nosotros lo que vamos a hacer es hacer funcionar un script que va a empezar a buscar a partir de una fecha que le digamos y va a ir probando todas las combinaciones posibles (va a probar evidentemente sólo fechas reales; por ejemplo, en febrero sólo va a llegar al 29) hasta que encuentre la contraseña. El esquema muy resumido de lo que vamos a hacer es el siguiente:
+
+![]()
+
+Lo primero que vamos a hacer es abrir la herramienta JMeter. Después, vamos a abrir un script que es el que va a hacer las consultas masivas (en mi caso, me lo dan ya en el curso). Para ello, le damos en la esquina superior derecha en el botón Abrir y elegimos el archivo .jmx (archivos principalmente pertenecientes a JMeter):
+
+![]()
+
+![]()
+
+Vemos que nos aparecen a la derecha 4 variables: USER (el usuario al que le queremos sustraer la contraseña), PASSWORD (en este caso, fecha en la que el script va a empezar a buscar) y las otras dos son variables que se usan en el script que no nos interesan (la variable respuesta es la que se encarga de seguir con el script hasta que no tenga el valor 1, por eso está inicializada a 0). Después tenemos la ventana en dond está la conexión con el login del foro:
+
+![]()
+
+![]()
+
+Básicamente lo que queremos hacer es averiguar la contraseña del usuario 'test2' del foro visto anteriormente. Vamos a ver 2 ventanas más de JMeter que son importantes antes de ejecutar el script. La primera a va ser en donde se sumen los días y se controle que esté dentro de los días de cada mes, además de ser la que nos muestre la fecha que está probando en cada momento:
+
+![]()
+
+Y la segunda va a ser en donde nos diga la fecha que ha encontrado como contraseña:
+
+![]()
+
+Ahora vamos a ejecutar el script. Hay que tener en cuenta lo que dije en el apartado anterior y es que como fecha inicial para que empiece a buscar, tiene que ser una fecha coherente; es decir, el cumpleaños de una madre o padre, abuelo o abuela, cumpleaños propio, fecha de graducación, etc. Con esto no quiero decir que algún usuario en todo el mundo tenga como contraseña la fecha del descubrimiento de América por ejemplo, pero es muy extrado que suceda. También quiero recalcar que este es un script de prueba muy sencillo y está hecho con un sólo hilo. Si quisieramos mejorar el script, por ejemplo podríamos poner un hilo por año simultaneos e ir probando varios años a la vez (JMeter permite la ejecución de varios hilos a la vez) y por otro lado quitar todos los mensajes y dejar sólo el mensaje final en donde te diga cuál es la contraseña. Dicho esto, le damos a la flecha verde arriba en el medio para ejecutar el script:
+
+![]()
+
+![]()
+
+Vemos que en la última consulta, nos aparece el valor del parámetro 'password' que probó el script y es '12121980'. Vamos a comprobarlo:
+
+![]()
+
+Efectivamente, nos hemos logueado correctamente con el usuario 'test2' y la contraseña que hemos encontrado.
+
+## _ACCESOS ILEGALES__
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
