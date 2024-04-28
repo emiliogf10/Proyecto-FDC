@@ -2262,7 +2262,7 @@ Hemos accedido a la sesión del usuario 2. Este caso es un ejemplo de lo más si
 
 ## _FUERZA BRUTA__
 
-En este apartado, a diferencia del anterior en donde capturabamos un ID de sesión, vamos a intentar conseguir las credenciales del usuario. La vulnerabilidad denominada 'Fuerza bruta' es aquel intento de averiguar una contraseña mediante la prueba consecutiva de todas las posibles combinaciones. Los tipos de ataque de fuerza bruta son:
+En este apartado, a diferencia del anterior en donde capturabamos un ID de sesión, vamos a intentar conseguir las credenciales del usuario. La vulnerabilidad denominada **Fuerza bruta** es aquel intento de averiguar una contraseña mediante la prueba consecutiva de todas las posibles combinaciones. Los tipos de ataque de fuerza bruta son:
 
 1. **Fuerza bruta** -> Es la forma principal de conseguir las credenciales de un usuario probando todas las combinaciones de contraseñas posibles.
 2. **Ataques de diccionario** -> Este tipo utiliza 'diccionarios' por ejemplo de las contraseñas más utilizadas, palabras más utilizadas, nombres, etc y por lo tanto es un conjunto finito de opciones.
@@ -2278,51 +2278,107 @@ Para evitar esto, a parte de una contraseña larga y robusta (longitud adecuada,
 
 En este apartado vamos a realizar un ataque por fuerza bruta. Utilizaremos una herramienta que no está concebida como herramienta para este tipo de pruebas; sino que es una herramienta para pruebas de rendimiento. La herramienta en cuestión es [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi?Preferred=https%3A%2F%2Fdlcdn.apache.org%2F). En este caso en concreto vamos a buscar una contraseña de tipo fecha. El ejemplo va a ser el siguiente; un usuario, por el motivo que sea tiene como contraseña del foro una fecha significativa para él. Nosotros lo que vamos a hacer es hacer funcionar un script que va a empezar a buscar a partir de una fecha que le digamos y va a ir probando todas las combinaciones posibles (va a probar evidentemente sólo fechas reales; por ejemplo, en febrero sólo va a llegar al 29) hasta que encuentre la contraseña. El esquema muy resumido de lo que vamos a hacer es el siguiente:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/fb2.png)
 
 Lo primero que vamos a hacer es abrir la herramienta JMeter. Después, vamos a abrir un script que es el que va a hacer las consultas masivas (en mi caso, me lo dan ya en el curso). Para ello, le damos en la esquina superior derecha en el botón Abrir y elegimos el archivo .jmx (archivos principalmente pertenecientes a JMeter):
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/fb3.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/fb4.png)
 
 Vemos que nos aparecen a la derecha 4 variables: USER (el usuario al que le queremos sustraer la contraseña), PASSWORD (en este caso, fecha en la que el script va a empezar a buscar) y las otras dos son variables que se usan en el script que no nos interesan (la variable respuesta es la que se encarga de seguir con el script hasta que no tenga el valor 1, por eso está inicializada a 0). Después tenemos la ventana en dond está la conexión con el login del foro:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/fb5.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/fb6.png)
 
 Básicamente lo que queremos hacer es averiguar la contraseña del usuario 'test2' del foro visto anteriormente. Vamos a ver 2 ventanas más de JMeter que son importantes antes de ejecutar el script. La primera a va ser en donde se sumen los días y se controle que esté dentro de los días de cada mes, además de ser la que nos muestre la fecha que está probando en cada momento:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/fb7.png)
 
 Y la segunda va a ser en donde nos diga la fecha que ha encontrado como contraseña:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/fb8.png)
 
 Ahora vamos a ejecutar el script. Hay que tener en cuenta lo que dije en el apartado anterior y es que como fecha inicial para que empiece a buscar, tiene que ser una fecha coherente; es decir, el cumpleaños de una madre o padre, abuelo o abuela, cumpleaños propio, fecha de graducación, etc. Con esto no quiero decir que algún usuario en todo el mundo tenga como contraseña la fecha del descubrimiento de América por ejemplo, pero es muy extrado que suceda. También quiero recalcar que este es un script de prueba muy sencillo y está hecho con un sólo hilo. Si quisieramos mejorar el script, por ejemplo podríamos poner un hilo por año simultaneos e ir probando varios años a la vez (JMeter permite la ejecución de varios hilos a la vez) y por otro lado quitar todos los mensajes y dejar sólo el mensaje final en donde te diga cuál es la contraseña. Dicho esto, le damos a la flecha verde arriba en el medio para ejecutar el script:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/fb9.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/fb10.png)
 
 Vemos que en la última consulta, nos aparece el valor del parámetro 'password' que probó el script y es '12121980'. Vamos a comprobarlo:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/fb11.png)
 
 Efectivamente, nos hemos logueado correctamente con el usuario 'test2' y la contraseña que hemos encontrado.
 
+## Dia 28/04/2024
+
 ## _ACCESOS ILEGALES__
 
+En este apartado vamos a ver vulnerabilidades de tipo 'Accesos Ilegales'. En este primer apartado vamos a ver la vulnerabilidad **Parameter Tampering**, que consiste eb la manipulación de algún parámetro que se intercambia entre cliente y servidor con fines malintencionados. Pongamos un ejemplo:
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/pt1.png)
 
+En la imagen anterior, nos aparece un ejemplo de una aplicación que te devuelve información según el DNI y apretando un botón que dice 'Consultar mis datos'. Pero qué pasa si modificamos lo que hace el botón, cambiando por ejemplo el DNI? Efectivamente, la información será correspondiente al DNI que le estamos dando nosotros y por lo tanto estaríamos manipulando la consulta que le hace la aplicación a la base de datos.
 
+Todo esto podría evitarse por ejemplo validando que el usuario que está haciendo la consulta tiene permisos para consultar esa información, si no le saltaría un error. También, podemos evitar el envio de información innecesaria, por ejemplo validando el DNI internamente según el usuario que estemos utilizando.
 
+## _ATAQUE: ACCESOS ILEGALES__
 
+En este apartado vamos a ver un ataque para poder explotar la vulnerabilidad del apartado anterior, Parameter Tampering. Este ataque va a consistir en lo siguiente: vamos a tener un formulario muy básico en donde tendremos una lista de herramientas, con precio y un botón que dice 'Comprar'. 
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/pt2.png)
 
+Si le damos al botón nos aparecerá una frase diciendo el artículo que estamos comprando y su precio. El objetivo va a ser comprar un artículo a un precio inferior al real mediante la manipulación de un parámetro. Para ello vamos a volver a utilizar la herramienta ZAP OWASP. Como ya la tenemos configurada de antes, solamente nos vamos al formulario dado en el curso con el ZAP abierto:
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/pt3.png)
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/pt4.png)
+
+Llegados a este punto, le decimos al ZAP que empiece a capturar, y le damos al botón comprar de cualquiera de los artículos (en mi caso la escalera):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/pt5.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/pt6.png)
+
+Vemos que el formulario se queda cargando y que en el ZAP nos salta un punto de interrupción. Nos aparece la información del articulo y del precio, pero qué pasa si le cambiamos el precio (voy a fijar el precio en 10 euros)? Vamos a verlo:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/pt7.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/pt8.png)
+
+Vemos que nos aparece la frase correspondiente, pero con el precio que nosotros le hemos fijado:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/pt9.png)
+
+## _CONTROL INSEGURO DE ROLES__
+
+En este apartado vamos a ver la última vulnerabilidad del curso, y se trata del **Control inseguro de roles**. Esta vulnerabilidad consiste en el tratamiento inseguro de roles de usuario basándose simplemente en la ocultación de las funcionalidades para lo que no se tiene permiso. Un ejemplo de esto sería que un usuario normal de una aplicación no tuviera permisos de administrador y se le ocultara el botón de editar (que sólo tienen los administradores), pero no se le deniega el acceso. Entonces, si el usuario conoce la URL de esa opción de administrador, podría entrar perfectamente porque no se comprueba si tiene permisos para acceder a esa función:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/cir1.png)
+
+Cómo evitamos esto? Lo más fundamental es la comprobación de permisos en el servidor. Con cada acceso de cualquier usuario a cualquier URL y con cada acción tiene que ir adjunta una comprobación de privilegios (puede pasar que un usuario tenga privilegios de lectura en una URL y cambiando algún parámetro pueda cambiarse al modo escritura, por lo tanto esa acción tiene que estar controlada).
+
+## _ATAQUE: CONTROL INSEGURO DE ROLES__
+
+En este apartado vamos a finalizar el curso realizando un ataque sobre el control inseguro de roles. Este ataque va a consistir en que vamos a utilizar dos usuarios del foro visto anteriormente con funcionalidades diferentes (el usuario test1 tiene permisos de administrador y el usuario test3 no). Para ello, primero accedemos al foro con el usuario test1:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/cir2.png)
+
+Y vemos que tiene el botón 'Administration'. Ahora vamos a acceder con el usuario test3:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/cir3.png)
+
+Vemos que este usuario no tiene el botón. Vanmos a averiguar la URL de la zona de administración, entrando con el usuario test1:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/cir4.png)
+
+Ahora, entramos nuevamente con test3 y pegamos la url que hemos visto de la zona de administración:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/cir5.png)
+
+Vemos que estamos dentro de la zona de administración sin ningún problema, por eso es importante controlar los accesos de alguna forma para que los usuarios no autorizados no puedan entrar a sitios restringidos.
 
 
 
