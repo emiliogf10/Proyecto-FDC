@@ -2186,7 +2186,9 @@ Tendremos acceso a cualquier archivo al cual el usuario del sistema que ha levan
 
 ## _ROBO DE SESIONES__
 
-En este apartado vamos a ver la vulnerabilidad de tipo 'Robo de sesión'. La vulnerabilidad de robo de sesión ocurre cuando un atacante obtiene acceso no autorizado a la sesión activa de un usuario en una aplicación web o sistema.
+**SESION PREDICTION**
+
+En este apartado vamos a ver la vulnerabilidad de tipo 'Robo de sesión' o 'Sesion Prediction'. La vulnerabilidad de robo de sesión ocurre cuando un atacante obtiene acceso no autorizado a la sesión activa de un usuario en una aplicación web o sistema.
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/f8964d8dbd1089f60fd8f98d4912cc67fadbe993/Hacking_%C3%89tico/robos1.png)
 
@@ -2201,7 +2203,7 @@ El robo de sesión se evita mediante las siguientes reglas:
 5. El ID debe tener un tiempo de expiración para que se cierre automáticamente la sesión al cabo de un tiempo.
 6. Solicitar contraseña del usuario actual para cambiar la contraseña.
 
-## _ATAQUE: ROBO DE SESIONES__
+**ATAQUE: SESION PREDICTION**
 
 En este apartado vamos a efectuar un ejemplo de un robo de sesión. Para ello vamos a utilizar una herramienta llamada [ZAP](https://www.zaproxy.org/download/). Esta herramienta la vamos a utilizar para capturar la petición que el usuario le manda al servidor y de ahí modificar el ID de sesión. En la aplicación, en el menú de opciones tenemos que habilitar la opción de que escuche en localhost y un puerto (ya viene por defecto localhost y el puerto 8080):
 
@@ -2260,7 +2262,7 @@ En la pestaña de la derecha nos aparecen muchos datos, entre ellos nos aparecen
 Hemos accedido a la sesión del usuario 2. Este caso es un ejemplo de lo más simple que puede haber, pero en páginas web más grandes esto puede suponer un problema muy grande y por ello debemos añadirle una capa más de seguridad con las reglas mencionadas anteriormente.
 
 
-## _FUERZA BRUTA__
+**FUERZA BRUTA**
 
 En este apartado, a diferencia del anterior en donde capturabamos un ID de sesión, vamos a intentar conseguir las credenciales del usuario. La vulnerabilidad denominada **Fuerza bruta** es aquel intento de averiguar una contraseña mediante la prueba consecutiva de todas las posibles combinaciones. Los tipos de ataque de fuerza bruta son:
 
@@ -2274,7 +2276,7 @@ La siguiente imagen sería un resumen básico de lo que sería un ataque por fue
 
 Para evitar esto, a parte de una contraseña larga y robusta (longitud adecuada, combinación de caracteres, evitar palabras comunes, aletoriedad, etc), la web podría contar con un contador de reintentos (si introduces mal la contraseña un número de veces x, que se realice algún tipo de acción), un Captcha (asi, no se podrá automatizar un logueo) o un bloqueo de usuario.
 
-## _ATAQUE: FUERZA BRUTA__
+**ATAQUE: FUERZA BRUTA**
 
 En este apartado vamos a realizar un ataque por fuerza bruta. Utilizaremos una herramienta que no está concebida como herramienta para este tipo de pruebas; sino que es una herramienta para pruebas de rendimiento. La herramienta en cuestión es [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi?Preferred=https%3A%2F%2Fdlcdn.apache.org%2F). En este caso en concreto vamos a buscar una contraseña de tipo fecha. El ejemplo va a ser el siguiente; un usuario, por el motivo que sea tiene como contraseña del foro una fecha significativa para él. Nosotros lo que vamos a hacer es hacer funcionar un script que va a empezar a buscar a partir de una fecha que le digamos y va a ir probando todas las combinaciones posibles (va a probar evidentemente sólo fechas reales; por ejemplo, en febrero sólo va a llegar al 29) hasta que encuentre la contraseña. El esquema muy resumido de lo que vamos a hacer es el siguiente:
 
@@ -2314,7 +2316,9 @@ Efectivamente, nos hemos logueado correctamente con el usuario 'test2' y la cont
 
 ## Dia 28/04/2024
 
-## _ACCESOS ILEGALES__
+## _PARAMETER TAMPERING_
+
+**ACCESOS ILEGALES**
 
 En este apartado vamos a ver vulnerabilidades de tipo 'Accesos Ilegales'. En este primer apartado vamos a ver la vulnerabilidad **Parameter Tampering**, que consiste eb la manipulación de algún parámetro que se intercambia entre cliente y servidor con fines malintencionados. Pongamos un ejemplo:
 
@@ -2324,7 +2328,7 @@ En la imagen anterior, nos aparece un ejemplo de una aplicación que te devuelve
 
 Todo esto podría evitarse por ejemplo validando que el usuario que está haciendo la consulta tiene permisos para consultar esa información, si no le saltaría un error. También, podemos evitar el envio de información innecesaria, por ejemplo validando el DNI internamente según el usuario que estemos utilizando.
 
-## _ATAQUE: ACCESOS ILEGALES__
+**ATAQUE: ACCESOS ILEGALES**
 
 En este apartado vamos a ver un ataque para poder explotar la vulnerabilidad del apartado anterior, Parameter Tampering. Este ataque va a consistir en lo siguiente: vamos a tener un formulario muy básico en donde tendremos una lista de herramientas, con precio y un botón que dice 'Comprar'. 
 
@@ -2352,7 +2356,7 @@ Vemos que nos aparece la frase correspondiente, pero con el precio que nosotros 
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/pt9.png)
 
-## _CONTROL INSEGURO DE ROLES__
+**CONTROL INSEGURO DE ROLES**
 
 En este apartado vamos a ver la última vulnerabilidad del curso, y se trata del **Control inseguro de roles**. Esta vulnerabilidad consiste en el tratamiento inseguro de roles de usuario basándose simplemente en la ocultación de las funcionalidades para lo que no se tiene permiso. Un ejemplo de esto sería que un usuario normal de una aplicación no tuviera permisos de administrador y se le ocultara el botón de editar (que sólo tienen los administradores), pero no se le deniega el acceso. Entonces, si el usuario conoce la URL de esa opción de administrador, podría entrar perfectamente porque no se comprueba si tiene permisos para acceder a esa función:
 
@@ -2360,7 +2364,7 @@ En este apartado vamos a ver la última vulnerabilidad del curso, y se trata del
 
 Cómo evitamos esto? Lo más fundamental es la comprobación de permisos en el servidor. Con cada acceso de cualquier usuario a cualquier URL y con cada acción tiene que ir adjunta una comprobación de privilegios (puede pasar que un usuario tenga privilegios de lectura en una URL y cambiando algún parámetro pueda cambiarse al modo escritura, por lo tanto esa acción tiene que estar controlada).
 
-## _ATAQUE: CONTROL INSEGURO DE ROLES__
+**ATAQUE: CONTROL INSEGURO DE ROLES**
 
 En este apartado vamos a finalizar el curso realizando un ataque sobre el control inseguro de roles. Este ataque va a consistir en que vamos a utilizar dos usuarios del foro visto anteriormente con funcionalidades diferentes (el usuario test1 tiene permisos de administrador y el usuario test3 no). Para ello, primero accedemos al foro con el usuario test1:
 
@@ -2379,6 +2383,115 @@ Ahora, entramos nuevamente con test3 y pegamos la url que hemos visto de la zona
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/91ff1bf65bd9b27f82425e51c56c54e76ecf0f68/Hacking_%C3%89tico/cir5.png)
 
 Vemos que estamos dentro de la zona de administración sin ningún problema, por eso es importante controlar los accesos de alguna forma para que los usuarios no autorizados no puedan entrar a sitios restringidos.
+
+# TERCER CURSO : CURSO DE HACKING TOOLS: BLUE TEAM (Tiempo de realización: 6-7 dias aproximadamente)
+
+## Dia 04/05/2024
+
+En este curso, básicamente los objetivos son:
+
+1. Adquirir destreza en el manejo de linux.
+2. Conocer las técnicas de ataque.
+3. Hacer uso de herramientas de ataque/defensa.
+4. Defensa de ataques en profundidad.
+5. Control de accesos remotos.
+6. Uso y configuración del firewall.
+7. Monitoreo y defensa de red.
+
+Trabajaremos con una máuina linux, en mi caso una máquina virtual Ubuntu.
+
+## _LINUX 100%__
+
+**USUARIOS, GRUPOS Y PERMISOS**
+
+Básicamente, para empezar este curso, hay que recordar una cosa de algún curso anterior de linux, y es que los entornos linux comprenden 4 ficheros principales: fichero 'passwd' (en donde tenemos cada usuario con su contraseña y algún dato más), fichero 'shadow' (en sistemas actuales es el fichero en donde tenemos la contraseña encriptada y no tendremos permiso de lectura), fichero 'group' (información sobre los grupos del sistema y sus integrantes) y el fichero 'gshadow' (donde se guardan las contraseñas de los grupos) que casi no se usa.
+
+Vamos a ver unos cuantos comandos que se realizan en entorno linux y relacionados con usuarios, grupos y sus permisos que nos van a ser de utilidad:
+
+1. **sudo adduser usuario** -> Con este comando añadimos una nueva cuenta de usuario en Linux; siempre con el sudo delante dado que la acción requiere de permisos de superusuario, a no ser que estés logueado como root (evidentemente, en el comando la palabra usuario la cambiamos por el nombre que va a tener el usuario).
+2. **sudo user del usuario** -> Al igual que antes, ahora en vez de añadir, lo que hacemos es eliminar un usuario.
+3. **sudo passwd usuario** -> Este comando se utiliza para cambiar la contraseña de un usuario en concreto.
+4. **cat etc/passswd** -> Este comando accede al fichero antes mencionado passwd y nos muestra todos los usuarios. Hay que tener mucho cuidado con este fichero ya que se considera crítico (es nuestra primera línea de defensa ante accesos no deseados, ya que determina quien puede acceder al sistema de manera legítima.
+5. **sudo groupadd nombreGrupo** -> Con este comando simplemente creamos un grupo.
+6. **sudo del user usuario grupo** -> Se utiliza para borrar un grupo. Al igual que en el caso de los usuarios, se recomienda no borrar ningún grupo creado por el sistema en la instalación inicial.
+7. **sudo gedit /etc/group** -> Este comando abre el fichero group con el editor de texto Gedit (en donde podremos eliminar o añadir usuarios a grupos con sus respectivos permisos).
+8. **sudo chown usuario rutaFichero** -> Este comando srive para cambiar el propietario de determinado archivo.
+9. **sudo chown -R usuario rutaDirectorio** -> Lo mismo que el comando anterior pero con un directorio.
+10. **sudo chgroup grupo rutaArchivo** -> Este comando nos permite cambiar el grupo propietario de un archivo.
+11. **sudo chgroup -R grupo rutaDirectorio** -> Es lo mismo que el comando anterior pero con un directorio.
+12. **sudo chmod XYZ rutaArchivo** -> Asigna permisos de lectura, escritura y ejecución de un fichero.
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux1.png)
+
+Debemos tener controlado en todo momento en nuestro sistema, qué usuarios y qué grupos tienen acceso a ciertos ficheros y quién no. También tenemos que tener en cuenta que en un ataque por fuerza bruta, el superusuario por excelencia es root; por lo tanto deberíamos cambiarle el nombre, para que estos ataques no se lleven a cabo o sea mucho más difícil ejecutarlos.
+
+**PRÁCTICA: USUARIOS, GRUPOS Y PERMISOS**
+
+En este apartado vamos a ver en modo gráfico todo lo del apartado anterior. Vamos a empezar con los ficheros importantes del sistema, el primero es el fichero passwd:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux2.png)
+
+En donde vemos que aparecen los usuarios con sus respectivos datos. El siguiente fichero es el fichero shadow:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux3.png)
+
+En donde vemos que tenemos las password de los usuarios del sistema (cifrados con un hash). El siguiente fichero es group:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux4.png)
+
+Lo primero que vemos es que el comando que se tuvo que ejecutar para abrir el fichero, tuvo que ser ejecutado con root (con el usuario emilio y utilizando sudo, no me dejaba debido a que a este archivo sólo tiene acceso root). Con respecto al fichero, podemos ver que en cada fila, los datos están separados por :. Lo primero es el nombre del grupo, el segundo dato es la contraseña del grupo que es opcional, el tercer dato es el identificador del grupo y el tercer dato son los usuarios que pertenecen al grupo separados por comas. 
+
+El último archivo importante y que no mencioné anteriormente es el archivo **sudoers**. Este archivo es el que controla los permisos y privilegios de ejecución del comando sudo. Contiene reglas que especifican qué usuarios o grupos de usuarios pueden ejecutar comandos con sudo, qué comandos están permitidos y bajo qué condiciones. Es importante tener en cuenta que el archivo sudoers debe ser editado con cuidado, ya que un error de sintaxis o una configuración incorrecta podrían resultar en un bloqueo del acceso a sudo, lo que podría causar problemas de administración del sistema. Como se dijo en cursos anteriores, algunos sistemas utilizan herramientas como **visudo** para editar el archivo /etc/sudoers, ya que proporcionan una validación de la sintaxis del archivo antes de guardar los cambios, lo que ayuda a prevenir errores. Es una buena práctica utilizar visudo en lugar de editar directamente el archivo con un editor de texto:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux5.png)
+
+Podemos ver efectivamente que en dicho fichero se guardan los usuarios con sus permisos. Vemos que el usuario root tiene permisos de lectura, escritura y ejecución en todo el sistema, lo que quiere decir, control total. Evidentemente, como dije antes, este fichero se puede modificar pero con mucho cuidado y no sin antes hacer una copia del actual por posibles errores.
+
+Ahora lo que vamos a hacer es añadir un usuario:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux6.png)
+
+En donde vemos que se crea el usuario, lo mete por defecto en el grupo con id 1001, le crea un directorio personal y a continuación nos pide su contraseña. Introducimos una contraseña, en mi caso 'abc123.' y rellenamos los datos que nos piden:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux7.png)
+
+El usuario se ha creado correctamente con los datos que le falicitamos. Ahora vamos a ver si de verdad se ha creado correctamente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux8.png)
+
+Con el comando anterior, básicamente buscamos en el fichero passwd el usuario prueba que creamos, y efectivamente aparece. Ahora nos vamos al fichero group para ver si se creó el grupo prueba:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux9.png)
+
+Vemos que efectivamente, al final de todo, hay un grupo prueba, con el id antes mencionado que es el 1001 y sin contraseña. Ahora vamos a ver los permisos. Nos vamos a la carpeta home del usuario prueba y creamos un directorio que se llame prueba:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux10.png)
+
+Ahora vamos a ver los permisos del directorio. Para ello ejecutamos el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux11.png)
+
+Podemos ver los permisos de tres grupos: el propio usuario que en este caso tiene todos los permisos (lectura, escritura y ejecución), el grupo group que tiene permisos de lectura y ejecución y el tercer grupo que serían otros, que sólo tiene permisos de ejecución. También podemos apreciar que al principio, en el primer grupo hay una d. Esto sólo quiere decir que los permisos que estamos viendo son de un directorio. Vamos a probar a crear un fichero, con una frase cualquiera dentro y ver sus permisos:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux12.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux13.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux14.png)
+
+Vemos que efectivamente, la d no aparece porque es un fichero y también vemos que con el usuario emilio no tenemos permisos de ejecución. Vamos a cambiarle los permisos a este archivo para que el usuario emilio y otros usuarios tengan permisos de escritura. Para ello ejecutamos el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux15.png)
+
+En donde le decimos que para los otros usuarios (o) le añadimos (+) permiso de escritura (write, w) al fichero indicado. Vemos que los permisos se cambian perfectamente y ahora el usuario emilio tiene permisos de escritura y de lectura. Ahora vamos a quitarle los permisos de escritura a todo el mundo, porque vamos a suponer que este fichero es confidencial y no queremos que nadie lo modifique:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/60c606132163255dfe0413b3de1798e7028e9798/Hacking_%C3%89tico/linux16.png)
+
+Vemos que el comando es similar al anterior pero en vez de añadir, quitamos el permiso de escritura a ugo (user, group y others).
+
+Sabiendo esto, podemos jugar fácilmente con los permisos que tiene cada usuario en cada fichero o directorio, y tener controlados ficheros críticos que no queremos que se modifiquen o por ejemplo scripts que no queremos que se ejecuten por otros usuarios.
+
+**ACCESOS REMOTOS**
 
 
 
