@@ -2493,6 +2493,61 @@ Sabiendo esto, podemos jugar fácilmente con los permisos que tiene cada usuario
 
 **ACCESOS REMOTOS**
 
+## Dia 05/05/2024
+
+En este apartado vamos a tratar el acceso remoto. El acceso remoto no es más que la capacidad de acceder y controlar un sistema informático desde una ubicación remota; por ejemplo, si estamos de viaje y queremos conectarnos al ordenador que tenemos en casa, desde un portátil podemos hacerlo mediante diferentes medios: SSH, Telnet, TeamViewer, AnyDesk, etc. Nosotros, particularmente lo haremos con **SSH**, que es un protocolo de red que permite la conexión remota a un sistema mediante una conexión cifrada.
+
+Esto lo haremos mediante el siguiente comando, teniendo previamente la máquina remota configurada debidamente y el ssh instalado en la máquina que se va a conectar:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linux17.png)
+
+Por otra parte tenemos los túneles ssh (técnica que utliza SSH para encapsular y cifrar el tráfico de red entre dos puntos finales; haciendo una comunicación segura a través de redes no seguras o públicas):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linux18.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linux19.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linux20.png)
+
+Después también tenemos la posibilidad de un VNC vía túnel SSH (esta técnica combina el uso del protocolo VNC para acceder y controlar un sistema, con el cifrado y la seguridad del protocolo SSH):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linux21.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linux22.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linuxx.png)
+
+Por último tenemos el acceso automático mediante clave pública; creamos una clave pareada para el acceso al servidor remoto. Esto quiere decir que cuando nosotros nod conectemos desde nuestra máquina, se establecerá la conexión con el servidor automáticamente sin introducir usuario ni contraseña (siempre y cuando la clave aún siga siendo válida):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linux23.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linux24.png)
+
+**PRÁCTICA: ACCESOS REMOTOS**
+
+En este apartado vamos a poner en práctica el aprtado anterior. Para ello, necesitaremos primeramente dos máquinas virtuales (una que sea el anfitrión y otra que sea la que se conecta). En mi caso tengo una máquina kali que me servirá de cliente y una ubuntu que utilizaré como anfitrión. Primeramente instalo el servidor SSH en las dos máquinas siguiendo [este enlace](https://www.ionos.es/digitalguide/servidores/configuracion/ubuntu-ssh/). Ahora vamos a ver el archivo de configuración del servidor SSH, por ejemplo en la máquina Kali:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linux25.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linux26.png)
+
+Vemos que por defecto, el puerto que utiliza es el 22. Evidentemente, si quisieramos otro puerto, descomentaríamos esa línea y le pondríamos el puerto que quisieramos. Visto esto, vamos a conectarnos remotamente a la máquina Ubuntu. Primero vemos los parámetros que nos permite el comando ssh:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linux27.png)
+
+Y la conexión sería asi:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linux28.png)
+
+En donde empezariamos con el comando ssh, seguido del usuario de la máquina anfitrión con el que queremos identificarnos, @ la IP del sistema anfitrión. A continuación nos pide la contraseña del usuario que le hemos indicado (en mi caso emilio) y se conecta correctamente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linux29.png)
+
+Si quisieramos salir de la conexión, simplemente ejecutamos exit y salimos:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linux30.png)
+
+Ahora vamos a crear una clave, como he dicho anteriormente, para acceder a la máquina Ubuntu de forma totalmente automática.
 
 
 
