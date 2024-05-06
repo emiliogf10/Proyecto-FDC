@@ -2547,7 +2547,38 @@ Si quisieramos salir de la conexión, simplemente ejecutamos exit y salimos:
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/211b333fe4bba58d21581750d0568a34ece957b5/Hacking_%C3%89tico/linux30.png)
 
-Ahora vamos a crear una clave, como he dicho anteriormente, para acceder a la máquina Ubuntu de forma totalmente automática.
+## Dia 06/05/2024
+
+Ahora vamos a crear una clave, como he dicho anteriormente, para acceder a la máquina Ubuntu de forma totalmente automática. Para ello ejecutamos el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4bef40f674f62304f5c59cb86577446240d79cb2/Hacking_%C3%89tico/linux31.png)
+
+En donde, a continuación nos pedirá que confirmemos el directorio en donde se va a guardar y una contraseña (en nuestro caso no le vamos a poner ninguna):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4bef40f674f62304f5c59cb86577446240d79cb2/Hacking_%C3%89tico/linux32.png)
+
+Y vemos que se nos creó nuestra clave, con el hash arriba indicado. Es importante quedarnos con la ruta en donde se nos guarda la clave, ya que la necesitaremos ahora mismo para conectarnos por ssh. El comando a ejecutar para conectarnos automáticamente con el hash es el siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4bef40f674f62304f5c59cb86577446240d79cb2/Hacking_%C3%89tico/linux33.png)
+
+En donde 'ssh-copy-id' es una utilidad que facilita la tarea de copiar la clave pública de SSH al archivo '~/.ssh/authorized_keys' de una máquina remota (en nuestro caso la máquina Ubuntu), al que deseas conectarte utilizando una autenticación basada en clave pública. Después tenemos el parámetro '-i' que se utiliza para especificar el archivo que coontiene la clave pública que deseas pegar en el servidor remoto, seguido de una dirección (la dirección que le hemos indicado al crear la clave). Por último tenemos el usuario @ la IP remota. Dicho esto, nos pedirá la contraseña del usuario emilio (en mi caso) y se guardará la clave en el equipo remoto:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4bef40f674f62304f5c59cb86577446240d79cb2/Hacking_%C3%89tico/linux34.png)
+
+Ahora, simplemente tenemos que conectarnos de la manera inicial, pero ahora sin introducir una contraseña:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/4bef40f674f62304f5c59cb86577446240d79cb2/Hacking_%C3%89tico/linux35.png)
+
+Con todo esto vamos a tener dos ventajas: saber que el canal el seguro al utilizar una clave pública y no introducir las credenciales cada vez que nos queramos conectar. En caso de que tengamos por ejemplo 5 servidores o máquinas a las que nos queramos conectar, podríamos hacerlo con una única clave, siempre y cuando mandemos correctamente la clave al servidor remoto con el comando antes visto.
+
+**SQUID**
+
+En este apartado vamos a ver lo que es un [Squid](https://www.ionos.es/digitalguide/servidores/configuracion/squid-el-servidor-proxy-cache-de-codigo-abierto/). El squid no es más que un servidor proxy-caché situado entre la máquina del usuario y otra red (a menudo internet). Su función es actuar como protección, separando las dos redes y haciendo como zona caché para acelerar el acceso a páginas web o poder restringir el acceso a dichos contenidos. Sus principales funciones son:
+
+1. Permitir el acceso web a máquinas privadas que no estén conectadas directamente a internet.
+2. Controlar el acceso web aplicando reglas.
+3. Registrar el tráfico web desde la red local hacia el exterior.
+4. Controlar el contenido web visitado y descargado.
 
 
 
