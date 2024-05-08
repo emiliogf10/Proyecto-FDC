@@ -2573,12 +2573,101 @@ Con todo esto vamos a tener dos ventajas: saber que el canal el seguro al utiliz
 
 **SQUID**
 
-En este apartado vamos a ver lo que es un [Squid](https://www.ionos.es/digitalguide/servidores/configuracion/squid-el-servidor-proxy-cache-de-codigo-abierto/). El squid no es más que un servidor proxy-caché situado entre la máquina del usuario y otra red (a menudo internet). Su función es actuar como protección, separando las dos redes y haciendo como zona caché para acelerar el acceso a páginas web o poder restringir el acceso a dichos contenidos. Sus principales funciones son:
+En este apartado vamos a ver lo que es un [Squid](https://www.ionos.es/digitalguide/servidores/configuracion/squid-el-servidor-proxy-cache-de-codigo-abierto/). El squid no es más que un servidor proxy-caché situado entre la máquina del usuario y otra red (a menudo internet). Su función es actuar como protección, separando las dos redes y haciendo como zona caché para acelerar el acceso a páginas web o poder restringir el acceso a dichos contenidos. Sus principales **funciones** son:
 
 1. Permitir el acceso web a máquinas privadas que no estén conectadas directamente a internet.
 2. Controlar el acceso web aplicando reglas.
 3. Registrar el tráfico web desde la red local hacia el exterior.
 4. Controlar el contenido web visitado y descargado.
+5. Controla la seguridad de la red local ante posibles ataques, intrusiones del sistema, etc.
+6. Funciona como un caché de páginas web. Es decir, almacena las páginas web visitadas por los usuarios y de esta manera las puede enviar a otros usuarios sin tener que acceder a Internet de nuevo.
+7. Guarda en caché las peticiones DNS e implementa una caché para las conexiones fallidas.
+8. Registra logs de todas las peticiones.
+
+## Dia 08/05/2024
+
+Sus principales **ventajas**:
+
+1. Reducir los tiempos de respuesta.
+2. Si la página web que se solicita está en la caché del servidor, ésta se sirve sin necesidad de acceder de nuevo al servidor original, con lo cual se ahorra tiempo.
+3. Disminuye el tráfico en la red y el consumo de ancho de banda.
+4. Cortafuegos.
+5. Si la página web está almacenada en la caché del servidor, la petición no sale de la red local y no será necesario hacer uso de la línea exterior consiguiendo así un ahorro en la utilización del ancho de banda.
+6. Cuando se utiliza un servidor proxy-caché, éste comunica con el exterior, y puede funcionar como cortafuegos, lo cual aumentará la seguridad del usuario respecto a la información a la que se acceda.
+7. Filtrado de servicios.
+8. Es posible configurar el servidor proxy-caché dejando sólo disponibles aquellos servicios (HTTP, FTP...) que se consideren necesarios, impidiendo la utilización del resto.
+9. Soporta el protocolo ICP, que permite integrar cachés que colaboran y también permite crear jerarquías de cachés y el intercambio de datos.
+
+La instalación es bastante sencilla y se realiza mediante el comando 'apt-get' en linux, pero eso lo veremos más adelante en la práctica, al igual que las ubicaciones de todos sus componentes. A continuación voy a dejar tres imagenes en donde se muestra la configuración básica del servidor y del cliente, que veremos más a fondo en el siguiente apartado de práctica.
+
+![]()
+
+![]()
+
+![]()
+
+En donde podemos ver que podemos restringir mediante IP, dominio, horario, URL, etc.
+
+**PRÁCTICA: SQUID**
+
+En este apartado vamos a poner en práctica el apartado anterior. Primeramente, tendremos que instalar Squid. Para ello, nos vamos a nuestra máquina (en mi caso Kali linux) y abrimos una consola. Ejecutamos el siguiente comando:
+
+![]()
+
+Nos pedirá la contraseña y procederá a su instalación:
+
+![]()
+
+Con el Squid ya instalado, vamos a ver si el servicio está habilitado:
+
+![]()
+
+Vemos que no, por lo tanto lo vamos a habilitar ejecutando el siguiente comando:
+
+![]()
+
+![]()
+
+![]()
+
+Hecho esto, vemos que el servicio ya está corriendo. Ahora vamos a ver el directorio de configuración de Squid en donde tendremos varios ficheros. Dicho directorio es **/etc/squid**:
+
+![]()
+
+Vemos que hay 2 archivos:
+
+1. errorpage.css -> Es la página de error del servidor. Esta página la poidríamos personalizar a nuestro gusto, por ejemplo poniendo el logo de la empresa y por qué se deniega el acceso al servicio.
+2. squid.conf -> Es el archivo de configuración general de Squid.
+
+Después tenemos una carpeta en donde tenemos el archivo de configuración de Squid para Debian.
+
+Ahora, antes de tocar el archivo de configuración, es muy importante hacer una copia; debido a que es un archivo de más de 5000 lineas y si tocamos algo que no corresponde es posible que el servidor falle. Por ello, es importante tener a parte de la copia general, una copia por modificación (si hacemos una modificación en el archivo y el servidor funciona correctamente,  guardamos una copia con el nombre y la fecha por ejemplo; y si llega un día en el que hacemos una modificación en alguna parte del archivo y el servidor no nos funciona, podremos volver a la versión anterior).  Dicho esto, hacemos la copia general mediante el siguiente comando:
+
+![]()
+
+![]()
+
+Ahora vamos a abrir el archivo de configuración y modificarlo:
+
+![]()
+
+![]()
+
+El archivo de configuración se divide en varias partes. Yo ahora mismo voy a ir al apartado de las ACL (Listas de control de acceso, en donde se controla el acceso de usuarios, grupos de usuarios o dirección IP a un recurso de red):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
