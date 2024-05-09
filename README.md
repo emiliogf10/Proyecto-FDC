@@ -2653,7 +2653,47 @@ Ahora vamos a abrir el archivo de configuración y modificarlo:
 
 ![]()
 
-El archivo de configuración se divide en varias partes. Yo ahora mismo voy a ir al apartado de las ACL (Listas de control de acceso, en donde se controla el acceso de usuarios, grupos de usuarios o dirección IP a un recurso de red):
+El archivo de configuración se divide en varias partes. Yo ahora mismo voy a ir al apartado de las ACL (Listas de control de acceso, en donde se controla el acceso de usuarios, grupos de usuarios o direcciones IP a un recurso de red):
+
+![]()
+
+## Dia 09/05/2024
+
+Y vamos a crear una (en principio las líneas de código se pueden meter en cualquier parte del apartado de las ACL, pero yo las voy a meter en el apartado de las ACL por defecto):
+
+![]()
+
+Vemos que le decimos que le deniegue el servicio a la ACL 'webs_prohibidas', que tiene los sitios en el archivo 'url_denegar.txt'. Otro apartado interesante en este documento es el del puerto en donde escucha Squid:
+
+![]()
+
+Vemos que ahora mismo está escuchando en el puerto 3128, pero podríamos cambiarlo perfectamente al puerto que nosotros quisieramos. En este caso, vamos a dejarlo como está. Guardaríamos cambios y nos iríamos a crear el archivo 'url_denegar.txt':
+
+![]()
+
+![]()
+
+En este caso sólo pusimos dos restricciones por dominio, pero se podrían poner IP, usuarios e incluso grupos a los que se le deniegue el servicio a cierto dominio. Ahora vamos a configurar el navegador de otra máquina virtual (máquina que usaremos como cliente y en mi caso es una Windows 10) para que use este servidor proxy como punto intermedio. Como primer paso, y como siempre tendremos que tener las dos máquinas en la misma red y que se vean mutuamente. Ahora, nos vamos a la configuración del navegador de la máquina cliente:
+
+![]()
+
+![]()
+
+En donde vemos que le ponemos el puerto donde escucha el servidor Squid y la IP de la máquina que aloja el servidor. Ahora solo faltaría reiniciar Squid para que se aplicaran los cambios que hicimos antes. Lo haremos mediante el siguiente comando:
+
+![]()
+
+Ahora en la máquina cliente accedemos a Google y aparece lo siguiente:
+
+![]()
+
+En la imagen anterior estamos viendo un mensaje de error de Squid, lo que significa que está pasando por él.
+
+**BUSCO MÁS INFORMACIÓN SOBRE LA CONFIGURACIÓN DE SQUID**
+
+**[Video](https://www.youtube.com/watch?v=wTUchaXLc_w)**
+
+
 
 
 
