@@ -2600,39 +2600,39 @@ Sus principales **ventajas**:
 
 La instalación es bastante sencilla y se realiza mediante el comando 'apt-get' en linux, pero eso lo veremos más adelante en la práctica, al igual que las ubicaciones de todos sus componentes. A continuación voy a dejar tres imagenes en donde se muestra la configuración básica del servidor y del cliente, que veremos más a fondo en el siguiente apartado de práctica.
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux36.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux37.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux38.png)
 
 En donde podemos ver que podemos restringir mediante IP, dominio, horario, URL, etc.
 
 **PRÁCTICA: SQUID**
 
-En este apartado vamos a poner en práctica el apartado anterior. Primeramente, tendremos que instalar Squid. Para ello, nos vamos a nuestra máquina (en mi caso Kali linux) y abrimos una consola. Ejecutamos el siguiente comando:
+En este apartado vamos a poner en práctica el uso de Squid para negar el servicio de algún dominio. Primeramente, tendremos que instalar Squid. Para ello, nos vamos a nuestra máquina (en mi caso Kali linux) y abrimos una consola. Ejecutamos el siguiente comando:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux39.png)
 
 Nos pedirá la contraseña y procederá a su instalación:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux40.png)
 
 Con el Squid ya instalado, vamos a ver si el servicio está habilitado:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux41.png)
 
 Vemos que no, por lo tanto lo vamos a habilitar ejecutando el siguiente comando:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux42.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux43.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux44.png)
 
 Hecho esto, vemos que el servicio ya está corriendo. Ahora vamos a ver el directorio de configuración de Squid en donde tendremos varios ficheros. Dicho directorio es **/etc/squid**:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux45.png)
 
 Vemos que hay 2 archivos:
 
@@ -2643,62 +2643,97 @@ Después tenemos una carpeta en donde tenemos el archivo de configuración de Sq
 
 Ahora, antes de tocar el archivo de configuración, es muy importante hacer una copia; debido a que es un archivo de más de 5000 lineas y si tocamos algo que no corresponde es posible que el servidor falle. Por ello, es importante tener a parte de la copia general, una copia por modificación (si hacemos una modificación en el archivo y el servidor funciona correctamente,  guardamos una copia con el nombre y la fecha por ejemplo; y si llega un día en el que hacemos una modificación en alguna parte del archivo y el servidor no nos funciona, podremos volver a la versión anterior).  Dicho esto, hacemos la copia general mediante el siguiente comando:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux46.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux47.png)
 
 Ahora vamos a abrir el archivo de configuración y modificarlo:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux48.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux49.png)
 
 El archivo de configuración se divide en varias partes. Yo ahora mismo voy a ir al apartado de las ACL (Listas de control de acceso, en donde se controla el acceso de usuarios, grupos de usuarios o direcciones IP a un recurso de red):
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux50.png)
 
 ## Dia 09/05/2024
 
-Y vamos a crear una (en principio las líneas de código se pueden meter en cualquier parte del apartado de las ACL, pero yo las voy a meter en el apartado de las ACL por defecto):
+Y vamos a crear una (en principio las líneas de código se pueden meter en cualquier parte del apartado de las ACL, pero yo las voy a meter después de la implementación de los archivos del directorio Squid):
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux51.png)
 
-Vemos que le decimos que le deniegue el servicio a la ACL 'webs_prohibidas', que tiene los sitios en el archivo 'url_denegar.txt'. Otro apartado interesante en este documento es el del puerto en donde escucha Squid:
+Vemos que le decimos que le deniegue el servicio a la ACL 'deny_social_media', que tiene los sitios en el archivo 'deny_social_media'. Otro apartado interesante en este documento es el del puerto en donde escucha Squid:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux52.png)
 
-Vemos que ahora mismo está escuchando en el puerto 3128, pero podríamos cambiarlo perfectamente al puerto que nosotros quisieramos. En este caso, vamos a dejarlo como está. Guardaríamos cambios y nos iríamos a crear el archivo 'url_denegar.txt':
+Vemos que ahora mismo está escuchando en el puerto 3128, pero podríamos cambiarlo perfectamente al puerto que nosotros quisieramos. En este caso, vamos a dejarlo como está. Guardaríamos cambios y nos iríamos a crear el archivo 'deny_social_media':
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux53.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux54.png)
 
 En este caso sólo pusimos dos restricciones por dominio, pero se podrían poner IP, usuarios e incluso grupos a los que se le deniegue el servicio a cierto dominio. Ahora vamos a configurar el navegador de otra máquina virtual (máquina que usaremos como cliente y en mi caso es una Windows 10) para que use este servidor proxy como punto intermedio. Como primer paso, y como siempre tendremos que tener las dos máquinas en la misma red y que se vean mutuamente. Ahora, nos vamos a la configuración del navegador de la máquina cliente:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux55.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux56.png)
 
 En donde vemos que le ponemos el puerto donde escucha el servidor Squid y la IP de la máquina que aloja el servidor. Ahora solo faltaría reiniciar Squid para que se aplicaran los cambios que hicimos antes. Lo haremos mediante el siguiente comando:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux57.png)
 
-Ahora en la máquina cliente accedemos a Google y aparece lo siguiente:
+Ahora en la máquina cliente intentamos acceder a Google:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux58.png)
 
-En la imagen anterior estamos viendo un mensaje de error de Squid, lo que significa que está pasando por él.
+Y vemos que podemos acceder correctamente. Ahora vamos a intentar acceder a Facebook:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/linux59.png)
+
+Vemos que el navegador ya no nos deja acceder a la red social porque el servidor deniega la conexión.
 
 **BUSCO MÁS INFORMACIÓN SOBRE LA CONFIGURACIÓN DE SQUID**
 
-**[Video](https://www.youtube.com/watch?v=wTUchaXLc_w)**
+**[Video sobre la configuración del servidor Squid](https://www.youtube.com/watch?v=wTUchaXLc_w)**
 
+## Dia 10/05/2024
 
+**USO DE IPTABLES**
 
+En este apartado vamos a ver qué es [**IPTABLES**](https://www.hostgator.mx/blog/guia-iptables/). Básicamente, IPTABLES es una herramienta de Linux que nos permite administrar las reglas del firewall y que actúa como una frontera entre tu ordenador e internet. Te permite controlar el tráfico de red decidiendo qué conexiones se permiten y cuales se bloquean. Dejo un pequeño resumen:
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/ipt1.png)
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/ipt2.png)
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/ipt3.png)
 
+Vemos que en la segunda imagen, se habla de cadenas. Cada una de ellas va dirigida a un tipo específico de tráfico de red y éstas se encuentran dentro de la Filter Table (tabla de filtrado, y por la cual pasan todos los paquetes sin distinción y es la responsable del filtrado):
+
+1. Cadena de entrada (**INPUT**) -> Esta cadena se aplica al tráfico que se dirige al propio servidor (tráfico entrante).
+2. Cadena de salida (**OUTPUT**) -> Esta cadena se aplica al tráfico generado por el servidor (tráfico saliente).
+3. Cadena de reenvío (**FORWARD**) -> Esta cadena se aplica al tráfico que pase a través del servidor, pero no tiene como destino el propio servidor. Esto es común cuando el servidor actúa como enrutador o puerta de enlace entre diferentes redes.
+
+Después tenemos la Nat Table (tabla de tradución de direcciones de red). Esta tabla hace lo siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/ipt4.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/ipt5.png)
+
+Vemos, que al igual que la tabla anterior, ésta también posee tres cadenas principales:
+
+1. **PREROUTING** -> Esta cadena se aplica al tráfico antes de que sea sometido a las reglas de enrutamiento del kernel. Se utiliza comúnmente para realizar traducción de direcciones antes de que el paquete sea enrutado.
+2. **POSTROUTING** -> Esta cadena se aplica al tráfico después de que haya sido sometido a las reglas de enrutamiento del kernel. Se utiliza para modificar la dirección de origen de los paquetes que salen del sistema.
+3. **OUTPUT** -> Esta cadena se aplica al tráfico generado localmente en el sistema. Se utiliza para modificar la dirección de origen de los paquetes generados por el propio sistema antes de que se envíen.
+
+Existe otra tabla denominada Mangle table (tabla de destrozo), por la cual pasan todos los paquetes y está diseñada para fines avanzados. A continuación dejo un resumen de las cadenas de la Mangle table:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/ipt6.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/ipt7.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/ipt8.png)
 
 
 
