@@ -2735,8 +2735,47 @@ Existe otra tabla denominada Mangle table (tabla de destrozo), por la cual pasan
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/f7bc39d2c36a6af556f46e4281642f9cf8a69ee2/Hacking_%C3%89tico/ipt8.png)
 
+## Dia 11/05/2024
 
+Ahora vamos a ver los comandos y par;ametros básicos de IPTABLES:
 
+![]()
+
+Cabe recordar que hay que tener cuidado al configurar las reglas del firewall, ya que una configuración incorrecta podría bloquear el acceso a servicios importantes o comprometer la seguridad de tus sistema. Ahora vamos a ver las reglas, que son como parámetros:
+
+![]()
+
+![]()
+
+![]()
+
+![]()
+
+Vemos que tenemos diferentes parámetros; desde el puerto de origen o puerto de destino hasta el destino de la regla (acción que se aplicará al tráfico con las condiciones especificadas en esa regla). También hay ciertos comandos para la limpieza de reglas (por ejemplo cuando necesitas configurar tu firewall desde cero o cuando necesites eliminar las reglas existentes para aplicar un nuevo conjunto de reglas):
+
+![]()
+
+Después tenemos los parámetros para establecer las políticas por defecto (ACCEPT o DROP):
+
+![]()
+
+También tenemos el comando para mostrar todas las reglas actuales que contiene nuestro IPTABLES:
+
+![]()
+
+y por último, vamos a ver comandos para insertar nuestras propias reglas:
+
+![]()
+
+![]()
+
+![]()
+
+![]()
+
+**PRÁCTICA: USO DE IPTABLES**
+
+En este apartado vamos a poner en práctica lo mencionado en el anterior apartado.
 
 
 
