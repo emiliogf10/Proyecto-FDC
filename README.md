@@ -2739,48 +2739,129 @@ Existe otra tabla denominada Mangle table (tabla de destrozo), por la cual pasan
 
 Ahora vamos a ver los comandos y par;ametros básicos de IPTABLES:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt9.png)
 
 Cabe recordar que hay que tener cuidado al configurar las reglas del firewall, ya que una configuración incorrecta podría bloquear el acceso a servicios importantes o comprometer la seguridad de tus sistema. Ahora vamos a ver las reglas, que son como parámetros:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt10.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt11.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt12.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt13.png)
 
 Vemos que tenemos diferentes parámetros; desde el puerto de origen o puerto de destino hasta el destino de la regla (acción que se aplicará al tráfico con las condiciones especificadas en esa regla). También hay ciertos comandos para la limpieza de reglas (por ejemplo cuando necesitas configurar tu firewall desde cero o cuando necesites eliminar las reglas existentes para aplicar un nuevo conjunto de reglas):
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt14.png)
 
 Después tenemos los parámetros para establecer las políticas por defecto (ACCEPT o DROP):
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt15.png)
 
 También tenemos el comando para mostrar todas las reglas actuales que contiene nuestro IPTABLES:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt16.png)
 
 y por último, vamos a ver comandos para insertar nuestras propias reglas:
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt17.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt18.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt19.png)
 
-![]()
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt20.png)
 
 **PRÁCTICA: USO DE IPTABLES**
 
-En este apartado vamos a poner en práctica lo mencionado en el anterior apartado.
+## Dia 12/05/2024
 
+En este apartado vamos a poner en práctica lo mencionado en el anterior apartado. Lo primero que vamos a hacer es activar el redireccionamiento. Para ello, nos vamos a nuestra máquina virtual (en mi caso la Kali linux que utilizamos en el apartado de Squid) y abrimos una terminal. Vamos a editar el archivo 'ip_forward' (archivo que controla el reenvío de paquetes IP en el kernel del sistema operativo):
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt21.png)
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt22.png)
 
+Vemos que el archivo contiene un 0. Esto quiere decir que el forwarding está desactivado. Para activarlo tendremos que cambiar este 0 a 1:
 
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt23.png)
+
+En este momento tendremos activado el forward. Ahora vamos a ver si tenemos alguna regla creada en nuestro equipo:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt24.png)
+
+Vemos que utilizamos el comando antes visto 'iptables -L' y el resultado es que no tenemos ninguna regla creada en nuestro equipo, por lo tanto vamos a crear nuestra primera regla (en este caso la primera regla va a ser sobre el acceso mediante SSH):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt25.png)
+
+En donde:
+
+1. 'sudo iptables' -> Como se dijo antes, es el comando utilizado en Linux para configurar las reglas del firewall.
+2. '-A INPUT' -> Esto indica que estamos agregando una nueva regla a la cadena Input del firewall (tráfico entrante).
+3. '-s 172.16.2.129' -> Especifica la dirección IP de origen del tráfico al que se le aplicará la regla.
+4. '-p tcp' -> Especifica el protocolo de red que aplicará la regla.
+5. '--dport 22' -> Se especifica el puerto de destino al que se le aplicará la regla (en este caso el puerto 22 es generalmente utilizado para SSH).
+6. '-j ACCEPT' -> Esta es la acción que se tomará si un paquete concide con las condiciones especificadas en la regla.
+
+Ahora si vemos de nuevo las reglas, aparecerá la que hemos creado:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt26.png)
+
+Ahora vamos a crear otra regla que nos servirá para permitir el tráfico DNS. Para ello, primero tenemos que ver la interfaz de red a la que se aplicará la regla:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt27.png)
+
+En este caso va a ser la interfaz 3, que se llama 'eth1'. Ahora vamos a definir la regla:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt28.png)
+
+En donde:
+
+1. 'sudo iptables' -> Como se dijo antes, es el comando utilizado en Linux para configurar las reglas del firewall.
+2. '-A INPUT' -> Esto indica que estamos agregando una nueva regla a la cadena Input del firewall (tráfico entrante).
+3. '-i eth1' -> Se especifica la interfaz de red de entrada a la que se le aplicará la regla.
+4. '-p udp' -> Esto especifica el protocolo de red que la regla aplicará. En este caso, estamos especificando que solo se aplique a paquetes UDP.
+5. '--sport 53' -> A diferencia que en la anterior regla, con 'sport' se especifica el puerto de origen, y en este caso el puerto 53 es el puerto utilizado comúnmente para el servicio DNS.
+6. '-j ACCEPT' -> Esta es la acción que se tomará si un paquete concide con las condiciones especificadas en la regla.
+
+Y volvemos a ver si la regla se creó correctamente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt29.png)
+
+Llegados a este punto, en donde hemos creado nuestras propias reglas, es conveniente y aconsejable que las guardemos (si no guardamos las IPTABLES, cuando reiniciemos el sistema las perderemos):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt30.png)
+
+Y también podremos borrarlas todas mediante el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt31.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/ipt32.png)
+
+## _METASPLOIT 100%__
+
+**FUNCIONALIDAD DE LA HERRAMIENTA**
+
+En este nuevo punto del curso, vamos a ver la herramienta [**Metasploit**](https://keepcoding.io/blog/que-es-metasploit-ciberseguridad/). Básicamente, Metasploit es un framework muy utilizado por los profesionales de la seguridad informática, investigadores de vulnerabilidades y hackers éticos para evaluar la seguridad de sistemas informáticos, identificar vulnerabilidades y desarrollar medidas para protegerse contra posibles ataques. Permite desarrollar, probar y ejecutar exploits (piezas de software, scripts o comandos diseñados para aprovechar vulnerabilidades en sistemas informáticos) contra sistemas informáticos con el fin de evaluar su integridad.
+
+Esta herramienta, viene por defecto instalada en las distribuciones Kali Linux. Si la abrimos, nos aparecerá lo siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/metasploit1.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/metasploit2.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/metasploit3.png)
+
+Vemos que se ejecutaron todos los comandos pertinentes y se abrió la consola 'msfconsole'. También vemos la versión de la harramienta y de cuántos exploits cuenta. A parte, también se muestra un nuevo concepto que son los 'payloads'. Los payloads son software o trozos de c;odigo que nos ayudan a aprovechar las debilidades del sistema una vez vulnerado. Como ejemplo básico, si conseguimos acceder a una casa para robar, un payload nos ayudará a abrir armarios, puertas o cajones que estén cerrados con llave.
+
+Si queremos ver los exploits que tenemos disponibles, en la msfconsole escribimos el siguiente comando:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/metasploit4.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/metasploit5.png)
+
+Se nos mostrará todos los exploits con los que cuenta la herramienta. Vienen numerados y ordenados de tal manera que podemos ver en primer lugar el nombre del exploit y a lo que vulnera.
 
 
 
