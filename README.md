@@ -2843,7 +2843,7 @@ Y también podremos borrarlas todas mediante el siguiente comando:
 
 **FUNCIONALIDAD DE LA HERRAMIENTA**
 
-En este nuevo punto del curso, vamos a ver la herramienta [**Metasploit**](https://keepcoding.io/blog/que-es-metasploit-ciberseguridad/). Básicamente, Metasploit es un framework muy utilizado por los profesionales de la seguridad informática, investigadores de vulnerabilidades y hackers éticos para evaluar la seguridad de sistemas informáticos, identificar vulnerabilidades y desarrollar medidas para protegerse contra posibles ataques. Permite desarrollar, probar y ejecutar exploits (piezas de software, scripts o comandos diseñados para aprovechar vulnerabilidades en sistemas informáticos) contra sistemas informáticos con el fin de evaluar su integridad.
+En este nuevo punto del curso, vamos a ver la herramienta [**Metasploit**](https://keepcoding.io/blog/que-es-metasploit-ciberseguridad/) por encima. Básicamente, Metasploit es un framework muy utilizado por los profesionales de la seguridad informática, investigadores de vulnerabilidades y hackers éticos para evaluar la seguridad de sistemas informáticos, identificar vulnerabilidades y desarrollar medidas para protegerse contra posibles ataques. Permite desarrollar, probar y ejecutar exploits (piezas de software, scripts o comandos diseñados para aprovechar vulnerabilidades en sistemas informáticos) contra sistemas informáticos con el fin de evaluar su integridad.
 
 Esta herramienta, viene por defecto instalada en las distribuciones Kali Linux. Si la abrimos, nos aparecerá lo siguiente:
 
@@ -2861,7 +2861,118 @@ Si queremos ver los exploits que tenemos disponibles, en la msfconsole escribimo
 
 ![](https://github.com/emiliogf10/Proyecto-FDC/blob/634090d0e3aaff4e013c7ec00229b1404ea6e9fb/Hacking_%C3%89tico/metasploit5.png)
 
-Se nos mostrará todos los exploits con los que cuenta la herramienta. Vienen numerados y ordenados de tal manera que podemos ver en primer lugar el nombre del exploit y a lo que vulnera.
+Se nos mostrará todos los exploits con los que cuenta la herramienta. Vienen numerados y ordenados de tal manera que podemos ver en primer lugar, el nombre del exploit y a lo que vulnera.
+
+## Dia 13/05/2024
+
+Ahora, elegiríamos el exploit que vas nos convenga y hariamos lo siguiente para elegirlo:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit6.png)
+
+Con esto, ya tenemos el exploit seleccionado para poder usar. Ahora, con el siguiente comando veriamos las opciones del comando (lo que necesita el exploit para poder funcionar):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit7.png)
+
+O si queremos ver más información haríamos lo siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit8.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit9.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit10.png)
+
+En donde vemos que en este no nos aparece mucha información, pero podría aparecer el puerto en concreto al que se va a atacar y si se está utilizando un payload. Abajo, vemos que este módulo es para equipos versiones IBM 7.1. Ahora vamos a 'setear' los parámetros RHOST y RPORT (IP y Puerto). Se haría así (tuve que cambiar de exploit, porque el que mostré antes no tenía la opción de setear la IP y el Puerto):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit11.png)
+
+Vemos que simplemente cambio de exploit, y con el comando 'set' le establezco la IP y el puerto de destino. Ahora vamos a ver otra vez las opciones (que serán diferentes al anterior porque hemos cambiado de exploit):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit12.png)
+
+Podemos ver que ya nos aparece la IP y el puerto que le hemos indicado. Ahora llegaría el momento de elegir un payload. Para ello, hacemos que nos muestre los payloads que son compatibles con este exploit:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit13.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit14.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit15.png)
+
+Vemos que tenemos hasta 214 payloads compatibles. Para elegir un payload m;as adecuado, debemos considerar varios factores como el tipo de acceso que deseas obtener en el sistema objetivo, las limitaciones del entorno objetivo y la compatibilidad con el exploit utilizado. Una vez que hayas identificado el payload más adecuado, lo añadiríamos al exploit actual:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit16.png)
+
+Y veriamos sus opciones de nuevo para ver que se agregó correctamente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit17.png)
+
+**PRACTICA: FUNCIONALIDAD DE LA HERRAMIENTA**
+
+En este apartado, tenemos la práctica de la herramienta Metasploit. En mi caso voy a utilizar una máquina Kali Linux, en donde ya viene Metasploit instalado por defecto. Para abrirla, tenemos dos opciones: buscarla por entorno gráfico o desde una consola escribir 'msfconsole'. Yo voy a optar por la segunda:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit18.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit19.png)
+
+Vemos lo que mencionamos anteriormente; la versión de Metasploit, el número de exploits que tiene a su disposición, el número de payloads y otra información que en este momento no es importante. Ahora vamos a ver los exploits (los 2315 que se indicaban al principio):
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit20.png)
+
+Al igual que antes, buscaríamos uno que supliera nuestras necesidades y hariamos un 'use':
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit21.png)
+
+Y vemos sus opciones:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit22.png)
+
+Vemos que necesita una IP y un puerto para poder funcionar, por lo tanto se los introducimos:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit23.png)
+
+Vemos que le introducimos una IP aleatoria y un puerto aleatorio y comprobamos que se han añadido correctamente. Si por algún casual nos hemos equivocado en el puerto o la IP, podemos cambiarlos sin problema mediante un 'unset':
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit24.png)
+
+O simplemente haciendo un 'set' con los nuevos valores. Dejamos los valores como están:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit25.png)
+
+Ahora vamos a ver los payloads que son compatibles con este exploit. Es importante destacar que **NO TODOS LOS EXPLOITS ACEPTAN PAYLOADS**. Dicho esto, haremos lo siguiente:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit26.png)
+
+Como dijimos antes, escogeremos el que más nos convenga (ahora escogeremos uno al azar) y lo añadiremos al exploit:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit27.png)
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit28.png)
+
+Vemos que en las opciones del exploit, ya aparecen la IP y el puerto que le hemos indicado y el payload. También podemos ver que las opciones se dividen en 2 partes; las opciones del módulo (IP y puerto) y las opciones del payload. En las opciones del payload, ya vienen los datos por defecto (IP de mi máquina y puerto por defecto). Vamos a cambiarle el puerto por defecto:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit29.png)
+
+Ahora, con todo ya configurado, solo faltaría ejecutar el exploit con el comando 'exploit':
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit30.png)
+
+Evidentemente el exploit falla porque la configuración que le hemos puesto es de prueba. Más adelante probaremos un caso real.
+
+Ahora, si quisieramos utilizar otro exploit, simplemente hariamos un 'use' de otro exploit o utilizaríamos el comando 'back' para dejar de utilizar el actual:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit31.png)
+
+Por último, vamos a mencionar el comando 'search', que nos servirá para buscar exploits mediante palabras clave, como por ejemplo:
+
+![](https://github.com/emiliogf10/Proyecto-FDC/blob/1d965e768d27ee7dc3908a7661ee8da1901e9fce/Hacking_%C3%89tico/metasploit32.png)
+
+Vemos que buscamos por la palabra 'windows' y nos busca todos los exploits que contengan esa palabra.
+
+**USO DE METASPLOIT EN DIFERENTES FASES DEL HACKING**
+
+
+
+
+
 
 
 
